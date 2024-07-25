@@ -3,11 +3,13 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { generateGridPuzzle, getGridId } from "@/lib/grid";
 
 export function NewGame() {
   const router = useRouter();
   const startNewGame = () => {
-    router.push("/grid/random");
+    const gridId = getGridId(generateGridPuzzle());
+    router.push(`/grid/${gridId}`);
   };
 
   return (

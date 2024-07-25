@@ -1,6 +1,8 @@
+import { generateGridPuzzle, getGridId } from "@/lib/grid";
 import { redirect } from "next/navigation";
 
 export default function HomePage() {
-  redirect("/grid/random");
+  const gridId = getGridId(generateGridPuzzle());
+  redirect(`/grid/${gridId}`);
   return null;
 }
