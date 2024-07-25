@@ -170,17 +170,19 @@ export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
                 setSolutionCards(getRandomSolution(grid));
               }}
             >
-              View Other Solutions
+              View other solutions
             </Button>
             <Button
               size="sm"
               variant="link"
-              className="underline font-normal text-xs px-2"
+              className={cn("underline font-normal text-xs px-2", {
+                "text-gray-500": !showSolution,
+              })}
               onClick={() => {
                 setShowSolution(false);
               }}
             >
-              Hide Solutions
+              {showSolution ? "Your solution" : "Hide solutions"}
             </Button>
           </>
         )}

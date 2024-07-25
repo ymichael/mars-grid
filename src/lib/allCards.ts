@@ -3509,6 +3509,11 @@ export const allCards: Card[] = [
       energy: 0,
       heat: 0,
     },
+    behavior: {
+      production: {
+        megacredits: {},
+      },
+    },
     compatibility: [],
     html: '<div class="card-container filterDiv hover-hide-res card-community-services"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">13</div> <!----></div> <!----> <div class="card-help" style="display: none;"><a href="https://github.com/terraforming-mars/terraforming-mars/wiki/Card-Details#community-services" target="_blank">?</a></div> <div class="card-tags"></div></div> <div class="card-title"><!----> <!----> <!----> <div class="card-title background-color-automated">Community Services</div></div> <div class="card-content"><!----> <div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><!----> <div class="card-resource card-resource-money">1</div> <!----></div></div></div></div><div><div class="card-special card-slash">/</div></div><div class="card-item-container"><!----> <div class="card-resource-tag card-no-tags"></div> <!----></div></div></div> <div class="card-description">(Increase your M€ production 1 step per CARD WITH NO TAGS, including this.)</div> <div class="card-points card-points-big">1</div> <!----></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon colonies-icon"></div> </div> <!----> <div class="card-extra-content-container"><!----> <!----> <!----></div> </div>',
     id: "community-services",
