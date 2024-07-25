@@ -31124,3 +31124,18 @@ export function getEligibleCards() {
       ].includes(card.module);
     });
 }
+
+let cardByIdCached: Record<string, Card> | null = null;
+
+export function getCardById(id: string): Card {
+  if (!cardByIdCached) {
+    cardByIdCached = Object.fromEntries(
+      getEligibleCards().map((card) => [card.id, card]),
+    );
+  }
+  const card = cardByIdCached[id];
+  if (!card) {
+    throw new Error(`Card with id ${id} not found`);
+  }
+  return card;
+}

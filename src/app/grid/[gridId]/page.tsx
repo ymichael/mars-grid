@@ -1,5 +1,5 @@
 import { Grid } from "@/components/Grid";
-import { generateGridPuzzleFromSeed, serializeGridForClient } from "@/lib/grid";
+import { generateGridPuzzleFromSeed } from "@/lib/grid";
 
 export default async function GridPage({
   params,
@@ -10,7 +10,7 @@ export default async function GridPage({
   const grid = generateGridPuzzleFromSeed(gridId);
   return (
     <div className="flex w-full justify-center items-center h-screen p-2 overflow-hidden">
-      <Grid serializedGrid={serializeGridForClient(grid)} />
+      <Grid grid={grid} />
     </div>
   );
 }

@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { permuteUnique, getSolutionWithSeed } from "./solver";
+import {
+  permuteUnique,
+  getSolutionWithSeed,
+  getRandomSolution,
+  getSolutions,
+  isSolution,
+} from "./solver";
 import { generateGridPuzzleFromSeed } from "./grid";
 
 describe("permuteUnique", () => {
@@ -52,27 +58,24 @@ describe("getSolutionWithSeed", () => {
     const grid = generateGridPuzzleFromSeed(seed);
     const solution = getSolutionWithSeed(grid, seed);
     expect(solution).toHaveLength(9);
+    expect(isSolution(grid, solution)).toBe(true);
+  });
 
-    // Check that every cell matches both row and col rules
-    expect(grid.ruleRows[0].matches(solution[0])).toBe(true);
-    expect(grid.ruleColumns[0].matches(solution[0])).toBe(true);
-    expect(grid.ruleRows[0].matches(solution[1])).toBe(true);
-    expect(grid.ruleColumns[1].matches(solution[1])).toBe(true);
-    expect(grid.ruleRows[0].matches(solution[2])).toBe(true);
-    expect(grid.ruleColumns[2].matches(solution[2])).toBe(true);
+  it("should be fast (even for small min matches)", () => {
+    const grid = generateGridPuzzleFromSeed("fixed-seed-for-test", {
+      minMatches: 1,
+    });
+    const solution = getRandomSolution(grid);
+    expect(solution).toHaveLength(9);
+    const allSolutions = Array.from(getSolutions(grid));
+    expect(allSolutions).toHaveLength(240);
+  });
+});
 
-    expect(grid.ruleRows[1].matches(solution[3])).toBe(true);
-    expect(grid.ruleColumns[0].matches(solution[3])).toBe(true);
-    expect(grid.ruleRows[1].matches(solution[4])).toBe(true);
-    expect(grid.ruleColumns[1].matches(solution[4])).toBe(true);
-    expect(grid.ruleRows[1].matches(solution[5])).toBe(true);
-    expect(grid.ruleColumns[2].matches(solution[5])).toBe(true);
-
-    expect(grid.ruleRows[2].matches(solution[6])).toBe(true);
-    expect(grid.ruleColumns[0].matches(solution[6])).toBe(true);
-    expect(grid.ruleRows[2].matches(solution[7])).toBe(true);
-    expect(grid.ruleColumns[1].matches(solution[7])).toBe(true);
-    expect(grid.ruleRows[2].matches(solution[8])).toBe(true);
-    expect(grid.ruleColumns[2].matches(solution[8])).toBe(true);
+describe("isSolution", () => {
+  it("should return false for a invalid solutions", () => {
+    const grid = generateGridPuzzleFromSeed("test-seed");
+    const solution = [null, null];
+    expect(isSolution(grid, solution)).toBe(false);
   });
 });

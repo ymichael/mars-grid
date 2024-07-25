@@ -332,13 +332,17 @@ export const allRules: Rule[] = [
   new PlacesCityRule(),
   new DrawsCardRule(),
   new HasActionRule(),
+  new HasGlobalRequirementRule(),
 ];
 
+const ruleByIdCached = Object.fromEntries(
+  allRules.map((rule) => [rule.id, rule]),
+);
+
 export function getRuleById(id: string): Rule {
-  for (const rule of allRules) {
-    if (rule.id === id) {
-      return rule;
-    }
+  const rule = ruleByIdCached[id];
+  if (!rule) {
+    throw new Error(`Rule with id ${id} not found`);
   }
-  throw new Error(`Rule with id ${id} not found`);
+  return rule;
 }

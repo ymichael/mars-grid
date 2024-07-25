@@ -1,6 +1,6 @@
 "use client";
 
-import { Card } from "@/lib/allCards";
+import { getCardById } from "@/lib/allCards";
 import useResizeObserver from "@react-hook/resize-observer";
 import React, { useMemo, useRef, useState, useLayoutEffect } from "react";
 
@@ -15,7 +15,8 @@ const useSize = (target: React.RefObject<HTMLElement>) => {
   return size;
 };
 
-export function ResponsiveCard({ card }: { card: Card }) {
+export function ResponsiveCard({ cardId }: { cardId: string }) {
+  const card = useMemo(() => getCardById(cardId), [cardId]);
   const parentRef = useRef<HTMLDivElement>(null);
   const size = useSize(parentRef);
   const scale = useMemo(() => {

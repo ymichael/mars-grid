@@ -1,5 +1,5 @@
-import { Card, getEligibleCards } from "./allCards";
-import { Rule, allRules, getRuleById } from "./rules";
+import { getEligibleCards } from "./allCards";
+import { Rule, allRules } from "./rules";
 import {
   RandomFunction,
   defaultRandom,
@@ -8,52 +8,39 @@ import {
 } from "./random";
 
 export type Grid = {
-  ruleColumns: [Rule, Rule, Rule];
-  ruleRows: [Rule, Rule, Rule];
+  ruleColumns: [string, string, string];
+  ruleRows: [string, string, string];
 };
 
-export type SerializedGrid = {
-  ruleColumns: string[];
-  ruleRows: string[];
-};
+const DEFAULT_MIN_MATCHES = 10;
 
-export function serializeGridForClient(grid: Grid): SerializedGrid {
-  return {
-    ruleColumns: grid.ruleColumns.map((rule) => rule.id),
-    ruleRows: grid.ruleRows.map((rule) => rule.id),
-  };
+interface GenerateOptions {
+  rand?: RandomFunction;
+  // A lower number will make the puzzle more difficult
+  minMatches?: number;
 }
 
-export function deserializeGridForClient(serializedGrid: SerializedGrid): Grid {
-  return {
-    ruleColumns: serializedGrid.ruleColumns.map((id) => getRuleById(id)) as [
-      Rule,
-      Rule,
-      Rule,
-    ],
-    ruleRows: serializedGrid.ruleRows.map((id) => getRuleById(id)) as [
-      Rule,
-      Rule,
-      Rule,
-    ],
-  };
-}
-
-const MIN_MATCHES = 10;
-
-export function generateGridPuzzle(rand: RandomFunction = defaultRandom): Grid {
+export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
+  const { rand = defaultRandom, minMatches = DEFAULT_MIN_MATCHES } = options;
   const rules = shuffleInPlace([...allRules], rand);
-  for (const candidate of generateCandidateGrids(rules, rand)) {
+  for (const candidate of generateCandidateGrids(rules, { rand, minMatches })) {
     return candidate;
   }
   throw new Error("Failed to generate puzzle");
 }
 
-export function generateGridPuzzleFromSeed(seed: string): Grid {
-  return generateGridPuzzle(randomFactory(seed));
+export function generateGridPuzzleFromSeed(
+  seed: string,
+  options: Omit<GenerateOptions, "rand"> = {},
+): Grid {
+  return generateGridPuzzle({ ...options, rand: randomFactory(seed) });
 }
 
-function validRulesForRules(existingRules: Rule[], allRules: Rule[]): Rule[] {
+function validRulesForRules(
+  existingRules: Rule[],
+  allRules: Rule[],
+  minMatches: number,
+): Rule[] {
   const matchingCards = getEligibleCards().filter((card) =>
     existingRules.every((rule) => rule.matches(card)),
   );
@@ -63,7 +50,7 @@ function validRulesForRules(existingRules: Rule[], allRules: Rule[]): Rule[] {
     }
     return (
       matchingCards.filter((card) => otherRule.matches(card)).length >=
-      MIN_MATCHES
+      minMatches
     );
   });
 }
@@ -88,18 +75,31 @@ function* permute<T>(arr: T[], n: number): Generator<T[]> {
 
 export function* generateCandidateGrids(
   rules: Rule[],
-  rand: RandomFunction = defaultRandom,
+  options: GenerateOptions = {},
 ): Generator<Grid> {
+  const { rand = defaultRandom, minMatches = 10 } = options;
   for (const ruleCol1 of shuffleInPlace([...rules], rand)) {
-    const validRulesForRuleCol1 = validRulesForRules([ruleCol1], rules);
+    const validRulesForRuleCol1 = validRulesForRules(
+      [ruleCol1],
+      rules,
+      minMatches,
+    );
     for (const validRuleRow of permute(validRulesForRuleCol1, 3)) {
       const currentRules = [ruleCol1, ...validRuleRow];
       const restRules = rules.filter((rule) => !currentRules.includes(rule));
-      const restCandidates = validRulesForRules(validRuleRow, restRules);
+      const restCandidates = validRulesForRules(
+        validRuleRow,
+        restRules,
+        minMatches,
+      );
       for (const [ruleCol2, ruleCol3] of permute(restCandidates, 2)) {
         yield {
-          ruleColumns: [ruleCol1, ruleCol2, ruleCol3],
-          ruleRows: [validRuleRow[0], validRuleRow[1], validRuleRow[2]],
+          ruleColumns: [ruleCol1.id, ruleCol2.id, ruleCol3.id],
+          ruleRows: [
+            validRuleRow[0].id,
+            validRuleRow[1].id,
+            validRuleRow[2].id,
+          ],
         };
       }
     }
