@@ -2,14 +2,16 @@
 
 import React, { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Cross1Icon } from "@radix-ui/react-icons";
 import {
   Grid as GridType,
   SerializedGrid,
   deserializeGridForClient,
 } from "@/lib/grid";
-// import { getRandomSolution } from "@/lib/solver";
+import { getRandomSolution } from "@/lib/solver";
 import { Rule } from "@/lib/rules";
 import { Card } from "@/lib/allCards";
+import { Button } from "@/components/ui/button";
 import { ResponsiveCard } from "./Card";
 import { CardSearch } from "@/components/CardSearch";
 import { NewGame } from "@/components/NewGame";
@@ -19,12 +21,13 @@ import { About } from "@/components/About";
 export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
   const grid = deserializeGridForClient(serializedGrid);
   const [selectedCards, setSelectedCards] = useState<(Card | null)[]>(() =>
-    Array.from({ length: 9 }, () => null),
+    Array.from({ length: 9 }, () => null)
   );
 
+  const [hideCongrats, setHideCongrats] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [solutionCards, setSolutionCards] = useState<(Card | null)[]>(() =>
-    Array.from({ length: 9 }, () => null),
+    Array.from({ length: 9 }, () => null)
   );
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [currentCellIdx, setCurrentCellIdx] = useState<number | null>(null);
@@ -43,8 +46,8 @@ export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
     if (selectedCard) {
       setSelectedCards(
         selectedCards.map((card, idx) =>
-          idx === currentCellIdx ? selectedCard : card,
-        ),
+          idx === currentCellIdx ? selectedCard : card
+        )
       );
     }
     setCurrentCellIdx(null);
@@ -52,9 +55,30 @@ export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
   };
 
   const cardsToDisplay = showSolution ? solutionCards : selectedCards;
+  const isSolved = useMemo(() => {
+    // Check that all selected cards are populated
+    if (selectedCards.some((card) => !card)) {
+      return false;
+    }
+    // No duplicates in the grid
+    const set = new Set(selectedCards);
+    if (set.size !== 9) {
+      return false;
+    }
+    // Make sure that all cards match the rules
+    for (let i = 0; i < 9; i++) {
+      const card = selectedCards[i]!;
+      const rowRule = grid.ruleRows[Math.floor(i / 3)];
+      const colRule = grid.ruleColumns[i % 3];
+      if (!rowRule.matches(card) || !colRule.matches(card)) {
+        return false;
+      }
+    }
+    return true;
+  }, [selectedCards, grid]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       <div
         className="grid grid-cols-4 grid-rows-4 gap-2 p-2"
         style={{
@@ -123,18 +147,45 @@ export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
           onClick={() => onCellClick(8)}
         />
       </div>
-      <div className="flex justify-center pt-12">
-        {/* <Button
-          size="sm"
-          variant="link"
-          className="underline font-normal text-xs"
-          onClick={() => {
-            setShowSolution(true);
-            setSolutionCards(getRandomSolution(grid));
-          }}
+      {!hideCongrats && isSolved && (
+        <div
+          className="absolute bottom-16 left-12 right-12 bg-secondary text-xs text-white p-4 flex justify-between items-center"
+          data-animation="wiggle"
         >
-          Show Random solution
-        </Button> */}
+          <span>Congratulations! You have solved the grid!</span>
+          <Cross1Icon
+            className="w-4 h-4 p-0.5 cursor-pointer"
+            onClick={() => setHideCongrats(true)}
+          />
+        </div>
+      )}
+      <div className="flex justify-center py-4 h-[64px]">
+        {isSolved && (
+          <>
+            <Button
+              size="sm"
+              className="font-normal text-xs px-2"
+              onClick={() => {
+                setShowSolution(true);
+                setSolutionCards(getRandomSolution(grid));
+              }}
+            >
+              View Other Solutions
+            </Button>
+            <Button
+              size="sm"
+              variant="link"
+              className="underline font-normal text-xs px-2"
+              onClick={() => {
+                setShowSolution(false);
+              }}
+            >
+              Hide Solutions
+            </Button>
+          </>
+        )}
+      </div>
+      <div className="fixed bottom-0 right-0 p-4">
         <About />
         <HowToPlay />
         <NewGame />
@@ -191,7 +242,7 @@ function GridCell({
     <div
       className={cn(
         "w-[150px] aspect-[15/18] max-w-full flex items-center justify-center rounded-md hover:border hover:border-2 hover:border-blue-500 hover:rounded-md cursor-pointer border-2",
-        !isValid && "border-red-500",
+        !isValid && "border-red-500"
       )}
       style={{
         minHeight: "fit-content",
@@ -212,7 +263,7 @@ function GridLabel({ type, rule }: { type: "col" | "row"; rule: Rule }) {
         type === "col"
           ? "justify-center text-center items-end"
           : "justify-start items-center",
-        "font-bold text-white max-w-[150px]",
+        "font-bold text-white max-w-[150px]"
       )}
     >
       <p className="md:text-sm text-xs">{rule?.description}</p>
