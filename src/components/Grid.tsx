@@ -21,13 +21,13 @@ import { About } from "@/components/About";
 export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
   const grid = deserializeGridForClient(serializedGrid);
   const [selectedCards, setSelectedCards] = useState<(Card | null)[]>(() =>
-    Array.from({ length: 9 }, () => null)
+    Array.from({ length: 9 }, () => null),
   );
 
   const [hideCongrats, setHideCongrats] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [solutionCards, setSolutionCards] = useState<(Card | null)[]>(() =>
-    Array.from({ length: 9 }, () => null)
+    Array.from({ length: 9 }, () => null),
   );
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [currentCellIdx, setCurrentCellIdx] = useState<number | null>(null);
@@ -46,8 +46,8 @@ export function Grid({ serializedGrid }: { serializedGrid: SerializedGrid }) {
     if (selectedCard) {
       setSelectedCards(
         selectedCards.map((card, idx) =>
-          idx === currentCellIdx ? selectedCard : card
-        )
+          idx === currentCellIdx ? selectedCard : card,
+        ),
       );
     }
     setCurrentCellIdx(null);
@@ -244,7 +244,7 @@ function GridCell({
     <div
       className={cn(
         "w-[150px] aspect-[15/18] max-w-full flex items-center justify-center rounded-md hover:border hover:border-2 hover:border-blue-500 hover:rounded-md cursor-pointer border-2",
-        !isValid && "border-red-500"
+        !isValid && "border-red-500",
       )}
       style={{
         minHeight: "fit-content",
@@ -265,7 +265,7 @@ function GridLabel({ type, rule }: { type: "col" | "row"; rule: Rule }) {
         type === "col"
           ? "justify-center text-center items-end"
           : "justify-start items-center",
-        "font-bold text-white max-w-[150px]"
+        "font-bold text-white max-w-[150px]",
       )}
     >
       <p className="md:text-sm text-xs">{rule?.description}</p>
