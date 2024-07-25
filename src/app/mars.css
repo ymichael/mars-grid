@@ -71,7 +71,8 @@
 @font-face {
   font-family: Prototype;
   src: url(../../assets/Prototype-pl.ttf);
-  unicode-range: U+0104-0107, U+0118-0119, U+0141-0144, U+00D3, U+00F3, U+015A, U+015B, U+0179, U+017A-017C;
+  unicode-range: U+0104-0107, U+0118-0119, U+0141-0144, U+00D3, U+00F3, U+015A,
+    U+015B, U+0179, U+017A-017C;
   /* Polish glyphs */
 }
 .filterDiv {
@@ -213,7 +214,16 @@
   cursor: pointer;
   position: relative;
   background: #333333;
-  background: linear-gradient(to bottom right, #ffffff, #aaaaaa, #eeeeee, #cecece, #dddddd, #eeeeee, #cccccc);
+  background: linear-gradient(
+    to bottom right,
+    #ffffff,
+    #aaaaaa,
+    #eeeeee,
+    #cecece,
+    #dddddd,
+    #eeeeee,
+    #cccccc
+  );
   width: 240px;
   height: 310px;
   font-family: Arial, Helvetica, sans-serif;
@@ -231,7 +241,9 @@ input[type="radio"] + .filterDiv.card-container {
 }
 input[type="checkbox"]:checked + .filterDiv,
 input[type="radio"]:checked + .filterDiv {
-  box-shadow: 0 0 0 1px #303030, 0 0 7px 10px #c97e23;
+  box-shadow:
+    0 0 0 1px #303030,
+    0 0 7px 10px #c97e23;
 }
 input[type="checkbox"]:checked + .filterDiv::after,
 input[type="radio"]:checked + .filterDiv::after {
@@ -256,7 +268,16 @@ input[type="radio"]:checked + .filterDiv::after {
 .filterDiv3 {
   position: relative;
   background: #eeeeee;
-  background: linear-gradient(to bottom right, #ffffff, #aaaaaa, #eeeeee, #cecece, #dddddd, #eeeeee, #cccccc);
+  background: linear-gradient(
+    to bottom right,
+    #ffffff,
+    #aaaaaa,
+    #eeeeee,
+    #cecece,
+    #dddddd,
+    #eeeeee,
+    #cccccc
+  );
   width: 240px;
   height: 310px;
   font-family: Arial, Helvetica, sans-serif;
@@ -325,7 +346,9 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: -64px;
   margin-left: 50px;
   font-size: 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background: #cccccc;
   border-radius: 2px;
   border-top: 2px solid #dddddd;
@@ -343,7 +366,9 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: -64px;
   margin-left: 4px;
   font-size: 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background-color: #eb76ab;
   border-radius: 14px 2px 2px 2px;
   border-top: 2px solid #dddddd;
@@ -500,7 +525,7 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .ares-icon:after {
   position: absolute;
-  color: #EFEF64;
+  color: #efef64;
   border: 1px solid black;
   background: #953316;
   font-family: Prototype;
@@ -516,7 +541,7 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .moon-icon:after {
   position: absolute;
-  color: #DDD;
+  color: #ddd;
   border: 1px solid #222;
   background: #999;
   font-family: Prototype;
@@ -532,7 +557,7 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .pathfinders-icon:after {
   position: absolute;
-  color: #DDD;
+  color: #ddd;
   border: 1px solid #222;
   background: #b84;
   font-family: Prototype;
@@ -563,7 +588,7 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .starwars-icon:after {
   position: absolute;
-  color: #DDD;
+  color: #ddd;
   border: 1px solid #222;
   background: #999;
   font-family: Prototype;
@@ -590,7 +615,9 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-left: -9px;
 }
 .tag {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   position: absolute;
   width: 40px;
   height: 40px;
@@ -662,7 +689,7 @@ input[type="radio"]:checked + .filterDiv::after {
   background: linear-gradient(-60deg, #089108 10%, #0ac20a, #089108 90%);
 }
 .background-color-ceo {
-  background: linear-gradient(-60deg, #F8C61B 10%, #EED240, #CD872A 90%);
+  background: linear-gradient(-60deg, #f8c61b 10%, #eed240, #cd872a 90%);
 }
 .background-color-active {
   background: linear-gradient(-60deg, #208cdf 10%, #4da3e6, #208cdf 90%);
@@ -674,7 +701,12 @@ input[type="radio"]:checked + .filterDiv::after {
   background: linear-gradient(-60deg, #eb76ab 10%, #f2a6c8, #eb76ab 90%);
 }
 .background-color-colony {
-  background: linear-gradient(-60deg, #9e9180 10%, rgba(158, 145, 128, 0.6), #9e9180 90%);
+  background: linear-gradient(
+    -60deg,
+    #9e9180 10%,
+    rgba(158, 145, 128, 0.6),
+    #9e9180 90%
+  );
 }
 .background-color-global {
   background: linear-gradient(-60deg, #43afa5 10%, #43afa588, #43afa5 90%);
@@ -683,7 +715,7 @@ input[type="radio"]:checked + .filterDiv::after {
   background: linear-gradient(-60deg, #a0a0a7 10%, #c0c0c0, #a0a0a7 90%);
 }
 .background-color-global-event {
-  background: #EEE;
+  background: #eee;
 }
 /*********** Style the tags ************/
 .tag-wild {
@@ -773,8 +805,16 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: center;
   font-weight: normal;
   font-size: 15px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(90deg, #f3a10e 0%, #fdea25 45%, #fdea25 55%, #f3a10e 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    90deg,
+    #f3a10e 0%,
+    #fdea25 45%,
+    #fdea25 55%,
+    #f3a10e 100%
+  );
   font-family: Ubuntu;
   font-weight: bold;
 }
@@ -802,7 +842,9 @@ input[type="radio"]:checked + .filterDiv::after {
   border-right: 2px solid #898989;
   background-color: #cda282;
   background: linear-gradient(#cc8b00, #805700, #805700);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 .pointsCorporation {
   position: absolute;
@@ -823,7 +865,9 @@ input[type="radio"]:checked + .filterDiv::after {
   border-right: 2px solid #898989;
   background-color: #cda282;
   background: linear-gradient(#cc8b00, #805700, #805700);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 .points-big {
   line-height: 42px;
@@ -848,7 +892,9 @@ input[type="radio"]:checked + .filterDiv::after {
   border-left: 2px solid #dddddd;
   border-bottom: 2px solid #898989;
   border-right: 2px solid #898989;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   padding-top: 4px;
   text-align: center;
   margin-bottom: 10px;
@@ -921,7 +967,8 @@ input[type="radio"]:checked + .filterDiv::after {
   border: 1px solid #805700;
 }
 .red-outline {
-  filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important;
+  filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+    drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important;
 }
 /************** Tiles**************/
 .tile {
@@ -1035,7 +1082,13 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-right: 5px;
   border-radius: 5px;
   height: 20px;
-  background: linear-gradient(90deg, #f3a10e 0%, #fdea25 45%, #fdea25 55%, #f3a10e 100%);
+  background: linear-gradient(
+    90deg,
+    #f3a10e 0%,
+    #fdea25 45%,
+    #fdea25 55%,
+    #f3a10e 100%
+  );
   filter: drop-shadow(0px 0px 1px black);
 }
 .colony {
@@ -1055,7 +1108,8 @@ input[type="radio"]:checked + .filterDiv::after {
   height: 40px;
   width: 48px;
   background-size: 48px;
-  filter: invert(1) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5)) drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.5));
+  filter: invert(1) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
+    drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.5));
 }
 /**************Resources***********/
 .resource {
@@ -1087,7 +1141,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-size: 34px 34px;
   background-position: -2px -2px;
   line-height: 28px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   vertical-align: middle;
   margin-bottom: 5px;
   filter: brightness(0.9);
@@ -1265,7 +1321,14 @@ input[type="radio"]:checked + .filterDiv::after {
   border-left: 2px solid #dddddd;
   border-bottom: 2px solid #898989;
   border-radius: 5px 0 0 5px;
-  background: linear-gradient(to bottom, black, #3c3c3c, #969696, #3c3c3c, black);
+  background: linear-gradient(
+    to bottom,
+    black,
+    #3c3c3c,
+    #969696,
+    #3c3c3c,
+    black
+  );
   color: white;
   font-weight: bold;
   width: 40px;
@@ -1332,7 +1395,15 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .card-corporation {
   background-color: #2c2c2c;
-  background: linear-gradient(to right bottom, black, #3c3c3c, #969696, #3c3c3c, #3c3c3c, black);
+  background: linear-gradient(
+    to right bottom,
+    black,
+    #3c3c3c,
+    #969696,
+    #3c3c3c,
+    #3c3c3c,
+    black
+  );
   color: black;
   font-size: 12px;
   width: 38px;
@@ -1385,19 +1456,37 @@ input[type="radio"]:checked + .filterDiv::after {
   vertical-align: middle;
   color: white;
   content: "\25b2";
-  text-shadow: -5px 3px 0 black, 5px 3px 0 black, 0px -7px 0px black;
+  text-shadow:
+    -5px 3px 0 black,
+    5px 3px 0 black,
+    0px -7px 0px black;
 }
 .triangle-black::after {
   font-size: 30px;
   vertical-align: middle;
   content: "\25b2";
-  text-shadow: -3px 2px 0px #aaa, 3px 2px 0px #aaa, 0px -4px 0px #aaa, -5px 3px 0 black, 5px 3px 0 black, 0px -7px 0px black;
+  text-shadow:
+    -3px 2px 0px #aaa,
+    3px 2px 0px #aaa,
+    0px -4px 0px #aaa,
+    -5px 3px 0 black,
+    5px 3px 0 black,
+    0px -7px 0px black;
 }
 .triangle-red::after {
   font-size: 30px;
   vertical-align: middle;
   content: "\25b2";
-  text-shadow: -3px 2px 0px #aaa, 3px 2px 0px #aaa, 0px -4px 0px #aaa, -5px 3px 0 black, 5px 3px 0 black, 0px -7px 0px black, -7px 4px 0px red, 7px 4px 0px red, 0px -10px 0px red;
+  text-shadow:
+    -3px 2px 0px #aaa,
+    3px 2px 0px #aaa,
+    0px -4px 0px #aaa,
+    -5px 3px 0 black,
+    5px 3px 0 black,
+    0px -7px 0px black,
+    -7px 4px 0px red,
+    7px 4px 0px red,
+    0px -10px 0px red;
 }
 .camp {
   background-color: orange;
@@ -1430,7 +1519,9 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: -10px;
   margin-left: 24px;
   font-size: 13px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background: #cccccc;
   background-color: #ffcc64;
   background: linear-gradient(to right, #e28c22, #ffcc64, #ffcc64, #e28c22);
@@ -1446,7 +1537,17 @@ input[type="radio"]:checked + .filterDiv::after {
   padding: 0px 3px 3px 3px;
   border-radius: 10px;
   text-align: center;
-  background: linear-gradient(to bottom right, #cccccc, #aaaaaa, #dddddd, #cccccc, #aaaaaa, #cacaca, #aaaaaa, #cccccc);
+  background: linear-gradient(
+    to bottom right,
+    #cccccc,
+    #aaaaaa,
+    #dddddd,
+    #cccccc,
+    #aaaaaa,
+    #cacaca,
+    #aaaaaa,
+    #cccccc
+  );
   box-shadow: 0 0 0px 1px rgba(0, 0, 0.5);
 }
 .corporationEffectBox.hover-hide-res:hover {
@@ -1599,7 +1700,12 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .factorum {
   color: #ee792b;
-  text-shadow: 0 0 1px black, 0 1px black, 1px 0px black, -1px 0px black, 0 -1px black;
+  text-shadow:
+    0 0 1px black,
+    0 1px black,
+    1px 0px black,
+    -1px 0px black,
+    0 -1px black;
   letter-spacing: 5px;
   font-size: 30px;
   transform: scaleX(0.7);
@@ -1608,7 +1714,11 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .philares {
   color: #444;
-  text-shadow: 0 1px 1px white, 0 -1px 1px white, -1px 0px 1px white, 1px 0px 1px white;
+  text-shadow:
+    0 1px 1px white,
+    0 -1px 1px white,
+    -1px 0px 1px white,
+    1px 0px 1px white;
   filter: drop-shadow(0 0 1px black);
   letter-spacing: 4px;
   font-size: 20px;
@@ -1620,7 +1730,9 @@ input[type="radio"]:checked + .filterDiv::after {
 .septem {
   color: white;
   font-family: Times;
-  text-shadow: 0 0 1px black, 0 2px 2px black;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px black;
   font-size: 30px;
 }
 .astrodrill {
@@ -1629,7 +1741,9 @@ input[type="radio"]:checked + .filterDiv::after {
   letter-spacing: 2px;
   text-align: center;
   margin-top: 5px;
-  text-shadow: 0 0 1px orange, 0 2px 2px darkorange;
+  text-shadow:
+    0 0 1px orange,
+    0 2px 2px darkorange;
   font-size: 32px;
 }
 .agricola {
@@ -1639,7 +1753,9 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: center;
   margin-top: -35px;
   margin-left: -30px;
-  text-shadow: 0 0 1px limegreen, 0 2px 2px greenyellow;
+  text-shadow:
+    0 0 1px limegreen,
+    0 2px 2px greenyellow;
   font-size: 32px;
 }
 .card-agricola-inc .corporationEffectBox {
@@ -1671,7 +1787,9 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: left;
   margin-left: 20px;
   margin-top: -48px;
-  text-shadow: 0 0 1px skyblue, 0 2px 2px white;
+  text-shadow:
+    0 0 1px skyblue,
+    0 2px 2px white;
   font-size: 24px;
 }
 .card-project-workshop .corporationEffectBox {
@@ -1708,7 +1826,9 @@ input[type="radio"]:checked + .filterDiv::after {
   letter-spacing: 6px;
   text-align: center;
   margin: -57px 0 5px -30px;
-  text-shadow: 0 0 1px black, 0 2px 2px #3d3636;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px #3d3636;
   font-size: 36px;
 }
 .card-incite .description {
@@ -1743,7 +1863,9 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: center;
   margin-top: -34px;
   margin-left: -30px;
-  text-shadow: 0 0 1px orchid, 0 2px 2px purple;
+  text-shadow:
+    0 0 1px orchid,
+    0 2px 2px purple;
   font-size: 30px;
 }
 .card-playwrights .description {
@@ -1832,7 +1954,9 @@ input[type="radio"]:checked + .filterDiv::after {
   color: white;
   text-align: left;
   margin: 3px 0 8px 0;
-  text-shadow: 0 0 1px black, 0 2px 2px green;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px green;
   font-size: 28px;
   width: 140px;
 }
@@ -1951,15 +2075,27 @@ input[type="radio"]:checked + .filterDiv::after {
   font-weight: bold;
   width: 109px;
   background: #eeeeee;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 3px 3px 3px grey;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.2),
+    3px 3px 3px grey;
 }
 .poseidon {
   display: inline-block;
   font-family: "Times New Roman", Arial;
-  background: linear-gradient(rgba(0, 0, 0, 0) 0%, #3633ff 20%, rgba(0, 0, 0, 0) 22%, #3633ff 50%, rgba(0, 0, 0, 0) 78%, #3633ff 80%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    #3633ff 20%,
+    rgba(0, 0, 0, 0) 22%,
+    #3633ff 50%,
+    rgba(0, 0, 0, 0) 78%,
+    #3633ff 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
   line-height: 50px;
   color: #aaa;
-  text-shadow: 0 0 1px black, 0 0 3px black;
+  text-shadow:
+    0 0 1px black,
+    0 0 3px black;
   width: 180px;
   font-weight: normal;
   letter-spacing: 2px;
@@ -2027,7 +2163,9 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: center;
   margin: 25px 0 0 25px;
   width: 170px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 3px 3px 3px grey;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    3px 3px 3px grey;
   border-radius: 5px;
   border-top: 2px solid #dddddd;
   border-left: 2px solid #dddddd;
@@ -2082,7 +2220,9 @@ input[type="radio"]:checked + .filterDiv::after {
   padding: 0 5px;
   width: 147px;
   background: #eeeeee;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 3px 3px 3px grey;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    3px 3px 3px grey;
   margin: 5px 10px;
   border-radius: 5px;
   border-top: 2px solid #dddddd;
@@ -2097,7 +2237,10 @@ input[type="radio"]:checked + .filterDiv::after {
   font-size: 9px;
   line-height: 12px;
 }
-.card-arcadian-communities .contentCorporation .corporationEffectBox .corporation-action-text {
+.card-arcadian-communities
+  .contentCorporation
+  .corporationEffectBox
+  .corporation-action-text {
   text-indent: 30px;
   margin: -3px 0 5px 0;
 }
@@ -2132,8 +2275,13 @@ input[type="radio"]:checked + .filterDiv::after {
   color: orange;
   font-weight: bold;
   margin-top: 10px;
-  text-shadow: 6px 6px 6px  grey;
-  text-shadow: -1px 0 #333333, 0 1px #333333, 1px 0 #333333, 0px -1px #333333, 6px 3px 5px grey;
+  text-shadow: 6px 6px 6px grey;
+  text-shadow:
+    -1px 0 #333333,
+    0 1px #333333,
+    1px 0 #333333,
+    0px -1px #333333,
+    6px 3px 5px grey;
 }
 .card-aphrodite .starting-resources .production-box {
   margin-top: 5px;
@@ -2416,7 +2564,10 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .temporary-content-wrapper {
   position: relative;
 }
-.card-container .card-content-wrapper .temporary-content-wrapper .corporation-icon {
+.card-container
+  .card-content-wrapper
+  .temporary-content-wrapper
+  .corporation-icon {
   position: absolute;
   top: 9px;
   right: 26px;
@@ -2457,7 +2608,7 @@ input[type="radio"]:checked + .filterDiv::after {
   z-index: 1;
 }
 .card-container .card-content-wrapper .card-cost-and-tags .card-help a {
-  color: #C33;
+  color: #c33;
   text-decoration: none;
 }
 .card-container .card-content-wrapper .card-cost-and-tags .card-tags {
@@ -2467,7 +2618,9 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-right: -6px;
 }
 .card-container .card-content-wrapper .card-cost-and-tags .card-tags .card-tag {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   margin-left: 4px;
   width: 40px;
   height: 40px;
@@ -2510,7 +2663,9 @@ input[type="radio"]:checked + .filterDiv::after {
   line-height: 15px;
   text-align: center;
   font-size: 13px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background: #cccccc;
   background-color: #ffcc64;
   background: linear-gradient(to right, #e28c22, #ffcc64, #ffcc64, #e28c22);
@@ -2527,7 +2682,9 @@ input[type="radio"]:checked + .filterDiv::after {
   line-height: 22px;
   text-align: center;
   font-size: 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background-color: #eb76ab;
   border-radius: 14px 2px 2px 2px;
   border-top: 2px solid #dddddd;
@@ -2564,7 +2721,10 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-standard-project .card-content-wrapper .card-title-standard-project {
   padding-top: 12px;
 }
-.card-standard-project .card-content-wrapper .card-title-standard-project .background-color-standard-project {
+.card-standard-project
+  .card-content-wrapper
+  .card-title-standard-project
+  .background-color-standard-project {
   border-radius: 16px 16px 30% 30% !important;
 }
 .card-standard-project .card-content-wrapper .card-content {
@@ -2606,7 +2766,10 @@ input[type="radio"]:checked + .filterDiv::after {
   font-weight: bold;
   background: red;
   color: white;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3), 3px 3px 3px #444;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3),
+    3px 3px 3px #444;
   font-family: Prototype;
   font-weight: normal;
   text-shadow: 0 0 1px black;
@@ -2668,8 +2831,16 @@ input[type="radio"]:checked + .filterDiv::after {
   line-height: 24px;
   font-weight: normal;
   font-size: 15px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(90deg, #f3a10e 0%, #fdea25 45%, #fdea25 55%, #f3a10e 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    90deg,
+    #f3a10e 0%,
+    #fdea25 45%,
+    #fdea25 55%,
+    #f3a10e 100%
+  );
   font-family: Ubuntu;
   font-weight: bold;
   display: flex;
@@ -2690,16 +2861,27 @@ input[type="radio"]:checked + .filterDiv::after {
   left: 8px;
   text-transform: none;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-aphrodite-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-aphrodite-logo {
   font-size: 25px;
   position: absolute;
   top: 11px;
   left: 0px;
   color: orange;
   font-weight: bold;
-  text-shadow: -1px 0 #333333, 0 1px #333333, 1px 0 #333333, 0px -1px #333333, 6px 3px 5px grey;
+  text-shadow:
+    -1px 0 #333333,
+    0 1px #333333,
+    1px 0 #333333,
+    0px -1px #333333,
+    6px 3px 5px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-arklight-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-arklight-logo {
   font-size: 19px;
   font-family: Prototype;
   letter-spacing: 1px;
@@ -2716,13 +2898,26 @@ input[type="radio"]:checked + .filterDiv::after {
   left: 47px;
   top: 9px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-poseidon-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-poseidon-logo {
   display: inline-block;
   font-family: "Times New Roman", Arial;
-  background: linear-gradient(rgba(0, 0, 0, 0) 0%, #3633ff 20%, rgba(0, 0, 0, 0) 22%, #3633ff 50%, rgba(0, 0, 0, 0) 78%, #3633ff 80%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    #3633ff 20%,
+    rgba(0, 0, 0, 0) 22%,
+    #3633ff 50%,
+    rgba(0, 0, 0, 0) 78%,
+    #3633ff 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
   line-height: 50px;
   color: #aaa;
-  text-shadow: 0 0 1px black, 0 0 3px black;
+  text-shadow:
+    0 0 1px black,
+    0 0 3px black;
   width: 180px;
   font-weight: normal;
   letter-spacing: 2px;
@@ -2749,22 +2944,36 @@ input[type="radio"]:checked + .filterDiv::after {
   border: 2px solid white;
   box-shadow: 6px 6px 5px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-celestic-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-celestic-logo {
   position: absolute;
   font-size: 24px;
   box-shadow: 6px 6px 6px grey;
   top: 14px;
   left: 16px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-morning-star-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-morning-star-logo {
   position: absolute;
   top: 11px;
   left: 4px;
   font-size: 18px;
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 6px 3px 5px grey;
+  text-shadow:
+    -1px 0 black,
+    0 1px black,
+    1px 0 black,
+    0 -1px black,
+    6px 3px 5px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-pristar-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-pristar-logo {
   position: absolute;
   top: 20px;
   left: -5px;
@@ -2774,27 +2983,41 @@ input[type="radio"]:checked + .filterDiv::after {
   transform: scaleX(0.8);
   letter-spacing: 3px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-cheung-shing-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-cheung-shing-logo {
   margin-top: 30px;
   margin-left: -55px;
   display: inline-block;
-  font-family: 'Prototype';
+  font-family: "Prototype";
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-credicor-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-credicor-logo {
   font-size: 26px;
   top: 15px;
   left: 8px;
   padding: 4px;
   color: white;
   display: inline;
-  font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   font-weight: normal;
   line-height: 34px;
   border: 2px solid purple;
   position: absolute;
-  text-shadow: -1px 0 purple, 0 1px purple, 1px 0 purple, 0 -1px purple, 6px 6px 10px grey;
+  text-shadow:
+    -1px 0 purple,
+    0 1px purple,
+    1px 0 purple,
+    0 -1px purple,
+    6px 6px 10px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-ecoline-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-ecoline-logo {
   position: absolute;
   text-transform: none;
   top: 16px;
@@ -2804,7 +3027,12 @@ input[type="radio"]:checked + .filterDiv::after {
   color: #00b400;
   letter-spacing: 2px;
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: -1px 0 #404040, 0 1px #404040, 1px 0 #404040, 0 -1px #404040, 4px 3px 3px grey;
+  text-shadow:
+    -1px 0 #404040,
+    0 1px #404040,
+    1px 0 #404040,
+    0 -1px #404040,
+    4px 3px 3px grey;
 }
 .card-container .card-content-wrapper .card-corporation-logo .card-helion-logo {
   font-size: 34px;
@@ -2821,7 +3049,10 @@ input[type="radio"]:checked + .filterDiv::after {
   box-shadow: 6px 6px 6px grey;
   border-radius: 2px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-inventrix-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-inventrix-logo {
   top: 16px;
   left: 8px;
   color: #020202;
@@ -2829,7 +3060,10 @@ input[type="radio"]:checked + .filterDiv::after {
   text-shadow: 6px 6px 5px grey;
   position: absolute;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-phobolog-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-phobolog-logo {
   font-size: 24px;
   position: absolute;
   top: 12px;
@@ -2841,7 +3075,7 @@ input[type="radio"]:checked + .filterDiv::after {
   padding-right: 5px;
   border: 1px solid #444;
   border-radius: 10px;
-  font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   display: inline-block;
   -webkit-transform: scale(1.2, 1);
   /* Safari and Chrome */
@@ -2853,7 +3087,7 @@ input[type="radio"]:checked + .filterDiv::after {
   /* Opera */
   transform: scale(1.2, 1);
   /* W3C */
-  box-shadow: 6px 6px 5px  grey;
+  box-shadow: 6px 6px 5px grey;
 }
 .card-container .card-content-wrapper .card-corporation-logo .card-luna-logo {
   position: absolute;
@@ -2870,7 +3104,10 @@ input[type="radio"]:checked + .filterDiv::after {
   -o-transform: scale(1.5, 1);
   transform: scale(1.5, 1);
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-polyphemos-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-polyphemos-logo {
   position: absolute;
   top: 17px;
   left: 8px;
@@ -2882,25 +3119,33 @@ input[type="radio"]:checked + .filterDiv::after {
   border-bottom: 3px solid #cc3333;
   border-top: 3px solid #cc3333;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-septem-tribus-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-septem-tribus-logo {
   position: absolute;
   top: 8px;
   left: 0px;
   text-transform: none;
   color: white;
   font-family: Times;
-  text-shadow: 0 0 1px black, 0 2px 2px black;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px black;
   font-size: 30px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-thorgate-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-thorgate-logo {
   position: absolute;
   top: 17px;
   left: 8px;
   color: #020202;
   font-size: 32px;
-  font-family: 'Arial Narrow', 'Verdana';
+  font-family: "Arial Narrow", "Verdana";
   font-weight: normal;
-  text-shadow: 6px 3px 5px  grey;
+  text-shadow: 6px 3px 5px grey;
 }
 .card-container .card-content-wrapper .card-corporation-logo .card-viron-logo {
   position: absolute;
@@ -2909,7 +3154,12 @@ input[type="radio"]:checked + .filterDiv::after {
   font-size: 50px;
   font-family: Prototype;
   margin-left: 15px;
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white, 6px 3px 5px grey;
+  text-shadow:
+    -1px 0 white,
+    0 1px white,
+    1px 0 white,
+    0 -1px white,
+    6px 3px 5px grey;
 }
 .card-container .card-content-wrapper .card-corporation-logo .card-aridor-logo {
   position: absolute;
@@ -2925,7 +3175,10 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: center;
   font-size: 30px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-astrodril-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-astrodril-logo {
   position: absolute;
   text-transform: none;
   top: 17px;
@@ -2934,29 +3187,45 @@ input[type="radio"]:checked + .filterDiv::after {
   font-family: Prototype;
   letter-spacing: 2px;
   text-align: center;
-  text-shadow: orange 0px 0px 1px, darkorange 0px 2px 2px;
+  text-shadow:
+    orange 0px 0px 1px,
+    darkorange 0px 2px 2px;
   font-size: 32px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-factorum-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-factorum-logo {
   position: absolute;
   top: 15px;
   left: -20px;
   color: #ee792b;
-  text-shadow: 0 0 1px black, 0 1px black, 1px 0px black, -1px 0px black, 0 -1px black;
+  text-shadow:
+    0 0 1px black,
+    0 1px black,
+    1px 0px black,
+    -1px 0px black,
+    0 -1px black;
   letter-spacing: 5px;
   font-size: 28px;
   transform: scaleX(0.7);
   text-transform: none;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-manutech-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-manutech-logo {
   position: absolute;
   top: 17px;
   left: 4px;
   font-size: 30px;
   color: #e63900;
-  text-shadow: 6px 3px 5px  grey;
+  text-shadow: 6px 3px 5px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-agricola-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-agricola-logo {
   position: absolute;
   top: 17px;
   left: 4px;
@@ -2964,17 +3233,24 @@ input[type="radio"]:checked + .filterDiv::after {
   font-family: "Trebuchet MS", Arial, sans-serif;
   letter-spacing: 2px;
   text-align: center;
-  text-shadow: 0 0 1px limegreen, 0 2px 2px greenyellow;
+  text-shadow:
+    0 0 1px limegreen,
+    0 2px 2px greenyellow;
   font-size: 26px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-arcadian-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-arcadian-logo {
   position: absolute;
   top: 11px;
   left: 4px;
   font-size: 16px;
   padding: 2px 5px;
   background: #eeeeee;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 3px 3px 3px grey;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    3px 3px 3px grey;
   border-radius: 5px;
   border-top: 2px solid #dddddd;
   border-left: 2px solid #dddddd;
@@ -2993,27 +3269,44 @@ input[type="radio"]:checked + .filterDiv::after {
   font-family: Impact, sans-serif;
   letter-spacing: 6px;
   text-align: center;
-  text-shadow: 0 0 1px black, 0 2px 2px #3d3636;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px #3d3636;
   font-size: 36px;
   text-transform: uppercase;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-lakefront-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-lakefront-logo {
   position: absolute;
   top: 17px;
   left: 4px;
   font-size: 22px;
   font-family: Times;
   color: white;
-  text-shadow: 0 1px 0px #444, 0px -1px 0px #444, -1px 0px 0px #444, 1px 0px 0px #444;
+  text-shadow:
+    0 1px 0px #444,
+    0px -1px 0px #444,
+    -1px 0px 0px #444,
+    1px 0px 0px #444;
   letter-spacing: 4px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mining-guild-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mining-guild-logo {
   font-size: 24px;
   position: absolute;
   top: 14px;
   left: 23px;
   color: #c9380e;
-  text-shadow: -1px 0 #333333, 0 1px #333333, 1px 0 #333333, 0 -1px #333333, 2px 2px 2px black;
+  text-shadow:
+    -1px 0 #333333,
+    0 1px #333333,
+    1px 0 #333333,
+    0 -1px #333333,
+    2px 2px 2px black;
   display: inline-block;
   -webkit-transform: scale(1.5, 1);
   /* Safari and Chrome */
@@ -3026,18 +3319,28 @@ input[type="radio"]:checked + .filterDiv::after {
   transform: scale(1.5, 1);
   /* W3C */
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-philares-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-philares-logo {
   position: absolute;
   top: 17px;
   left: 33px;
   color: #444;
-  text-shadow: 0 1px 1px white, 0 -1px 1px white, -1px 0px 1px white, 1px 0px 1px white;
+  text-shadow:
+    0 1px 1px white,
+    0 -1px 1px white,
+    -1px 0px 1px white,
+    1px 0px 1px white;
   filter: drop-shadow(0 0 1px black);
   letter-spacing: 4px;
   font-size: 20px;
   transform: scaleX(1.5);
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-recyclon-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-recyclon-logo {
   position: absolute;
   top: 12px;
   left: 0px;
@@ -3047,13 +3350,19 @@ input[type="radio"]:checked + .filterDiv::after {
   font-weight: bold;
   background: red;
   color: white;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3), 3px 3px 3px #444;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3),
+    3px 3px 3px #444;
   font-family: Prototype;
   font-weight: normal;
   text-shadow: 0 0 1px black;
   text-transform: uppercase;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-robinson-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-robinson-logo {
   position: absolute;
   top: 6px;
   left: 1px;
@@ -3061,7 +3370,10 @@ input[type="radio"]:checked + .filterDiv::after {
   width: 140px;
   line-height: 20px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-pharmacy-union-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-pharmacy-union-logo {
   position: absolute;
   top: 0px;
   left: -1px;
@@ -3069,7 +3381,9 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: left;
   letter-spacing: 2px;
   margin: 3px 0 8px 0;
-  text-shadow: 0 0 1px black, 0 2px 2px green;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px green;
   font-size: 23px;
   width: 140px;
 }
@@ -3081,14 +3395,23 @@ input[type="radio"]:checked + .filterDiv::after {
   font-weight: bold;
   width: 109px;
   background: #eeeeee;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 3px 3px 3px grey;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.2),
+    3px 3px 3px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-stormcraft-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-stormcraft-logo {
   position: absolute;
   top: 11px;
   left: 1px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-stormcraft-logo .stormcraft1 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-stormcraft-logo
+  .stormcraft1 {
   display: inline-block;
   color: white;
   background: #ff9900;
@@ -3103,7 +3426,11 @@ input[type="radio"]:checked + .filterDiv::after {
   text-shadow: 0 0 6px black;
   box-shadow: 0 3px 10px 0px black;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-stormcraft-logo .stormcraft2 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-stormcraft-logo
+  .stormcraft2 {
   display: inline-block;
   line-height: 50px;
   width: 100px;
@@ -3114,7 +3441,11 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-bottom: 10px;
   text-shadow: 0 5px 10px black;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-stormcraft-logo .stormcraft3 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-stormcraft-logo
+  .stormcraft3 {
   position: absolute;
   font-size: 10px;
   letter-spacing: 2px;
@@ -3125,7 +3456,11 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-left: 20px;
   transform: scaleX(1.7);
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-stormcraft-logo .stormcraft4 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-stormcraft-logo
+  .stormcraft4 {
   position: absolute;
   transform: scaleX(1.7);
   letter-spacing: 2px;
@@ -3135,23 +3470,38 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: -23px;
   margin-left: 90px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-teractor-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-teractor-logo {
   position: absolute;
   top: 15px;
   left: 1px;
   font-size: 34px;
   color: orangered;
-  font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   font-weight: normal;
-  text-shadow: -1px 0 #333333, 0 1px #333333, 1px 0 #333333, 0px -1px #333333, 6px 3px 5px grey;
+  text-shadow:
+    -1px 0 #333333,
+    0 1px #333333,
+    1px 0 #333333,
+    0px -1px #333333,
+    6px 3px 5px grey;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tharsis-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tharsis-logo {
   color: #020202;
   font-size: 24px;
   text-shadow: 6px 6px 6px grey;
   margin: 15px 0 0 -26px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tharsis-logo .card-tharsis-logo-image {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tharsis-logo
+  .card-tharsis-logo-image {
   text-shadow: none;
   box-shadow: 3px 3px 6px grey;
   margin: 0 0 0 -108px;
@@ -3162,21 +3512,33 @@ input[type="radio"]:checked + .filterDiv::after {
   width: 32px;
   height: 33px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tharsis-logo .card-tharsis-logo-image::before {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tharsis-logo
+  .card-tharsis-logo-image::before {
   content: "▲";
   text-shadow: none;
   margin-right: 2px;
   position: absolute;
   margin: -2px 0 0 -12px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tharsis-logo .card-tharsis-logo-image::after {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tharsis-logo
+  .card-tharsis-logo-image::after {
   content: "▲";
   color: #020202;
   font-size: 14px;
   position: absolute;
   margin: 3px 0 0 3px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tharsis-logo .card-tharsis-logo-text {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tharsis-logo
+  .card-tharsis-logo-text {
   text-transform: uppercase;
   width: 135px;
   white-space: normal;
@@ -3212,25 +3574,46 @@ input[type="radio"]:checked + .filterDiv::after {
   border-right: 3px solid #005100;
   border-bottom: 3px solid #005100;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-utopia-logo .utopia-corp-name-1 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-utopia-logo
+  .utopia-corp-name-1 {
   font-size: 20px;
   transform: scaleX(1.5);
   letter-spacing: 5px;
   margin-left: 5px;
   line-height: 23px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-utopia-logo .utopia-corp-name-2 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-utopia-logo
+  .utopia-corp-name-2 {
   font-size: 10px;
   letter-spacing: 16px;
   margin-left: 13px;
   line-height: 16px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-valley-trust-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-valley-trust-logo {
   position: absolute;
   top: 10px;
   left: 1px;
   color: #027dc3;
-  background: linear-gradient(to right, #027dc3 10%, white, white, white, white, white, white, white);
+  background: linear-gradient(
+    to right,
+    #027dc3 10%,
+    white,
+    white,
+    white,
+    white,
+    white,
+    white,
+    white
+  );
   box-shadow: 3px 3px 10px 1px #3a3a3a;
   width: 135px;
   line-height: 24px;
@@ -3249,7 +3632,10 @@ input[type="radio"]:checked + .filterDiv::after {
   -o-transform: scale(2, 1);
   transform: scale(2, 1);
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-playwrights-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-playwrights-logo {
   position: absolute;
   top: 15px;
   left: 1px;
@@ -3258,7 +3644,9 @@ input[type="radio"]:checked + .filterDiv::after {
   font-weight: bold;
   letter-spacing: 2px;
   text-align: center;
-  text-shadow: 0 0 1px orchid, 0 2px 2px purple;
+  text-shadow:
+    0 0 1px orchid,
+    0 2px 2px purple;
   font-size: 30px;
 }
 .card-container .card-content-wrapper .card-corporation-logo .card-midas-logo {
@@ -3275,7 +3663,10 @@ input[type="radio"]:checked + .filterDiv::after {
   font-size: 45px;
   top: 20px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mars-maths-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mars-maths-logo {
   position: absolute;
   font-size: 24px;
   box-shadow: 5px 10px 12px #d58c56;
@@ -3283,7 +3674,10 @@ input[type="radio"]:checked + .filterDiv::after {
   top: 14px;
   left: 2px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-project-workshop-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-project-workshop-logo {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -3293,15 +3687,20 @@ input[type="radio"]:checked + .filterDiv::after {
   letter-spacing: 1px;
   line-height: 20px;
   text-align: left;
-  text-shadow: 0 0 1px skyblue, 0 2px 2px white;
+  text-shadow:
+    0 0 1px skyblue,
+    0 2px 2px white;
   font-size: 20px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-curiosity-ii-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-curiosity-ii-logo {
   position: absolute;
   top: 24px;
   left: -4px;
   color: #65310d;
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
   letter-spacing: 1px;
   text-shadow: 0 1px 1px sienna;
   font-size: 28px;
@@ -3326,19 +3725,31 @@ input[type="radio"]:checked + .filterDiv::after {
   text-align: center;
   box-shadow: 3px 3px 6px #444;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mons-logo .mons0 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mons-logo
+  .mons0 {
   font-size: 26px;
   position: relative;
   transform: scaleX(2.5);
   line-height: 15px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mons-logo .mons1 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mons-logo
+  .mons1 {
   letter-spacing: 5px;
   font-size: 16px;
   line-height: 16px;
   margin-left: 5px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mons-logo .mons2 {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mons-logo
+  .mons2 {
   letter-spacing: 3px;
   line-height: 18px;
   font-size: 7px;
@@ -3349,7 +3760,9 @@ input[type="radio"]:checked + .filterDiv::after {
   letter-spacing: 4px;
   text-align: center;
   margin: 0 0 10px -35px;
-  text-shadow: 0 0 1px black, 0 2px 2px darkred;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px darkred;
   font-size: 40px;
   position: relative;
   top: 22px;
@@ -3357,13 +3770,18 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .card-corporation-logo .card-athena-logo {
   color: teal;
   text-transform: uppercase;
-  text-shadow: 0 0 1px black, 0 2px 2px darkturquoise;
+  text-shadow:
+    0 0 1px black,
+    0 2px 2px darkturquoise;
   font-size: 28px;
   position: relative;
   top: 20px;
   right: 20px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tycho-magnetics-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tycho-magnetics-logo {
   position: absolute;
   text-transform: none;
   top: 11px;
@@ -3372,10 +3790,15 @@ input[type="radio"]:checked + .filterDiv::after {
   font-family: monospace;
   letter-spacing: 1px;
   text-align: left;
-  text-shadow: yellow 0px 0px 1px, yellowgreen 0px 2px 2px;
+  text-shadow:
+    yellow 0px 0px 1px,
+    yellowgreen 0px 2px 2px;
   font-size: 28px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-sagitta-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-sagitta-logo {
   position: absolute;
   text-transform: uppercase;
   top: 15px;
@@ -3397,13 +3820,16 @@ input[type="radio"]:checked + .filterDiv::after {
   font-size: 18px;
   -webkit-text-stroke: 0.5px darkblue;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-nirgal-enterprises-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-nirgal-enterprises-logo {
   position: absolute;
   text-transform: none;
   top: 32px;
   left: 3px;
   color: #326432;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   letter-spacing: 2px;
   text-align: left;
   font-size: 27px;
@@ -3416,7 +3842,10 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: 18px;
   filter: drop-shadow(1px 2px 4px black);
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-palladin-shipping-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-palladin-shipping-logo {
   background-image: url(../../assets/prelude2/palladin.png);
   height: 40px;
   width: 160px;
@@ -3430,49 +3859,70 @@ input[type="radio"]:checked + .filterDiv::after {
   background-size: 136px 44px;
   margin-top: 9px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-nanotech-industries-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-nanotech-industries-logo {
   background-image: url(../../assets/moon/corp-logo-nanotech.png);
   height: 50px;
   width: 150px;
   background-size: 150px 50px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-tempest-consultancy-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-tempest-consultancy-logo {
   background-image: url(../../assets/moon/corp-logo-tempest.png);
   height: 50px;
   width: 150px;
   background-size: 150px 50px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-the-darkside-of-the-moon-syndicate-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-the-darkside-of-the-moon-syndicate-logo {
   background-image: url(../../assets/moon/corp-logo-darkside.png);
   height: 50px;
   width: 187px;
   background-size: 187px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-luna-hyperloop-corporation-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-luna-hyperloop-corporation-logo {
   background-image: url(../../assets/moon/corp-logo-luna-hyperloop.png);
   height: 50px;
   width: 150px;
   background-size: 150px 50px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-crescent-research-association-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-crescent-research-association-logo {
   background-image: url(../../assets/moon/corp-logo-crescent-research.png);
   height: 50px;
   width: 150px;
   background-size: 150px 50px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-luna-first-incorporated-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-luna-first-incorporated-logo {
   background-image: url(../../assets/moon/corp-logo-luna-first.png);
   height: 50px;
   width: 150px;
   background-size: 150px 50px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-the-grand-luna-capital-group-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-the-grand-luna-capital-group-logo {
   background-image: url(../../assets/moon/corp-logo-grand-luna.png);
   height: 50px;
   width: 143px;
@@ -3480,42 +3930,60 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: 10px;
   border-radius: 5px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-intragen-sanctuary-headquarters-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-intragen-sanctuary-headquarters-logo {
   background-image: url(../../assets/moon/corp-logo-intragen.png);
   height: 45px;
   width: 142px;
   background-size: 142px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-luna-trade-federation-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-luna-trade-federation-logo {
   background-image: url(../../assets/moon/corp-logo-luna-trade-federation.png);
   height: 45px;
   width: 142px;
   background-size: 142px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-the-archaic-foundation-institute-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-the-archaic-foundation-institute-logo {
   background-image: url(../../assets/moon/corp-logo-archaic-foundation.png);
   height: 50px;
   width: 180px;
   background-size: 180px 50px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-polaris-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-polaris-logo {
   background-image: url(../../assets/pathfinders/corp-logo-polaris.png);
   height: 54px;
   width: 180px;
   background-size: 180px 54px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-ringcom-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-ringcom-logo {
   background-image: url(../../assets/pathfinders/corp-logo-ringcom.png);
   height: 35px;
   width: 180px;
   background-size: 180px 35px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-chimera-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-chimera-logo {
   background-image: url(../../assets/pathfinders/corp-logo-chimera.png);
   height: 39px;
   width: 66px;
@@ -3523,42 +3991,60 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: 10px;
   margin-left: 79px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-steelaris-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-steelaris-logo {
   background-image: url(../../assets/pathfinders/corp-logo-steelaris.png);
   height: 35px;
   width: 180px;
   background-size: 180px 35px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-martian-insurance-group-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-martian-insurance-group-logo {
   background-image: url(../../assets/pathfinders/corp-logo-martian-insurance-group.png);
   height: 45px;
   width: 170px;
   background-size: 170px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-robin-haulings-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-robin-haulings-logo {
   background-image: url(../../assets/pathfinders/corp-logo-robin-haulings.png);
   height: 41px;
   width: 140px;
   background-size: 140px 41px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mars-direct-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mars-direct-logo {
   background-image: url(../../assets/pathfinders/corp-logo-mars-direct.png);
   height: 45px;
   width: 144px;
   background-size: 144px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mars-frontier-alliance-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mars-frontier-alliance-logo {
   background-image: url(../../assets/pathfinders/corp-logo-mars-frontier-alliance.png);
   height: 45px;
   width: 170px;
   background-size: 170px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-ambient-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-ambient-logo {
   background-image: url(../../assets/pathfinders/corp-logo-ambient.png);
   height: 45px;
   width: 173px;
@@ -3566,56 +4052,80 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: 10px;
   margin-left: 16px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-collegium-copernicus-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-collegium-copernicus-logo {
   background-image: url(../../assets/pathfinders/corp-logo-colleguim-copernicus.png);
   height: 45px;
   width: 144px;
   background-size: 144px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-soylent-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-soylent-logo {
   background-image: url(../../assets/pathfinders/corp-logo-soylent.png);
   height: 45px;
   width: 144px;
   background-size: 144px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-bio-sol-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-bio-sol-logo {
   background-image: url(../../assets/pathfinders/corp-logo-bio-sol.png);
   height: 45px;
   width: 175px;
   background-size: 175px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-adhai-high-orbit-constructions-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-adhai-high-orbit-constructions-logo {
   background-image: url(../../assets/pathfinders/corp-logo-adhai-high-orbit-constructions.png);
   height: 45px;
   width: 184px;
   background-size: 184px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-mind-set-mars-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-mind-set-mars-logo {
   background-image: url(../../assets/pathfinders/corp-logo-mind-set-mars.png);
   height: 45px;
   width: 125px;
   background-size: 125px 45px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-habitat-marte-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-habitat-marte-logo {
   background-image: url(../../assets/pathfinders/corp-logo-habitat-marte.png);
   height: 101px;
   width: 115px;
   background-size: 115px 101px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-odyssey-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-odyssey-logo {
   background-image: url(../../assets/pathfinders/corp-logo-odyssey.png);
   height: 90px;
   width: 125px;
   background-size: 125px 90px;
   margin-top: 10px;
 }
-.card-container .card-content-wrapper .card-corporation-logo .card-aurorai-logo {
+.card-container
+  .card-content-wrapper
+  .card-corporation-logo
+  .card-aurorai-logo {
   background-image: url(../../assets/pathfinders/corp-logo-aurorai.png);
   height: 80px;
   width: 111px;
@@ -3652,7 +4162,9 @@ input[type="radio"]:checked + .filterDiv::after {
   /* tiles */
   /* symbols for tiles */
 }
-.card-container .card-content-wrapper .card-content:not(.global-event-card-content) {
+.card-container
+  .card-content-wrapper
+  .card-content:not(.global-event-card-content) {
   overflow-x: hidden;
 }
 .card-container .card-content-wrapper .card-content::-webkit-scrollbar-track {
@@ -3674,7 +4186,17 @@ input[type="radio"]:checked + .filterDiv::after {
   justify-content: center;
   min-height: 130px;
   border-radius: 10px;
-  background: linear-gradient(to bottom right, #cccccc, #aaaaaa, #dddddd, #cccccc, #aaaaaa, #cacaca, #aaaaaa, #cccccc);
+  background: linear-gradient(
+    to bottom right,
+    #cccccc,
+    #aaaaaa,
+    #dddddd,
+    #cccccc,
+    #aaaaaa,
+    #cacaca,
+    #aaaaaa,
+    #cccccc
+  );
   box-shadow: 0 0 0px 1px rgba(0, 0, 0.5);
   bottom: 8px;
   left: 8px;
@@ -3682,11 +4204,18 @@ input[type="radio"]:checked + .filterDiv::after {
   padding: 0 4px;
   /* hide points on hover by poppig the overlay on top of them*/
 }
-.card-container .card-content-wrapper .card-content .card-corporation-box:hover {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-corporation-box:hover {
   box-shadow: 0px 0px 4px 1px #353594;
   z-index: 4;
 }
-.card-container .card-content-wrapper .card-content .card-corporation-box .card-corporation-label {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-corporation-box
+  .card-corporation-label {
   background-color: #2c84c4;
   background: linear-gradient(#6eafde, #2c84c4, #2c84c4);
   width: 100px;
@@ -3707,21 +4236,40 @@ input[type="radio"]:checked + .filterDiv::after {
   flex-flow: column;
   align-items: center;
 }
-.card-container .card-content-wrapper .card-content .card-effect-box .card-item-container {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-effect-box
+  .card-item-container {
   margin: 0;
 }
-.card-container .card-content-wrapper .card-content .card-effect-box .card-effect-box-row {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-effect-box
+  .card-effect-box-row {
   display: flex;
   flex-flow: row;
   align-items: center;
 }
-.card-container .card-content-wrapper .card-content .card-effect-box .card-effect-box-row .card-effect-box-content {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-effect-box
+  .card-effect-box-row
+  .card-effect-box-content {
   display: flex;
   flex-flow: row;
   align-items: center;
   margin: 0 4px;
 }
-.card-container .card-content-wrapper .card-content .card-effect-box .card-effect-box-row .card-effect-box-content .card-effect-box-item {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-effect-box
+  .card-effect-box-row
+  .card-effect-box-content
+  .card-effect-box-item {
   display: flex;
 }
 .card-container .card-content-wrapper .card-content .card-item-container {
@@ -3750,7 +4298,10 @@ input[type="radio"]:checked + .filterDiv::after {
   filter: drop-shadow(0px 0px 1px black);
   background-image: url(../../assets/tiles/empty.png);
 }
-.card-container .card-content-wrapper .card-content .card-temperature-global-requirement {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-temperature-global-requirement {
   background-image: url(../../assets/global-parameters/temperature.png);
   width: 14px;
   background-size: 14px 46px;
@@ -3761,7 +4312,10 @@ input[type="radio"]:checked + .filterDiv::after {
   height: 34px;
   background-size: 10px 34px;
 }
-.card-container .card-content-wrapper .card-content .card-ocean-global-requirement {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-ocean-global-requirement {
   background-image: url(../../assets/tiles/ocean.png);
 }
 .card-container .card-content-wrapper .card-content .card-ocean--req {
@@ -3770,7 +4324,10 @@ input[type="radio"]:checked + .filterDiv::after {
   height: 34px;
   background-size: 30px 34px;
 }
-.card-container .card-content-wrapper .card-content .card-oxygen-global-requirement {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-oxygen-global-requirement {
   background-image: url(../../assets/global-parameters/oxygen.png);
   width: 46px;
   background-size: 46px;
@@ -3781,7 +4338,10 @@ input[type="radio"]:checked + .filterDiv::after {
   background-size: 34px;
   height: 34px;
 }
-.card-container .card-content-wrapper .card-content .card-venus-global-requirement {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-venus-global-requirement {
   background-image: url(../../assets/global-parameters/venus.png);
   width: 60px;
   height: 40px;
@@ -3796,8 +4356,14 @@ input[type="radio"]:checked + .filterDiv::after {
   color: #0000;
 }
 .card-container .card-content-wrapper .card-content .card-resource,
-.card-container .card-content-wrapper .card-content .card-resource--has-secondary-tag,
-.card-container .card-content-wrapper .card-content .card-resource--superscript {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource--has-secondary-tag,
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource--superscript {
   font-family: Prototype;
   position: relative;
   display: inline-block;
@@ -3811,7 +4377,10 @@ input[type="radio"]:checked + .filterDiv::after {
   filter: drop-shadow(0px 0px 1px black);
   vertical-align: middle;
 }
-.card-container .card-content-wrapper .card-content .card-resource--has-secondary-tag {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource--has-secondary-tag {
   width: 30px;
   height: 30px;
   background-size: 30px;
@@ -3819,7 +4388,10 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-.card-container .card-content-wrapper .card-content .card-resource--superscript {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource--superscript {
   height: 16px;
   width: 16px;
   background-size: 16px;
@@ -3827,7 +4399,10 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-right: 1px;
   margin-bottom: 12px;
 }
-.card-container .card-content-wrapper .card-content .card-resource-trade-discount {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-trade-discount {
   background: white;
 }
 .card-container .card-content-wrapper .card-content .card-resource-money {
@@ -3889,21 +4464,33 @@ input[type="radio"]:checked + .filterDiv::after {
   color: #0000 !important;
   background-image: url(../../assets/resources/disease.png);
 }
-.card-container .card-content-wrapper .card-content .card-resource-preservation {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-preservation {
   background-image: url(../../assets/resources/preservation.png);
 }
 .card-container .card-content-wrapper .card-content .card-resource-data {
   background-image: url(../../assets/resources/data.png);
 }
-.card-container .card-content-wrapper .card-content .card-resource-syndicate-fleet {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-syndicate-fleet {
   color: #0000 !important;
   background-image: url(../../assets/resources/syndicate-fleet.png);
 }
-.card-container .card-content-wrapper .card-content .card-resource-venusian-habitat {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-venusian-habitat {
   color: #0000 !important;
   background-image: url(../../assets/resources/venusian-habitat.png);
 }
-.card-container .card-content-wrapper .card-content .card-resource-specialized-robot {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-specialized-robot {
   color: #0000 !important;
   background-image: url(../../assets/resources/specialized-robot.png);
 }
@@ -3939,10 +4526,16 @@ input[type="radio"]:checked + .filterDiv::after {
   background: linear-gradient(to bottom right, gold, goldenrod, gold);
   border: 1px solid black;
 }
-.card-container .card-content-wrapper .card-content .card-resource-hydroelectric-resource {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-hydroelectric-resource {
   background-image: url(../../assets/resources/hydroelectric-resource.png);
 }
-.card-container .card-content-wrapper .card-content .card-resource-clone-trooper {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-clone-trooper {
   background-image: url(../../assets/resources/clone-trooper.png);
 }
 .card-container .card-content-wrapper .card-content .card-identification {
@@ -3957,7 +4550,10 @@ input[type="radio"]:checked + .filterDiv::after {
   background-size: 44px;
   height: 44px;
 }
-.card-container .card-content-wrapper .card-content .card-excavation--superscript {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-excavation--superscript {
   background-image: url(../../assets/underworld/excavate.png);
   height: 22px;
   width: 22px;
@@ -3984,7 +4580,10 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .card-content .card-resource-activist {
   background-image: url(../../assets/underworld/card-resource-activist.png);
 }
-.card-container .card-content-wrapper .card-content .card-resource-supply-chain {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-resource-supply-chain {
   background-image: url(../../assets/underworld/card-resource-supply-chain.png);
 }
 .card-container .card-content-wrapper .card-content .card-resource-director {
@@ -4002,13 +4601,20 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-right: 2px;
   background-image: url(../../assets/underworld/neutral-delegate.png) !important;
 }
-.card-container .card-content-wrapper .card-content .card-underground-resources {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-underground-resources {
   width: 44px;
   background-size: 44px 44px;
   height: 44px;
   background-image: url("../../assets/underworld/underground-token-background.png");
 }
-.card-container .card-content-wrapper .card-content .card-underground-resources .card-x {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-underground-resources
+  .card-x {
   color: black;
   font-size: 69px;
   font-weight: bold;
@@ -4172,12 +4778,20 @@ input[type="radio"]:checked + .filterDiv::after {
   border-radius: 5px;
   font-size: 17px;
 }
-.card-container .card-content-wrapper .card-content .card-card .card-icon-space {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-card
+  .card-icon-space {
   background: black;
   color: yellow;
   font-size: 14px;
 }
-.card-container .card-content-wrapper .card-content .card-card .card-icon-building {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-card
+  .card-icon-building {
   background: linear-gradient(#a27147, #593e27);
   color: #493628;
   font-size: 12px;
@@ -4233,7 +4847,8 @@ input[type="radio"]:checked + .filterDiv::after {
   height: 40px;
   width: 48px;
   background-size: 48px;
-  filter: invert(1) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5)) drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.5));
+  filter: invert(1) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
+    drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.5));
 }
 .card-container .card-content-wrapper .card-content .card-resource-colony {
   background-image: url(../../assets/tiles/colony.png);
@@ -4299,7 +4914,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-size: 34px 34px;
   background-position: -2px;
   line-height: 28px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   vertical-align: middle;
   filter: brightness(0.9);
 }
@@ -4321,7 +4938,7 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .card-content .card-tag-power {
   background-image: url("../../assets/tags/power.png");
 }
-.card-container .card-content-wrapper .card-content .card-tag-jovian{
+.card-container .card-content-wrapper .card-content .card-tag-jovian {
   background-image: url("../../assets/tags/jovian.png");
 }
 .card-container .card-content-wrapper .card-content .card-tag-venus {
@@ -4381,7 +4998,11 @@ input[type="radio"]:checked + .filterDiv::after {
   position: relative;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-private-security .card-x {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-private-security
+  .card-x {
   vertical-align: middle;
   position: absolute;
   color: #b51616;
@@ -4392,8 +5013,16 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .card-content .card-tag-req {
   border-radius: 0px;
   height: 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(90deg, #f3a10e 0%, #fdea25 45%, #fdea25 55%, #f3a10e 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    90deg,
+    #f3a10e 0%,
+    #fdea25 45%,
+    #fdea25 55%,
+    #f3a10e 100%
+  );
 }
 .card-container .card-content-wrapper .card-content .card-tag-blue {
   opacity: 0.8;
@@ -4407,16 +5036,22 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .card-content .card-tag-no_planetary_tag {
   background-image: url("../../assets/tags/clone.png");
 }
-.card-container .card-content-wrapper .card-content .card-tag-no_planetary_tag:after {
-  content: '';
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tag-no_planetary_tag:after {
+  content: "";
   height: 20px;
   border-left: 2px dashed #f00;
   position: absolute;
   transform: rotate(45deg);
   margin-left: -1px;
 }
-.card-container .card-content-wrapper .card-content .card-tag-no_planetary_tag:before {
-  content: '';
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tag-no_planetary_tag:before {
+  content: "";
   height: 20px;
   border-left: 2px dashed #f00;
   position: absolute;
@@ -4460,14 +5095,22 @@ input[type="radio"]:checked + .filterDiv::after {
   align-self: center;
   justify-content: center;
 }
-.card-container .card-content-wrapper .card-content .card-project-requirements .card-x {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-project-requirements
+  .card-x {
   position: absolute;
   color: #000000;
   font-size: 63px;
   left: 61px;
   top: -2px;
 }
-.card-container .card-content-wrapper .card-content .card-project-requirements .card-requirements {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-project-requirements
+  .card-requirements {
   width: 95%;
   padding: 0px 4px;
 }
@@ -4480,19 +5123,33 @@ input[type="radio"]:checked + .filterDiv::after {
   padding-right: 8px;
   border-radius: 20px;
   font-weight: normal;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   border: 1px solid #eee;
 }
 .card-container .card-content-wrapper .card-content .card-prelude-container {
   background-color: #2c2c2c;
-  background: linear-gradient(to right bottom, black, #3c3c3c, #969696, #3c3c3c, #3c3c3c, black);
+  background: linear-gradient(
+    to right bottom,
+    black,
+    #3c3c3c,
+    #969696,
+    #3c3c3c,
+    #3c3c3c,
+    black
+  );
   color: black;
   font-size: 12px;
   padding: 4px 7px 1px;
   border-radius: 3px;
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
-.card-container .card-content-wrapper .card-content .card-prelude-container .card-prelude-icon {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-prelude-container
+  .card-prelude-icon {
   text-transform: uppercase;
   background: linear-gradient(to right, #eb76ab, #e64d91);
   padding-left: 4px;
@@ -4501,14 +5158,26 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .card-container .card-content-wrapper .card-content .card-ceo-container {
   background-color: #2c2c2c;
-  background: linear-gradient(to right bottom, black, #3c3c3c, #969696, #3c3c3c, #3c3c3c, black);
+  background: linear-gradient(
+    to right bottom,
+    black,
+    #3c3c3c,
+    #969696,
+    #3c3c3c,
+    #3c3c3c,
+    black
+  );
   color: black;
   font-size: 12px;
   padding: 4px 7px 1px;
   border-radius: 3px;
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
-.card-container .card-content-wrapper .card-content .card-ceo-container .card-ceo-icon {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-ceo-container
+  .card-ceo-icon {
   text-transform: uppercase;
   background: linear-gradient(to right, #eb76ab, #e64d91);
   padding-left: 4px;
@@ -4552,7 +5221,9 @@ input[type="radio"]:checked + .filterDiv::after {
   font-size: 14px;
   font-weight: bold;
   border-radius: 3px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 .card-container .card-content-wrapper .card-content .card-vp-questionmark {
   width: 40px;
@@ -4565,7 +5236,9 @@ input[type="radio"]:checked + .filterDiv::after {
   border-style: outset;
   background-color: #cda282;
   background: linear-gradient(#cc8b00, #805700, #805700);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 .card-container .card-content-wrapper .card-content .card-production-box {
   font-family: Prototype;
@@ -4580,20 +5253,37 @@ input[type="radio"]:checked + .filterDiv::after {
   border-left: 2px solid #dddddd;
   border-bottom: 2px solid #898989;
   border-right: 2px solid #898989;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background-image: url(../../assets/misc/production.png);
   background-size: cover;
 }
-.card-container .card-content-wrapper .card-content .card-production-box .card-production-box-row {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-production-box
+  .card-production-box-row {
   display: flex;
   flex-flow: row;
   margin-top: 2px;
   margin-bottom: 2px;
 }
-.card-container .card-content-wrapper .card-content .card-production-box .card-production-box-row .card-production-box-row-item {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-production-box
+  .card-production-box-row
+  .card-production-box-row-item {
   align-self: center;
 }
-.card-container .card-content-wrapper .card-content .card-production-box .card-production-box-row .card-production-box-row-item .card-item-container {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-production-box
+  .card-production-box-row
+  .card-production-box-row-item
+  .card-item-container {
   margin: 0 !important;
 }
 .card-container .card-content-wrapper .card-content .card-production-box--req {
@@ -4622,10 +5312,16 @@ input[type="radio"]:checked + .filterDiv::after {
 .card-container .card-content-wrapper .card-content .card-description-aligned {
   width: 60%;
 }
-.card-container .card-content-wrapper .card-content .card-description-align--left {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-description-align--left {
   align-self: flex-start;
 }
-.card-container .card-content-wrapper .card-content .card-description-align--rigth {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-description-align--rigth {
   align-self: flex-end;
 }
 .card-container .card-content-wrapper .card-content .card-points {
@@ -4645,12 +5341,22 @@ input[type="radio"]:checked + .filterDiv::after {
   border-right: 2px solid #898989;
   background-color: #cda282;
   background: linear-gradient(#cc8b00, #805700, #805700);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
-.card-container .card-content-wrapper .card-content .card-points .card-item-container {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-points
+  .card-item-container {
   margin: 0px;
 }
-.card-container .card-content-wrapper .card-content .card-points .card-points-item-first {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-points
+  .card-points-item-first {
   display: flex;
 }
 .card-container .card-content-wrapper .card-content .card-points-big {
@@ -4678,7 +5384,13 @@ input[type="radio"]:checked + .filterDiv::after {
   padding: 4px 0px;
   margin-right: 5px;
   border-radius: 14px;
-  background: linear-gradient(90deg, #f3a10e 0%, #fdea25 45%, #fdea25 55%, #f3a10e 100%);
+  background: linear-gradient(
+    90deg,
+    #f3a10e 0%,
+    #fdea25 45%,
+    #fdea25 55%,
+    #f3a10e 100%
+  );
   filter: drop-shadow(0px 0px 1px black);
   box-shadow: 2px 2px 1px;
 }
@@ -4757,36 +5469,54 @@ input[type="radio"]:checked + .filterDiv::after {
   width: 40px;
   height: 47px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-commercial-district {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-commercial-district {
   background-image: url(../../assets/tiles/special_tile_icons/commerical_district.png);
   position: relative;
   left: -2px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-deimos-down {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-deimos-down {
   background-image: url(../../assets/tiles/special_tile_icons/deimos.png);
   position: relative;
   left: -2px;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-great-dam {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-great-dam {
   background-image: url(../../assets/tiles/special_tile_icons/great_dam.png);
   position: relative;
   left: -2px;
   top: -1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-ecological-zone {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-ecological-zone {
   background-image: url(../../assets/tiles/special_tile_icons/ecological_zone.png);
   position: relative;
   left: -2px;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-industrial-center {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-industrial-center {
   background-image: url(../../assets/tiles/special_tile_icons/industrial_center.png);
   position: relative;
   left: -2px;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-magnetic-field-generators {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-magnetic-field-generators {
   background-image: url(../../assets/tiles/special_tile_icons/magnetic_field_gen.png);
   position: relative;
   left: -2px;
@@ -4798,31 +5528,46 @@ input[type="radio"]:checked + .filterDiv::after {
   left: -2px;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-mohole-area {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-mohole-area {
   background-image: url(../../assets/tiles/special_tile_icons/mohole_area.png);
   position: relative;
   left: -2px;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-lava-flows {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-lava-flows {
   background-image: url(../../assets/tiles/special_tile_icons/lava_flows.png);
   position: relative;
   left: -2px;
   top: 1px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-restricted-area {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-restricted-area {
   background-image: url(../../assets/tiles/special_tile_icons/restricted_area.png);
   position: relative;
   left: -2px;
   top: 0px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-natural-preserve {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-natural-preserve {
   background-image: url(../../assets/tiles/special_tile_icons/natural_preserve.png);
   position: relative;
   left: -3px;
   top: 0px;
 }
-.card-container .card-content-wrapper .card-content .card-tile-symbol-nuclear-zone {
+.card-container
+  .card-content-wrapper
+  .card-content
+  .card-tile-symbol-nuclear-zone {
   background-image: url(../../assets/tiles/special_tile_icons/nuclear_zone.png);
   position: relative;
   left: -2px;
@@ -4936,7 +5681,8 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-right: 2px;
 }
 .card-container .card-content-wrapper .card-content .card-delegate-red {
-  filter: drop-shadow(0px 1px 1px darkred) drop-shadow(0px -1px 1px red) drop-shadow(0px 0px 2px black);
+  filter: drop-shadow(0px 1px 1px darkred) drop-shadow(0px -1px 1px red)
+    drop-shadow(0px 0px 2px black);
 }
 .card-container .card-content-wrapper .card-content .card-party-leader {
   display: inline-block;
@@ -4995,7 +5741,8 @@ input[type="radio"]:checked + .filterDiv::after {
   border-radius: 15px 15px 2px 2px;
 }
 .card-container .card-content-wrapper .card-content .card-chairman-red {
-  filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33) drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important;
+  filter: drop-shadow(1px 0px 1px #c33) drop-shadow(-1px 0px 1px #c33)
+    drop-shadow(0px 1px 1px #c33) drop-shadow(0px -1px 1px #c33) !important;
 }
 .card-container .card-content-wrapper .temporary-content-wrapper {
   position: relative;
@@ -5031,7 +5778,10 @@ input[type="radio"]:checked + .filterDiv::after {
   filter: drop-shadow(0px 0px 1px black);
   color: #000;
 }
-.card-container .card-content-wrapper .card-cost-and-tags .card-cost-transition {
+.card-container
+  .card-content-wrapper
+  .card-cost-and-tags
+  .card-cost-transition {
   position: absolute;
   background-image: url(../../assets/misc/cost-transition-arrow.png);
   width: 14px;
@@ -5054,7 +5804,9 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-right: -6px;
 }
 .card-container .card-content-wrapper .card-cost-and-tags .card-tags .card-tag {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   margin-left: 4px;
   width: 40px;
   height: 40px;
@@ -5094,7 +5846,9 @@ input[type="radio"]:checked + .filterDiv::after {
   line-height: 15px;
   text-align: center;
   font-size: 13px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background: #cccccc;
   background-color: #ffcc64;
   background: linear-gradient(to right, #e28c22, #ffcc64, #ffcc64, #e28c22);
@@ -5112,7 +5866,9 @@ input[type="radio"]:checked + .filterDiv::after {
   line-height: 22px;
   text-align: center;
   font-size: 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background-color: #eb76ab;
   border-radius: 14px 2px 2px 2px;
   border-top: 2px solid #dddddd;
@@ -5131,7 +5887,9 @@ input[type="radio"]:checked + .filterDiv::after {
   line-height: 22px;
   text-align: center;
   font-size: 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background-color: #edbd18;
   border-radius: 14px 2px 2px 2px;
   border-top: 2px solid #dddddd;
@@ -5359,7 +6117,10 @@ input[type="radio"]:checked + .filterDiv::after {
 }
 .global-numbers .val-is-active {
   color: white;
-  box-shadow: 0 0px 0px 2px #222, 0px 0 0px 6px #bb8760, 0 0 2px 8px #000;
+  box-shadow:
+    0 0px 0px 2px #222,
+    0px 0 0px 6px #bb8760,
+    0 0 2px 8px #000;
   z-index: 1;
 }
 .global-numbers .global-numbers-oceans {
@@ -5957,7 +6718,9 @@ input[type="radio"]:checked + .filterDiv::after {
 .source-code-text {
   color: white;
   font-size: smaller;
-  text-shadow: 0 0 2px darkgrey, 0 2px 2px darkgrey;
+  text-shadow:
+    0 0 2px darkgrey,
+    0 2px 2px darkgrey;
   letter-spacing: 0.25rem;
   text-decoration: none;
 }
@@ -6085,7 +6848,12 @@ input[type="radio"]:checked + .filterDiv::after {
   top: 2px;
   vertical-align: bottom;
   margin-bottom: 9px;
-  text-shadow: 1px 1px 2px black, -1px 0 #444444, 0 1px #444444, 1px 0 #444444, 0 -1px #444444;
+  text-shadow:
+    1px 1px 2px black,
+    -1px 0 #444444,
+    0 1px #444444,
+    1px 0 #444444,
+    0 -1px #444444;
 }
 .white-x::after {
   z-index: 1;
@@ -6111,7 +6879,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/enceladus.png");
   background-size: 150px 150px;
   background-position: bottom 120px right -15px;
-  box-shadow: inset 0 0 4px 4px #a3c998, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #a3c998,
+    0 0 2px 1px black;
 }
 .Enceladus-title {
   text-transform: uppercase;
@@ -6121,7 +6891,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/pluto.jpg");
   background-size: 150px 150px;
   background-position: bottom 117px right 7px;
-  box-shadow: inset 0 0 4px 4px #c2e0f6, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #c2e0f6,
+    0 0 2px 1px black;
 }
 .Pluto-title {
   text-transform: uppercase;
@@ -6131,7 +6903,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/miranda.jpg");
   background-size: 100px 100px;
   background-position: bottom 145px right 55px;
-  box-shadow: inset 0 0 4px 4px #73d8ff, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #73d8ff,
+    0 0 2px 1px black;
 }
 .Miranda-title {
   text-transform: uppercase;
@@ -6141,7 +6915,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/io.jpg");
   background-size: 200px 200px;
   background-position: bottom 60px right -20px;
-  box-shadow: inset 0 0 4px 4px #eee, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #eee,
+    0 0 2px 1px black;
 }
 .Io-title {
   text-transform: uppercase;
@@ -6150,7 +6926,9 @@ input[type="radio"]:checked + .filterDiv::after {
 .Luna-background {
   background-image: url("../../assets/colonies-planets/luna.jpg");
   background-position: bottom -5px right 0px;
-  box-shadow: inset 0 0 4px 4px #6ab9f4, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #6ab9f4,
+    0 0 2px 1px black;
 }
 .Luna-title {
   text-transform: uppercase;
@@ -6161,7 +6939,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/iapetus.jpg");
   background-position: top 0px right -30px;
   background-size: 240px 180px;
-  box-shadow: inset 0 0 4px 4px #d4ce78, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #d4ce78,
+    0 0 2px 1px black;
 }
 .Iapetus-title,
 .Iapetus-II-title {
@@ -6172,7 +6952,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/mercury.jpg");
   background-size: 110px 110px;
   background-position: top 5px right 10px;
-  box-shadow: inset 0 0 4px 4px #f5c185, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #f5c185,
+    0 0 2px 1px black;
 }
 .Mercury-title {
   text-transform: uppercase;
@@ -6185,7 +6967,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/hygiea.jpg");
   background-position: top 0px right 10px;
   background-size: 110px 120px;
-  box-shadow: inset 0 0 4px 4px #d17ab7, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #d17ab7,
+    0 0 2px 1px black;
 }
 .Hygiea-title {
   text-transform: uppercase;
@@ -6195,7 +6979,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/titania.jpg");
   background-position: top -5px right -30px;
   background-size: 232px 172px;
-  box-shadow: inset 0 0 4px 4px #3faaca, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #3faaca,
+    0 0 2px 1px black;
 }
 .Titania-title {
   text-transform: uppercase;
@@ -6205,7 +6991,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/pallas.jpg");
   background-size: 160px;
   background-position: top 3px right -5px;
-  box-shadow: inset 0 0 4px 4px #808085, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #808085,
+    0 0 2px 1px black;
 }
 .Pallas-title {
   text-transform: uppercase;
@@ -6215,7 +7003,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/venus.jpg");
   background-position: top -2px right -10px;
   background-size: 180px 180px;
-  box-shadow: inset 0 0 4px 4px #facf59, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #facf59,
+    0 0 2px 1px black;
 }
 .Venus-title {
   text-transform: uppercase;
@@ -6229,7 +7019,9 @@ input[type="radio"]:checked + .filterDiv::after {
 .Leavitt-II-background {
   background-image: url("../../assets/colonies-planets/leavitt.jpg");
   background-position: top -3px right 8px;
-  box-shadow: inset 0 0 4px 4px #404891, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #404891,
+    0 0 2px 1px black;
 }
 .Leavitt-title,
 .Leavitt-II-title {
@@ -6245,7 +7037,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/ceres.png");
   background-size: 100px 100px;
   background-position: bottom 150px right 60px;
-  box-shadow: inset 0 0 4px 4px #7c9dc8, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #7c9dc8,
+    0 0 2px 1px black;
 }
 .Ceres-title {
   text-transform: uppercase;
@@ -6255,7 +7049,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/triton.jpg");
   background-size: 150px 150px;
   background-position: bottom 90px right 35px;
-  box-shadow: inset 0 0 4px 4px #c2e0f6, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #c2e0f6,
+    0 0 2px 1px black;
 }
 .Triton-title {
   text-transform: uppercase;
@@ -6264,7 +7060,9 @@ input[type="radio"]:checked + .filterDiv::after {
 .Ganymede-background {
   background-image: url("../../assets/colonies-planets/ganymede.jpg");
   background-position: bottom 5px right 10px;
-  box-shadow: inset 0 0 4px 4px #969696, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #969696,
+    0 0 2px 1px black;
 }
 .Ganymede-title {
   text-transform: uppercase;
@@ -6274,7 +7072,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/callisto.png");
   background-size: 300px 300px;
   background-position: bottom -11px right -55px;
-  box-shadow: inset 0 0 4px 4px #9e4f96, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #9e4f96,
+    0 0 2px 1px black;
 }
 .Callisto-title {
   text-transform: uppercase;
@@ -6284,7 +7084,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/europa.png");
   background-size: 220px 220px;
   background-position: bottom 65px right -5px;
-  box-shadow: inset 0 0 4px 4px #bc9578, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #bc9578,
+    0 0 2px 1px black;
 }
 .Europa-title {
   text-transform: uppercase;
@@ -6294,7 +7096,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/titan.jpg");
   background-size: 250px 250px;
   background-position: bottom 30px right -8px;
-  box-shadow: inset 0 0 4px 4px #ffcc64, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #ffcc64,
+    0 0 2px 1px black;
 }
 .Titan-title {
   text-transform: uppercase;
@@ -6308,7 +7112,9 @@ input[type="radio"]:checked + .filterDiv::after {
   background-image: url("../../assets/colonies-planets/deimos.jpg");
   background-size: 170px;
   background-position: top -14px right -10px;
-  box-shadow: inset 0 0 4px 4px #b44708, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #b44708,
+    0 0 2px 1px black;
 }
 .deimos-colony-bonus {
   display: inline-block;
@@ -6327,13 +7133,20 @@ input[type="radio"]:checked + .filterDiv::after {
   margin-top: 3px;
 }
 input[type="radio"]:checked + .colonies.filterDiv {
-  box-shadow: inset 0 0 4px 4px #c97e23, 0 0 2px 1px black;
+  box-shadow:
+    inset 0 0 4px 4px #c97e23,
+    0 0 2px 1px black;
 }
 input[type="radio"]:checked + .colonies::after {
   top: 17px;
   left: 174px;
   width: 243px;
-  background: linear-gradient(to right, rgba(226, 140, 34, 0.1), #e28c22, #c97e23);
+  background: linear-gradient(
+    to right,
+    rgba(226, 140, 34, 0.1),
+    #e28c22,
+    #c97e23
+  );
   height: 47px;
   font-size: 36px;
   border-radius: 0px;
@@ -6406,7 +7219,9 @@ input[type="radio"]:checked + .colonies::after {
   margin-top: 10px;
 }
 .log-player {
-  text-shadow: 1px 1px 1px #222, -1px -1px 1px #666;
+  text-shadow:
+    1px 1px 1px #222,
+    -1px -1px 1px #666;
   padding: 2px 10px;
   border-radius: 2px;
   font-weight: bold;
@@ -6454,7 +7269,8 @@ input[type="radio"]:checked + .colonies::after {
   margin-bottom: 6px;
 }
 .delegate-red {
-  filter: drop-shadow(0px 1px 1px darkred) drop-shadow(0px -1px 1px red) drop-shadow(0px 0px 2px black);
+  filter: drop-shadow(0px 1px 1px darkred) drop-shadow(0px -1px 1px red)
+    drop-shadow(0px 0px 2px black);
 }
 .party {
   background: #ddd;
@@ -6580,7 +7396,16 @@ input[type="radio"]:checked + .colonies::after {
   text-transform: uppercase;
 }
 .event-party.event-party--revealed {
-  clip-path: polygon(5% 0, 95% 0, 100% 30%, 100% 80%, 100% 100%, 6% 100%, 0% 70%, 0 0);
+  clip-path: polygon(
+    5% 0,
+    95% 0,
+    100% 30%,
+    100% 80%,
+    100% 100%,
+    6% 100%,
+    0% 70%,
+    0 0
+  );
   margin: 0px 0 0 69px;
 }
 .event-party.event-party--current {
@@ -6718,7 +7543,16 @@ input[type="radio"]:checked + .colonies::after {
 .party-name {
   height: 31px;
   line-height: 32px;
-  clip-path: polygon(5% 0, 95% 0, 100% 30%, 100% 80%, 100% 100%, 6% 100%, 0% 70%, 0 0);
+  clip-path: polygon(
+    5% 0,
+    95% 0,
+    100% 30%,
+    100% 80%,
+    100% 100%,
+    6% 100%,
+    0% 70%,
+    0 0
+  );
   background: #e00bc4;
   width: 165px;
   color: #fff;
@@ -6894,7 +7728,11 @@ input[type="radio"]:checked + .colonies::after {
   font-size: 14px;
   color: white;
   line-height: 21px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow:
+    -1px 0 black,
+    0 1px black,
+    1px 0 black,
+    0 -1px black;
 }
 .dominant-party-name {
   position: absolute;
@@ -6911,7 +7749,9 @@ input[type="radio"]:checked + .colonies::after {
   margin: 3px;
   text-align: center;
   border-radius: 2px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 .party-production-box {
   width: 44px;
@@ -7053,7 +7893,15 @@ input[type="radio"]:checked + .colonies::after {
   width: 70px;
   height: 15px;
   background-color: #444;
-  clip-path: polygon(30% 15%, 30% 40%, 100% 40%, 100% 60%, 30% 60%, 30% 85%, 0% 50%);
+  clip-path: polygon(
+    30% 15%,
+    30% 40%,
+    100% 40%,
+    100% 60%,
+    30% 60%,
+    30% 85%,
+    0% 50%
+  );
   margin-right: 96px;
 }
 .red-arrow-3x {
@@ -7708,7 +8556,7 @@ input[type="radio"]:checked + .party-container::after {
 }
 .pathfinders_cont .track-numbers {
   margin-left: 50px;
-  font-family: 'Prototype';
+  font-family: "Prototype";
   letter-spacing: 1px;
   color: #707070;
   font-size: 22px;
@@ -7740,19 +8588,24 @@ input[type="radio"]:checked + .party-container::after {
   background-image: url(../../assets/tags/moon.png);
 }
 .pathfinders_cont .track-background-venus {
-  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030), url("../../assets/buttons-homepage/planet8.png");
+  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030),
+    url("../../assets/buttons-homepage/planet8.png");
 }
 .pathfinders_cont .track-background-earth {
-  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030), url("../../assets/buttons-homepage/planet3.png");
+  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030),
+    url("../../assets/buttons-homepage/planet3.png");
 }
 .pathfinders_cont .track-background-mars {
-  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030), url("../../assets/buttons-homepage/planet4.png");
+  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030),
+    url("../../assets/buttons-homepage/planet4.png");
 }
 .pathfinders_cont .track-background-jovian {
-  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030), url("../../assets/buttons-homepage/planet5.png");
+  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030),
+    url("../../assets/buttons-homepage/planet5.png");
 }
 .pathfinders_cont .track-background-moon {
-  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030), url("../../assets/buttons-homepage/planet9.png");
+  background: linear-gradient(to right, transparent 20%, #303030 40%, #303030),
+    url("../../assets/buttons-homepage/planet9.png");
 }
 .pathfinders_cont .highlight {
   font-weight: bold;
@@ -7835,7 +8688,9 @@ input[type="radio"]:checked + .party-container::after {
   border-left: 2px solid #dddddd;
   border-bottom: 2px solid #898989;
   border-right: 2px solid #898989;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
   background-image: url(../../assets/misc/production.png);
   background-size: cover;
 }
@@ -7845,10 +8700,17 @@ input[type="radio"]:checked + .party-container::after {
   margin-top: 2px;
   margin-bottom: 2px;
 }
-.pathfinders_cont .card-production-box .card-production-box-row .card-production-box-row-item {
+.pathfinders_cont
+  .card-production-box
+  .card-production-box-row
+  .card-production-box-row-item {
   align-self: center;
 }
-.pathfinders_cont .card-production-box .card-production-box-row .card-production-box-row-item .card-item-container {
+.pathfinders_cont
+  .card-production-box
+  .card-production-box-row
+  .card-production-box-row-item
+  .card-item-container {
   margin: 0 !important;
 }
 .pathfinders_cont .delegate {
@@ -7908,7 +8770,9 @@ input[type="radio"]:checked + .party-container::after {
   border-right: 2px solid #898989;
   background-color: #cda282;
   background: linear-gradient(#cc8b00, #805700, #805700);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(0, 0, 0, 0.3);
 }
 .vp1 :after {
   content: "1";

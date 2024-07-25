@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tsc": "tsc",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest"
   },
   "dependencies": {
     "@leeoniya/ufuzzy": "^1.0.14",

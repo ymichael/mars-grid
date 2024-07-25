@@ -39,19 +39,19 @@ export function CardSearch({
       }
       const [idxs, info, order] = uf.search(
         eligibleCards.map((card) => card.name),
-        query
+        query,
       );
       if (!idxs) {
         return [];
       }
       return idxs.map((idx) => eligibleCards[idx]);
     },
-    [eligibleCards]
+    [eligibleCards],
   );
 
   const filteredResults = useMemo(
     () => getResultsImmediate(debouncedQuery),
-    [debouncedQuery, getResultsImmediate]
+    [debouncedQuery, getResultsImmediate],
   );
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>

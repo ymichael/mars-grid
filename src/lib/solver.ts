@@ -25,20 +25,20 @@ export function getRandomSolution(grid: Grid): Solution {
 
 export function* getSolutions(
   grid: Grid,
-  rand: RandomFunction = defaultRandom
+  rand: RandomFunction = defaultRandom,
 ): Generator<Solution> {
   const eligibleCards = shuffleInPlace([...getEligibleCards()], rand);
   const matchingCardsByCell: Card[][] = Array.from({ length: 9 }, () => []);
   for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
     const ruleRow = grid.ruleRows[rowIdx];
     const matchingCardsForRow = eligibleCards.filter((card) =>
-      ruleRow.matches(card)
+      ruleRow.matches(card),
     );
     for (let colIdx = 0; colIdx < 3; colIdx++) {
       const ruleColumn = grid.ruleColumns[colIdx];
       const cellIdx = rowIdx * 3 + colIdx;
       const matchingCardsForCell = matchingCardsForRow.filter((card) =>
-        ruleColumn.matches(card)
+        ruleColumn.matches(card),
       );
       matchingCardsByCell[cellIdx] = matchingCardsForCell;
     }
@@ -64,7 +64,7 @@ export function* permuteUnique<T>(arr: T[][]): Generator<T[]> {
 function* permuteUniqueHelper<T>(
   arr: T[][],
   sortedIndices: number[],
-  result: T[]
+  result: T[],
 ): Generator<T[]> {
   if (result.length === arr.length) {
     yield result;

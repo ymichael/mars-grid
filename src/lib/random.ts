@@ -42,21 +42,21 @@ export const defaultRandom = () => Math.random();
 
 export const randomValue = <T>(
   arr: T[],
-  rand: RandomFunction = defaultRandom
+  rand: RandomFunction = defaultRandom,
 ): T => {
   return arr[Math.floor(rand() * arr.length)];
 };
 
 export const oneInX = (
   x: number,
-  rand: RandomFunction = defaultRandom
+  rand: RandomFunction = defaultRandom,
 ): boolean => {
   return rand() < 1 / x;
 };
 
 export const shuffleInPlace = <T>(
   array: T[],
-  rand: RandomFunction = defaultRandom
+  rand: RandomFunction = defaultRandom,
 ): T[] => {
   let currentIndex = array.length,
     randomIndex;

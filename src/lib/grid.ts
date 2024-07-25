@@ -55,7 +55,7 @@ export function generateGridPuzzleFromSeed(seed: string): Grid {
 
 function validRulesForRules(existingRules: Rule[], allRules: Rule[]): Rule[] {
   const matchingCards = getEligibleCards().filter((card) =>
-    existingRules.every((rule) => rule.matches(card))
+    existingRules.every((rule) => rule.matches(card)),
   );
   return allRules.filter((otherRule) => {
     if (existingRules.includes(otherRule)) {
@@ -88,7 +88,7 @@ function* permute<T>(arr: T[], n: number): Generator<T[]> {
 
 export function* generateCandidateGrids(
   rules: Rule[],
-  rand: RandomFunction = defaultRandom
+  rand: RandomFunction = defaultRandom,
 ): Generator<Grid> {
   for (const ruleCol1 of shuffleInPlace([...rules], rand)) {
     const validRulesForRuleCol1 = validRulesForRules([ruleCol1], rules);
