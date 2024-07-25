@@ -162,16 +162,11 @@ function GridCell({
   const rowRule = grid.ruleRows[Math.floor(cellIdx / 3)];
   const colRule = grid.ruleColumns[cellIdx % 3];
   const card = selectedCards[cellIdx];
-  if (!card) {
-    return (
-      <div
-        className="w-[150px] aspect-[15/18] max-w-full flex items-center justify-center border rounded-md bg-background hover:border hover:border-2 hover:border-blue-500 hover:rounded-md cursor-pointer"
-        onClick={onClick}
-      ></div>
-    );
-  }
 
   const isValid = useMemo(() => {
+    if (!card) {
+      return true;
+    }
     if (!rowRule.matches(card) || !colRule.matches(card)) {
       return false;
     }
@@ -182,8 +177,16 @@ function GridCell({
       }
     }
     return true;
-  }, [rowRule, colRule, card, selectedCards]);
+  }, [rowRule, colRule, card, cellIdx, selectedCards]);
 
+  if (!card) {
+    return (
+      <div
+        className="w-[150px] aspect-[15/18] max-w-full flex items-center justify-center border rounded-md bg-background hover:border hover:border-2 hover:border-blue-500 hover:rounded-md cursor-pointer"
+        onClick={onClick}
+      ></div>
+    );
+  }
   return (
     <div
       className={cn(

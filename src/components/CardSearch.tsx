@@ -46,12 +46,12 @@ export function CardSearch({
       }
       return idxs.map((idx) => eligibleCards[idx]);
     },
-    [query, eligibleCards]
+    [eligibleCards]
   );
 
   const filteredResults = useMemo(
     () => getResultsImmediate(debouncedQuery),
-    [debouncedQuery, eligibleCards]
+    [debouncedQuery, getResultsImmediate]
   );
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>

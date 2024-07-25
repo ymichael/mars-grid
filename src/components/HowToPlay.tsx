@@ -44,7 +44,7 @@ export function HowToPlay() {
             <ol className="list-decimal list-outside p-2 mx-4 my-2">
               <li>
                 The game consists of a 3x3 grid where each cell must be filled
-                with a card.
+                with a unique card.
               </li>
               <li>
                 Each row and column has unique restrictions that the cards must
@@ -57,10 +57,6 @@ export function HowToPlay() {
               </li>
               <li>
                 You win the game when all cells are filled with valid cards!
-              </li>
-              <li>
-                For assistance, click the "Show Random Solution" button to view
-                a possible solution.
               </li>
             </ol>
             <p>Good luck and have fun!</p>

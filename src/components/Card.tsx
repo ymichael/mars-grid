@@ -25,7 +25,7 @@ export function ResponsiveCard({ card }: { card: Card }) {
       return Math.min(scaleX, scaleY);
     }
     return 1;
-  }, [size, parentRef.current]);
+  }, [size]);
   return (
     <div
       ref={parentRef}

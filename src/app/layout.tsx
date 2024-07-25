@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* eslint-disable-next-line */}
         <link
           href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
           rel="stylesheet"
