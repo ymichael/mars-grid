@@ -192,12 +192,10 @@ function GridCell({
   selectedCardIds: SelectedCardIds;
   onClick: () => void;
 }) {
-  const rowRule = grid.ruleRows[Math.floor(cellIdx / 3)];
-  const colRule = grid.ruleColumns[cellIdx % 3];
   const cardId = selectedCardIds[cellIdx];
   const isValid = useMemo(() => {
     return isValidCardForCell(grid, cellIdx, cardId);
-  }, [rowRule, colRule, cardId, cellIdx, selectedCardIds]);
+  }, [grid, cardId, cellIdx]);
 
   if (!cardId) {
     return (
