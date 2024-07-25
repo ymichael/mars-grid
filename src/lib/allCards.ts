@@ -54,94 +54,133 @@ export type ProductionResource =
   | "steel"
   | "heat";
 
+type AddResourceType = {
+  type?: "Floater" | "Data" | "Animal" | "Microbe" | "Fighter" | "Asteroid";
+  tag?: Tag | Tag[];
+  per?: number;
+  oceans?: {};
+  greeneries?: {};
+  floaters?: {};
+  colonies?: {};
+  underworld?: unknown;
+  count?: number | { tag: Tag };
+  autoSelect?: boolean;
+  min?: number;
+  mustHaveCard?: boolean;
+  robotCards?: boolean;
+  moon?: {
+    miningRate?: {};
+    habitat?: {};
+    habitatRate?: {};
+    road?: {};
+    mine?: {};
+  };
+  cities?: {
+    where?: "offmars" | "onmars";
+  };
+  start?: number;
+  resourcesHere?: {};
+  each?: number;
+  all?: boolean;
+  others?: boolean;
+};
+
 type Behavior = {
   production?: {
-    [key in ProductionResource]?:
-      | number
-      | {
-          cities?: unknown;
-          oceans?: {};
-          floaters?: {};
-          moon?: unknown;
-          tag?: string | string[];
-          per?: number;
-          all?: boolean;
-          others?: boolean;
-          colonies?: unknown;
-          underworld?: unknown;
-        };
+    [key in ProductionResource]?: number | AddResourceType;
   };
   stock?: {
-    [key in ProductionResource]?:
-      | number
-      | {
-          greeneries?: {};
-          floaters?: {};
-          cities?: unknown;
-          moon?: unknown;
-          colonies?: unknown;
-          underworld?: unknown;
-          tag?: string | string[];
-          each?: number;
-          all?: boolean;
-        };
+    [key in ProductionResource]?: number | AddResourceType;
   };
   removeAnyPlants?: number;
-  drawCard?: number | unknown;
+  drawCard?:
+    | number
+    | {
+        tag?: Tag;
+        type?: "event";
+        count?:
+          | number
+          | {
+              tag?: Tag;
+              per?: number;
+            };
+        keep?: number;
+      };
   decreaseAnyProduction?: {
     type?: ProductionResource;
     count?: number;
   };
-  tr?: number | unknown;
-  standardResource?: number | unknown;
-  city?: {};
-  ocean?: {};
-  greenery?: {};
-  global?: unknown;
+  tr?:
+    | number
+    | {
+        underworld: unknown;
+        per?: number;
+      };
+  standardResource?: number;
+  city?: {
+    space?: string;
+    on?: "isolated";
+  };
+  ocean?: {
+    count?: number;
+    on?: "land";
+  };
+  greenery?: {
+    on?: "ocean";
+  };
+  global?: {
+    venus?: number;
+    temperature?: number;
+    oxygen?: number;
+  };
   moon?: unknown;
   turmoil?: unknown;
   underworld?: unknown;
   colonies?: unknown;
-  addResourcesToAnyCard?: unknown;
-  addResources?: unknown;
-  titanumValue?: unknown;
-  steelValue?: unknown;
-  greeneryDiscount?: unknown;
+  addResourcesToAnyCard?: AddResourceType | AddResourceType[];
+  addResources?:
+    | number
+    | {
+        tag: Tag;
+      };
+  titanumValue?: number;
+  steelValue?: number;
+  greeneryDiscount?: number;
   tile?: unknown;
-  spend?: unknown;
+  spend?: {
+    energy?: number;
+    cards?: number;
+    resourceFromAnyCard?: { type: "Microbe" };
+  };
   title?: string;
 };
 
 type Action = {
-  addResourcesToAnyCard?: {
-    type?: string;
-    count?: number;
-    autoSelect?: boolean;
-    mustHaveCard?: boolean;
-    tag?: string;
-    min?: number;
-    robotCards?: boolean;
-  };
+  addResourcesToAnyCard?: AddResourceType;
   standardResource?: number;
   addResources?:
     | number
     | {
-        tag?: string;
+        tag?: Tag;
         per?: number;
       };
   tr?: number;
   stock?: {
-    [key in ProductionResource]?: unknown;
+    [key in ProductionResource]?: number | AddResourceType;
   };
   production?: {
-    [key in ProductionResource]?: unknown;
+    [key in ProductionResource]?: number;
   };
-  global?: unknown;
+  global?: {
+    venus?: number;
+    temperature?: number;
+    oxygen?: number;
+  };
   spend?: {
     corruption?: number;
     resourcesHere?: number;
   } & {
-    [key in ProductionResource]?: unknown;
+    [key in ProductionResource]?: number;
   };
   drawCard?:
     | number
@@ -164,7 +203,7 @@ export type Card = {
   module: GameModule;
   name: string;
   tags: Tag[];
-  victoryPoints?: number | unknown;
+  victoryPoints?: number | "special" | AddResourceType;
   cost: number;
   type: CardType;
   html: string;
