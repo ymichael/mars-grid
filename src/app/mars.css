@@ -75,7 +75,7 @@
     U+015B, U+0179, U+017A-017C;
   /* Polish glyphs */
 }
-.filterDiv {
+.card-container {
   font-size: 17px !important;
 }
 .is-action {
@@ -148,14 +148,14 @@
 .general-warning {
   color: #bb0000;
 }
-.filterDiv,
-.filterDiv::after,
-.filterDiv::before,
-.filterDiv *::after,
-.filterDiv *::before,
-.filterDiv *,
-.filterDiv ::before,
-.filterDiv ::after {
+.card-container,
+.card-container::after,
+.card-container::before,
+.card-container *::after,
+.card-container *::before,
+.card-container *,
+.card-container ::before,
+.card-container ::after {
   box-sizing: content-box;
 }
 .cardbox {
@@ -210,7 +210,7 @@
   color: #d73a49;
   padding: 10px 0;
 }
-.filterDiv {
+.card-container {
   cursor: pointer;
   position: relative;
   background: #333333;
@@ -235,18 +235,18 @@
   border-radius: 20px;
   box-shadow: 0 0 2px 1px black;
 }
-input[type="checkbox"] + .filterDiv.card-container,
-input[type="radio"] + .filterDiv.card-container {
+input[type="checkbox"] + .card-container.card-container,
+input[type="radio"] + .card-container.card-container {
   margin-top: 22px;
 }
-input[type="checkbox"]:checked + .filterDiv,
-input[type="radio"]:checked + .filterDiv {
+input[type="checkbox"]:checked + .card-container,
+input[type="radio"]:checked + .card-container {
   box-shadow:
     0 0 0 1px #303030,
     0 0 7px 10px #c97e23;
 }
-input[type="checkbox"]:checked + .filterDiv::after,
-input[type="radio"]:checked + .filterDiv::after {
+input[type="checkbox"]:checked + .card-container::after,
+input[type="radio"]:checked + .card-container::after {
   content: "✓";
   position: absolute;
   width: 90px;
@@ -265,7 +265,7 @@ input[type="radio"]:checked + .filterDiv::after {
   color: black;
   z-index: 1;
 }
-.filterDiv3 {
+.card-container3 {
   position: relative;
   background: #eeeeee;
   background: linear-gradient(
@@ -292,14 +292,14 @@ input[type="radio"]:checked + .filterDiv::after {
   box-shadow: 0 0 30px 15px black;
   transition: transform 200ms ease-in-out;
 }
-.filterDiv-stacked {
+.card-container-stacked {
   transform: perspective(3500px) rotateY(45deg);
   box-shadow: 0 0 30px 15px black;
   transition: 0.2s;
   margin-right: -130px;
   transition: transform 200ms ease-in-out;
 }
-.filterDiv-stacked:hover {
+.card-container-stacked:hover {
   -webkit-transform: translateY(-20px);
   -moz-transform: translateY(-20px);
   -ms-transform: translateY(-20px);
@@ -7132,7 +7132,7 @@ input[type="radio"]:checked + .filterDiv::after {
   filter: contrast(1.25);
   margin-top: 3px;
 }
-input[type="radio"]:checked + .colonies.filterDiv {
+input[type="radio"]:checked + .colonies.card-container {
   box-shadow:
     inset 0 0 4px 4px #c97e23,
     0 0 2px 1px black;
@@ -7933,7 +7933,7 @@ input[type="radio"]:checked + .colonies::after {
   transform: scale(0.9);
   text-align: center;
 }
-input[type="radio"]:checked + .party-container.filterDiv {
+input[type="radio"]:checked + .party-container.card-container {
   box-shadow: none;
 }
 input[type="radio"]:checked + .party-container::after {

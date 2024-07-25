@@ -1,4 +1,10 @@
-import { Card } from "./allCards";
+import { Card, ProductionResource } from "./allCards";
+
+function isProjectCard(card: Card): boolean {
+  return (
+    card.type === "active" || card.type === "automated" || card.type === "event"
+  );
+}
 
 export interface Rule {
   id: string;
@@ -11,17 +17,12 @@ class CostAtLeastRule implements Rule {
   cost: number;
 
   constructor(cost: number) {
-    this.id = `cost-at-least-${cost}`;
+    this.id = `cost_ge_${cost}`;
     this.description = `Costs at least ${cost}`;
     this.cost = cost;
   }
   matches(card: Card): boolean {
-    return (
-      (card.type === "automated" ||
-        card.type === "active" ||
-        card.type === "event") &&
-      card.cost >= this.cost
-    );
+    return isProjectCard(card) && card.cost >= this.cost;
   }
 }
 
@@ -31,17 +32,12 @@ class CostAtMostRule implements Rule {
   cost: number;
 
   constructor(cost: number) {
-    this.id = `cost-at-most-${cost}`;
+    this.id = `cost_le_${cost}`;
     this.description = `Costs at most ${cost}`;
     this.cost = cost;
   }
   matches(card: Card): boolean {
-    return (
-      (card.type === "automated" ||
-        card.type === "active" ||
-        card.type === "event") &&
-      card.cost <= this.cost
-    );
+    return isProjectCard(card) && card.cost <= this.cost;
   }
 }
 
@@ -51,7 +47,7 @@ class HasTagRule implements Rule {
   tag: string;
 
   constructor(tag: string) {
-    this.id = `has-tag-${tag}`;
+    this.id = `tag_${tag}`;
     this.description = `Has ${tag} tag`;
     this.tag = tag;
   }
@@ -66,7 +62,7 @@ class HasNoTagsRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `has-no-tags`;
+    this.id = `no_tags`;
     this.description = `Has no tags`;
   }
 
@@ -80,7 +76,7 @@ class IsGreenCardRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `is-green-card`;
+    this.id = `green_card`;
     this.description = "Is a green card";
   }
 
@@ -94,7 +90,7 @@ class IsEventCardRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `is-event-card`;
+    this.id = `event_card`;
     this.description = "Is an event card";
   }
 
@@ -108,7 +104,7 @@ class IsActiveCardRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `is-active-card`;
+    this.id = `active_card`;
     this.description = "Is a blue card";
   }
 
@@ -120,10 +116,10 @@ class IsActiveCardRule implements Rule {
 class IncreasesProductionForResourceRule implements Rule {
   id: string;
   description: string;
-  resource: string;
+  resource: ProductionResource;
 
-  constructor(resource: string) {
-    this.id = `increases-production-for-${resource}`;
+  constructor(resource: ProductionResource) {
+    this.id = `prod_inc_${resource}`;
     this.description = `Increases production for ${resource}`;
     this.resource = resource;
   }
@@ -146,17 +142,15 @@ class HasGlobalRequirementRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `has-global-requirement`;
+    this.id = `global_req`;
     this.description = `Has global requirement`;
   }
 
   matches(card: Card): boolean {
     return (
-      (card.type === "automated" ||
-        card.type === "active" ||
-        card.type === "event") &&
+      isProjectCard(card) &&
       !!card.requirements.find((req) => {
-        return req.oceans || req.oxygen || req.temperature;
+        return req.oceans || req.oxygen || req.temperature || req.venus;
       })
     );
   }
@@ -168,7 +162,7 @@ class HasTagRequirementRule implements Rule {
   tag: string;
 
   constructor(tag: string) {
-    this.id = `has-tag-requirement-${tag}`;
+    this.id = `req_tag_${tag}`;
     this.description = `Has ${tag} tag requirement`;
     this.tag = tag;
   }
@@ -186,10 +180,10 @@ class HasTagRequirementRule implements Rule {
 class GainsResourceRule implements Rule {
   id: string;
   description: string;
-  resource: string;
+  resource: ProductionResource;
 
-  constructor(resource: string) {
-    this.id = `gains-resource-${resource}`;
+  constructor(resource: ProductionResource) {
+    this.id = `gain_${resource}`;
     this.description = `Gains ${resource}`;
     this.resource = resource;
   }
@@ -214,7 +208,7 @@ class HasVictoryPointsRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `has-victory-points`;
+    this.id = `vp`;
     this.description = "Has victory points";
   }
 
@@ -228,7 +222,7 @@ class DecreasesProductionRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `decreases-production`;
+    this.id = `prod_dec`;
     this.description = "Decreases production";
   }
 
@@ -241,6 +235,13 @@ class DecreasesProductionRule implements Rule {
         return true;
       }
     }
+    if (
+      Object.values(card.behavior?.production ?? {}).some((value) => {
+        return typeof value === "number" && value < 0;
+      })
+    ) {
+      return true;
+    }
     return false;
   }
 }
@@ -250,7 +251,7 @@ class PlacesCityRule implements Rule {
   description: string;
 
   constructor() {
-    this.id = `places-city`;
+    this.id = `place_city`;
     this.description = "Places city";
   }
 
@@ -259,12 +260,26 @@ class PlacesCityRule implements Rule {
   }
 }
 
+class PlacesOceanRule implements Rule {
+  id: string;
+  description: string;
+
+  constructor() {
+    this.id = `place_ocean`;
+    this.description = "Places ocean";
+  }
+
+  matches(card: Card): boolean {
+    return !!card.behavior?.ocean;
+  }
+}
+
 class DrawsCardRule implements Rule {
   id: string;
   description: string;
 
   constructor() {
-    this.id = `draws-card`;
+    this.id = `draw_card`;
     this.description = "Draws card";
   }
 
@@ -273,12 +288,26 @@ class DrawsCardRule implements Rule {
   }
 }
 
+class RaisesTRWhenPlayedRule implements Rule {
+  id: string;
+  description: string;
+
+  constructor() {
+    this.id = `raise_tr`;
+    this.description = "Raises TR when played";
+  }
+
+  matches(card: Card): boolean {
+    return card.behavior?.tr !== undefined;
+  }
+}
+
 class HasActionRule implements Rule {
   id: string;
   description: string;
 
   constructor() {
-    this.id = `has-action`;
+    this.id = `has_action`;
     this.description = "Has action";
   }
   matches(card: Card): boolean {
@@ -333,11 +362,20 @@ export const allRules: Rule[] = [
   new DrawsCardRule(),
   new HasActionRule(),
   new HasGlobalRequirementRule(),
+  new PlacesOceanRule(),
+  new RaisesTRWhenPlayedRule(),
 ];
 
-const ruleByIdCached = Object.fromEntries(
-  allRules.map((rule) => [rule.id, rule]),
-);
+const ruleByIdCached = (() => {
+  const map = new Map<string, Rule>();
+  for (const rule of allRules) {
+    if (map.has(rule.id)) {
+      throw new Error(`Duplicate rule id: ${rule.id}`);
+    }
+    map.set(rule.id, rule);
+  }
+  return Object.fromEntries(map);
+})();
 
 export function getRuleById(id: string): Rule {
   const rule = ruleByIdCached[id];

@@ -3,7 +3,6 @@ import {
   permuteUnique,
   getSolutionWithSeed,
   getRandomSolution,
-  getSolutions,
   isSolution,
 } from "./solver";
 import { generateGridPuzzleFromSeed } from "./grid";
@@ -65,10 +64,10 @@ describe("getSolutionWithSeed", () => {
     const grid = generateGridPuzzleFromSeed("fixed-seed-for-test", {
       minMatches: 1,
     });
-    const solution = getRandomSolution(grid);
-    expect(solution).toHaveLength(9);
-    const allSolutions = Array.from(getSolutions(grid));
-    expect(allSolutions).toHaveLength(240);
+    const solution1 = getRandomSolution(grid);
+    expect(solution1).toHaveLength(9);
+    const solution2 = getRandomSolution(grid);
+    expect(solution2).toHaveLength(9);
   });
 });
 

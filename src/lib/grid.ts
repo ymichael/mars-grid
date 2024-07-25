@@ -1,5 +1,5 @@
 import { getEligibleCards } from "./allCards";
-import { Rule, allRules } from "./rules";
+import { Rule, allRules, getRuleById } from "./rules";
 import {
   RandomFunction,
   defaultRandom,
@@ -18,6 +18,37 @@ interface GenerateOptions {
   rand?: RandomFunction;
   // A lower number will make the puzzle more difficult
   minMatches?: number;
+}
+
+export function getGridId(grid: Grid): string {
+  const { ruleColumns, ruleRows } = grid;
+  const serializedRules = [...ruleColumns, ...ruleRows].join(",");
+  return `v1-${serializedRules}`;
+}
+
+export function fromGridId(gridId: string): Grid {
+  const match = gridId.match(/^v1-(.+)$/);
+  if (!match) {
+    throw new Error("Unsupported gridId version");
+  }
+  const rules = match[1].split(",");
+  if (rules.length !== 6) {
+    throw new Error("Invalid serialized grid format");
+  }
+  for (const rule of rules) {
+    if (!getRuleById(rule)) {
+      throw new Error(`Unknown rule '${rule}'`);
+    }
+  }
+  // 6 unique rules
+  const uniqueRules = new Set(rules);
+  if (uniqueRules.size !== 6) {
+    throw new Error("Invalid grid: contains duplicate rules");
+  }
+  return {
+    ruleColumns: [rules[0], rules[1], rules[2]],
+    ruleRows: [rules[3], rules[4], rules[5]],
+  };
 }
 
 export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
