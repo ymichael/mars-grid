@@ -289,7 +289,13 @@ class DrawsCardRule implements Rule {
   }
 
   matches(card: Card): boolean {
-    return card.behavior?.drawCard !== undefined;
+    if (card.behavior?.drawCard !== undefined) {
+      return true;
+    }
+    if (card.behavior?.or?.behaviors.some((behavior) => behavior.drawCard)) {
+      return true;
+    }
+    return false;
   }
 }
 

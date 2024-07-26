@@ -815,6 +815,7 @@ export const allCards: Card[] = [
     type: "active",
     requirements: [],
     metadata: { cardNumber: "187" },
+    action: {},
     compatibility: [],
     html: '<div class="card-container card-aquifer-pumping"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">18</div></div><div class="card-tags"><div class="card-tag tag-building"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Aquifer Pumping</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">8</div></div></div><div class="card-effect-box-item"><div><div class="card-special "><sup>(</sup></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-superscript card-resource--superscript card-resource-steel"></div></div></div><div class="card-effect-box-item"><div><div class="card-special "><sup>)</sup></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 8 M€ to place 1 ocean tile. STEEL MAY BE USED as if you were playing a building card.)</div></div></div></div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "aquifer-pumping",
@@ -1001,6 +1002,7 @@ export const allCards: Card[] = [
         anyPlayer: false,
       },
     },
+    action: {},
     behavior: { production: { energy: -1 } },
     resourceType: "Asteroid",
     compatibility: [],
@@ -1120,6 +1122,7 @@ export const allCards: Card[] = [
     cost: 10,
     type: "active",
     requirements: [],
+    action: {},
     metadata: {
       cardNumber: "X31",
       description: "Add 2 asteroids to this card.",
@@ -1668,6 +1671,7 @@ export const allCards: Card[] = [
     },
     behavior: {
       production: { energy: -2, megacredits: 5 },
+      city: {},
       tile: {
         type: 3,
         on: "city",
@@ -1709,6 +1713,7 @@ export const allCards: Card[] = [
     },
     behavior: {
       production: { energy: -2, megacredits: 5 },
+      city: {},
       tile: {
         type: 3,
         on: "city",
@@ -2125,6 +2130,7 @@ export const allCards: Card[] = [
     metadata: { cardNumber: "X16" },
     resourceType: "Asteroid",
     compatibility: [],
+    action: {},
     html: '<div class="card-container card-comet-aiming"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">17</div></div><div class="card-tags"><div class="card-tag tag-space"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Comet Aiming</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-titanium"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-asteroid"></div></div></div><div class="card-effect-box-item"><div><div class="card-special card-asterix">*</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 1 titanium to add 1 asteroid resource to ANY CARD.)</div></div></div><div class="card-row"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-asteroid"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Remove 1 asteroid here to place an ocean.)</div></div></div></div><div class="padBottom" style="padding-bottom: 22px;"></div></div></div> <div class="resource-card-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div> <div class="card-resources-counter"><span class="card-resources-counter-number"> 0</span> <span class="card-resource card-resource-asteroid"></span></div> <div class="card-extra-content-container"></div> </div>',
     id: "comet-aiming",
   },
@@ -3190,6 +3196,7 @@ export const allCards: Card[] = [
     tags: ["space"],
     cost: 8,
     type: "active",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "X19" },
     resourceType: "Asteroid",
@@ -3623,6 +3630,7 @@ export const allCards: Card[] = [
     requirements: [],
     metadata: { cardNumber: "X03" },
     compatibility: [],
+    action: {},
     html: '<div class="card-container card-energy-market"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">3</div></div><div class="card-tags"><div class="card-tag tag-power"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Energy Market</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">2x</div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-text-size--M card-text-bold">x</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 2X M€ to gain X energy.)</div></div></div><div class="card-row"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">8</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Decrease energy production 1 step to gain 8 M€.)</div></div></div></div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "energy-market",
   },
@@ -3782,6 +3790,7 @@ export const allCards: Card[] = [
     tags: ["venus"],
     cost: 21,
     type: "active",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "223", description: "Add 3 floaters to this card" },
     behavior: { addResources: 3 },
@@ -3796,6 +3805,7 @@ export const allCards: Card[] = [
     tags: ["microbe"],
     cost: 13,
     type: "active",
+    action: {},
     requirements: [{ temperature: -10, max: true, count: -10 }],
     metadata: { cardNumber: "134", description: "It must be -10 C or colder." },
     compatibility: [],
@@ -4067,6 +4077,9 @@ export const allCards: Card[] = [
         "Place an ocean tile. IF THERE ARE TILES ADJACENT TO THIS OCEAN TILE, YOU MAY REMOVE 4 M€ FROM THE OWNER OF ONE OF THOSE TILES.",
       victoryPoints: -1,
     },
+    behavior: {
+      ocean: {},
+    },
     compatibility: [],
     html: '<div class="card-container card-flooding"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">7</div></div><div class="card-tags"><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Flooding</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div><div><div class="card-special card-nbsp"></div></div><div><div class="card-special card-minus"></div></div><div class="card-item-container"><div class="card-resource card-resource-money red-outline">4</div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Place an ocean tile. IF THERE ARE TILES ADJACENT TO THIS OCEAN TILE, YOU MAY REMOVE 4 M€ FROM THE OWNER OF ONE OF THOSE TILES.)</div> <div class="card-points card-points-big">-1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "flooding",
@@ -4077,6 +4090,7 @@ export const allCards: Card[] = [
     tags: ["science"],
     cost: 4,
     type: "active",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "", hasExternalHelp: true },
     compatibility: [],
@@ -4108,6 +4122,7 @@ export const allCards: Card[] = [
     tags: ["venus"],
     cost: 8,
     type: "active",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "226" },
     resourceType: "Floater",
@@ -5110,6 +5125,9 @@ export const allCards: Card[] = [
     compatibility: [],
     html: '<div class="card-container card-hi-tech-lab"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">17</div></div><div class="card-tags"><div class="card-tag tag-science"></div><div class="card-tag tag-building"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Hi-Tech Lab</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-text-size--M card-text-bold">X</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-text-size--M card-text-bold">X</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-effect-box-item"><div><div class="card-special card-asterix">*</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend any amount of energy to draw the same number of cards. TAKE 1 INTO HAND AND DISCARD THE REST.)</div></div></div></div><div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "hi-tech-lab",
+    action: {
+      drawCard: {},
+    },
   },
   {
     module: "pathfinders",
@@ -5367,6 +5385,7 @@ export const allCards: Card[] = [
     metadata: { cardNumber: "X47" },
     resourceType: "Asteroid",
     compatibility: [],
+    action: {},
     html: '<div class="card-container card-icy-impactors"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">15</div></div><div class="card-tags"><div class="card-tag tag-space"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Icy Impactors</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">10</div></div></div><div class="card-effect-box-item"><div><div class="card-special "><sup>(</sup></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-superscript card-resource--superscript card-resource-titanium"></div></div></div><div class="card-effect-box-item"><div><div class="card-special "><sup>)</sup></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-asteroid"></div><div class="card-resource card-resource-asteroid"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 10 M€ (titanium may be used) to add 2 asteroids here.)</div></div></div><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-asteroid"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div></div><div class="card-effect-box-item"><div><div class="card-special card-asterix">*</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 1 asteroid here to place an ocean tile. FIRST PLAYER CHOOSES WHERE YOU MUST PLACE IT.)</div></div></div></div><div class="padBottom" style="padding-bottom: 22px;"></div></div></div> <div class="resource-card-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div> <div class="card-resources-counter"><span class="card-resources-counter-number"> 0</span> <span class="card-resource card-resource-asteroid"></span></div> <div class="card-extra-content-container"></div> </div>',
     id: "icy-impactors",
   },
@@ -5383,6 +5402,13 @@ export const allCards: Card[] = [
         "Decrease your energy production 1 step and decrease your M€ production 2 steps. Place a city tile.",
     },
     compatibility: [],
+    behavior: {
+      city: {},
+      production: {
+        energy: -1,
+        megacredits: 1,
+      },
+    },
     html: '<div class="card-container card-immigrant-city"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">13</div></div><div class="card-tags"><div class="card-tag tag-city"></div><div class="card-tag tag-building"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Immigrant City</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-tile city-tile--M red-outline"></div></div></div></div> <div><div class="card-special card-colon">:</div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">1</div></div></div></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Effect: When a city tile is placed, including this, increase your M€ production 1 step.)</div></div></div><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">-2</div></div></div></div></div><div class="card-item-container"><div class="card-tile city-tile--M"></div></div></div></div> <div class="card-description">(Decrease your energy production 1 step and decrease your M€ production 2 steps. Place a city tile.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "immigrant-city",
   },
@@ -5878,6 +5904,15 @@ export const allCards: Card[] = [
       description: "Draw 1 card, or draw 3 if you have at least 3 Venus tags.",
       victoryPoints: 2,
     },
+    behavior: {
+      or: {
+        autoSelect: true,
+        behaviors: [
+          { drawCard: { count: 1 } },
+          { drawCard: { count: 3, tag: "venus" } },
+        ],
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-io-sulphur-research"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">17</div></div><div class="card-tags"><div class="card-tag tag-science"></div><div class="card-tag tag-jovian"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Io Sulphur Research</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-row"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-row"><div class="card-item-container"><div class="card-res-amount">3</div> <div class="card-resource-tag card-tag-venus"></div></div><div><div class="card-special card-colon">:</div></div><div class="card-item-container"><div class="card-resource card-card"></div><div class="card-resource card-card"></div><div class="card-resource card-card"></div></div></div></div> <div class="card-description">(Draw 1 card, or draw 3 if you have at least 3 Venus tags.)</div> <div class="card-points card-points-big">2</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon venus-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "io-sulphur-research",
@@ -5960,6 +5995,7 @@ export const allCards: Card[] = [
     metadata: { cardNumber: "234" },
     resourceType: "Floater",
     compatibility: [],
+    action: {},
     html: '<div class="card-container card-jet-stream-microscrappers"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">12</div></div><div class="card-tags"><div class="card-tag tag-venus"></div></div></div> <div class="card-title"><div class="card-title background-color-active title-small">Jet Stream Microscrappers</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-titanium"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-floater"></div><div class="card-resource card-resource-floater"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 1 titanium to add 2 floaters here)</div></div></div><div class="card-row"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-floater"></div><div class="card-resource card-resource-floater"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-global-requirement card-venus-global-requirement"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Spend 2 floaters here to raise Venus 1 step)</div></div></div></div><div class="padBottom" style="padding-bottom: 22px;"></div></div></div> <div class="resource-card-icon-expansion-container"><div class="card-expansion project-icon venus-icon"></div> </div> <div class="card-resources-counter"><span class="card-resources-counter-number"> 0</span> <span class="card-resource card-resource-floater"></span></div> <div class="card-extra-content-container"></div> </div>',
     id: "jet-stream-microscrappers",
   },
@@ -6005,6 +6041,7 @@ export const allCards: Card[] = [
     cost: 20,
     type: "active",
     requirements: [{ tag: "jovian" }],
+    action: {},
     metadata: {
       cardNumber: "C18",
       description: {
@@ -6044,6 +6081,7 @@ export const allCards: Card[] = [
       description: { text: "Requires 3 science tags.", align: "left" },
       victoryPoints: 1,
     },
+    action: {},
     resourceType: "Floater",
     compatibility: [],
     html: '<div class="card-container card-jupiter-floating-station"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">9</div></div><div class="card-tags"><div class="card-tag tag-jovian"></div></div></div> <div class="card-title"><div class="card-title background-color-active title-small">Jupiter Floating Station</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container">\n     <div class="card-resource-tag--S card-tag-science"></div><div class="card-resource-tag--S card-tag-science"></div><div class="card-resource-tag--S card-tag-science"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special "> </div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource--has-secondary-tag card-resource-floater"><div class="card-icon card-tag-jovian"></div></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Add 1 floater to a JOVIAN CARD.)</div></div></div><div class="card-row"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special "> </div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">1</div></div></div><div class="card-effect-box-item"><div><div class="card-special card-slash">/</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-floater"></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-text-size--S card-text-bold">[max 4]</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Gain 1 M€ for every floater here [MAX 4].)</div></div></div></div> <div class="card-description card-description-aligned card-description-align--left">(Requires 3 science tags.)</div> <div class="card-points card-points-big">1</div> <div class="padBottom" style="padding-bottom: 22px;"></div></div></div> <div class="resource-card-icon-expansion-container"><div class="card-expansion project-icon colonies-icon"></div> </div> <div class="card-resources-counter"><span class="card-resources-counter-number"> 0</span> <span class="card-resource card-resource-floater"></span></div> <div class="card-extra-content-container"></div> </div>',
@@ -6057,7 +6095,7 @@ export const allCards: Card[] = [
     type: "automated",
     requirements: [],
     metadata: { cardNumber: "" },
-    behavior: { production: { megacredits: 2 }, drawCard: 1 },
+    behavior: { city: {}, production: { megacredits: 2 }, drawCard: 1 },
     compatibility: [],
     html: '<div class="card-container card-kaguya-tech"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">10</div></div><div class="card-tags"><div class="card-tag tag-city"></div><div class="card-tag tag-plant"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Kaguya Tech</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">2</div></div></div></div></div><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-row"><div><div class="card-special card-minus"></div></div><div class="card-item-container"><div class="card-tile greenery-tile--M"></div></div><div><div class="card-special card-plus"></div></div><div class="card-item-container"><div class="card-tile city-tile--M"></div></div><div><div class="card-special card-asterix">*</div></div></div><div class="card-row"><div class="card-item-container"><div class="card-text-size--S card-text-normal">Increase M€ production 2 steps. Draw 1 card. Remove 1 of your greenery tiles (does not affect oxygen.) Place a city tile there, regardless of placement rules. Gain placement bonuses as usual.</div></div></div></div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "kaguya-tech",
@@ -6319,7 +6357,7 @@ export const allCards: Card[] = [
       description:
         "Decrease your energy production 1 step and increase your M€ production 2 steps. Place a city tile on a VOLCANIC AREA regardless of adjacent cities.",
     },
-    behavior: { production: { energy: -1, megacredits: 2 } },
+    behavior: { city: {}, production: { energy: -1, megacredits: 2 } },
     compatibility: [],
     html: '<div class="card-container card-lava-tube-settlement"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">15</div></div><div class="card-tags"><div class="card-tag tag-building"></div><div class="card-tag tag-city"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Lava Tube Settlement</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">2</div></div></div></div></div></div><div class="card-row"><div class="card-item-container"><div class="card-tile city-tile--M"></div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Decrease your energy production 1 step and increase your M€ production 2 steps. Place a city tile on a VOLCANIC AREA regardless of adjacent cities.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon prelude-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "lava-tube-settlement",
@@ -7254,6 +7292,7 @@ export const allCards: Card[] = [
     tags: [],
     cost: 13,
     type: "active",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "" },
     compatibility: [],
@@ -7270,6 +7309,12 @@ export const allCards: Card[] = [
     requirements: [],
     metadata: { cardNumber: "073", victoryPoints: 1 },
     compatibility: [],
+    behavior: {
+      spend: {
+        cards: 1,
+      },
+      drawCard: 1,
+    },
     html: '<div class="card-container card-mars-university"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">8</div></div><div class="card-tags"><div class="card-tag tag-science"></div><div class="card-tag tag-building"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Mars University</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource-tag card-tag-science"></div></div></div></div> <div><div class="card-special card-colon">:</div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special card-minus"></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-effect-box-item"><div><div class="card-special card-nbsp"></div></div></div><div class="card-effect-box-item"><div><div class="card-special card-plus"></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Effect: When you play a science tag, including this, you may discard a card from hand to draw a card.)</div></div></div></div><div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "mars-university",
   },
@@ -7500,6 +7545,7 @@ export const allCards: Card[] = [
     cost: 12,
     type: "active",
     requirements: [{ cities: 2, all: true, count: 2 }],
+    action: {},
     metadata: {
       cardNumber: "C24",
       description: { text: "Requires 2 city tiles in play.", align: "left" },
@@ -8071,6 +8117,7 @@ export const allCards: Card[] = [
     tags: ["building"],
     cost: 31,
     type: "active",
+    action: {},
     requirements: [],
     metadata: {
       cardNumber: "X27",
@@ -8545,7 +8592,7 @@ export const allCards: Card[] = [
       description:
         "Decrease your energy production 1 step and increase your M€ production 3 steps. Place a city tile ON THE RESERVED AREA, disregarding normal placement restrictions.",
     },
-    behavior: { production: { energy: -1, megacredits: 3 } },
+    behavior: { city: {}, production: { energy: -1, megacredits: 3 } },
     compatibility: [],
     html: '<div class="card-container card-noctis-city"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">18</div></div><div class="card-tags"><div class="card-tag tag-city"></div><div class="card-tag tag-building"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Noctis City</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">3</div></div></div></div></div><div><div class="card-special card-nbsp"></div></div><div class="card-item-container"><div class="card-tile city-tile--M"></div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Decrease your energy production 1 step and increase your M€ production 3 steps. Place a city tile ON THE RESERVED AREA, disregarding normal placement restrictions.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "noctis-city",
@@ -9369,6 +9416,7 @@ export const allCards: Card[] = [
     tags: ["power", "building"],
     cost: 4,
     type: "active",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "194" },
     compatibility: [],
@@ -9964,6 +10012,7 @@ export const allCards: Card[] = [
     requirements: [{ oxygen: 4, count: 4 }],
     metadata: { cardNumber: "", description: "Requires 4% oxygen." },
     compatibility: [],
+    action: {},
     html: '<div class="card-container card-red-ships"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">2</div></div><div class="card-tags"></div></div> <div class="card-title"><div class="card-title background-color-active">Red Ships</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container"><span>4</span>%\n     <div class="card-global-requirement card-oxygen--req"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special "> </div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">1</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-tile city-or-special-tile red-outline"></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Gain 1 M€ for each CITY AND SPECIAL TILE adjacent to an ocean.)</div></div></div></div> <div class="card-description">(Requires 4% oxygen.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "red-ships",
   },
@@ -9984,6 +10033,21 @@ export const allCards: Card[] = [
       victoryPoints: 2,
     },
     behavior: { drawCard: 2 },
+    action: {
+      or: {
+        autoSelect: true,
+        behaviors: [
+          {
+            spend: { resourcesHere: 1 },
+            drawCard: 1,
+            title: "Remove 1 floater on this card and draw a card",
+          },
+          {
+            addResources: 1,
+          },
+        ],
+      },
+    },
     resourceType: "Floater",
     compatibility: [],
     html: '<div class="card-container card-red-spot-observatory"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">17</div></div><div class="card-tags"><div class="card-tag tag-jovian"></div><div class="card-tag tag-science"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Red Spot Observatory</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container">\n     <div class="card-resource-tag--S card-tag-science"></div><div class="card-resource-tag--S card-tag-science"></div><div class="card-resource-tag--S card-tag-science"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special "> </div></div></div><div class="card-effect-box-item"><div><div class="card-special card-red-arrow"></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-floater"></div></div></div><div class="card-effect-box-item"><div><div class="card-special card-or card-or--small">OR</div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-floater"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Add 1 floater to this card, or spend 1 floater here to draw a card.)</div></div></div><div class="card-row"><div class="card-item-container"><div class="card-resource card-card"></div><div class="card-resource card-card"></div></div></div></div> <div class="card-description card-description-aligned card-description-align--left">(Requires 3 science tags. Draw 2 cards.)</div> <div class="card-points card-points-big">2</div> <div class="padBottom" style="padding-bottom: 22px;"></div></div></div> <div class="resource-card-icon-expansion-container"><div class="card-expansion project-icon colonies-icon"></div> </div> <div class="card-resources-counter"><span class="card-resources-counter-number"> 0</span> <span class="card-resource card-resource-floater"></span></div> <div class="card-extra-content-container"></div> </div>',
@@ -10396,6 +10460,7 @@ export const allCards: Card[] = [
     tags: ["space"],
     cost: 6,
     type: "active",
+    action: {},
     requirements: [{ venus: 14, max: true, count: 14 }],
     metadata: { cardNumber: "243", description: "Venus must be 14% or lower" },
     resourceType: "Asteroid",
@@ -10503,6 +10568,7 @@ export const allCards: Card[] = [
     victoryPoints: 1,
     cost: 13,
     type: "active",
+    action: {},
     requirements: [],
     metadata: {
       cardNumber: "X11",
@@ -10533,6 +10599,7 @@ export const allCards: Card[] = [
     module: "base",
     name: "Search For Life",
     tags: ["science"],
+    action: {},
     victoryPoints: "special",
     cost: 3,
     type: "active",
@@ -10643,6 +10710,7 @@ export const allCards: Card[] = [
     tags: [],
     cost: 7,
     type: "active",
+    action: {},
     requirements: [{ tag: "science", count: 2 }],
     metadata: { cardNumber: "210", description: "Requires 2 science tags." },
     compatibility: [],
@@ -11528,6 +11596,12 @@ export const allCards: Card[] = [
         "Discard 1 card from your hand and THEN draw 3 cards. All OPPONENTS draw 1 card.",
       victoryPoints: 1,
     },
+    behavior: {
+      spend: {
+        cards: 1,
+      },
+      drawCard: 3,
+    },
     compatibility: [],
     html: '<div class="card-container card-sponsored-academies"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">9</div></div><div class="card-tags"><div class="card-tag tag-earth"></div><div class="card-tag tag-science"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Sponsored Academies</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div><div class="card-special card-minus"></div></div><div class="card-item-container"><div class="card-resource card-card"></div></div></div><div class="card-row"><div><div class="card-special card-plus"></div></div><div class="card-item-container"><div class="card-res-amount">3</div> <div class="card-resource card-card"></div></div><div><div class="card-special card-asterix">*</div></div><div><div class="card-special card-nbsp"></div></div><div><div class="card-special card-plus"></div></div><div class="card-item-container"><div class="card-resource card-card red-outline"></div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Discard 1 card from your hand and THEN draw 3 cards. All OPPONENTS draw 1 card.)</div> <div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon venus-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "sponsored-academies",
@@ -11588,6 +11662,7 @@ export const allCards: Card[] = [
     victoryPoints: "special",
     cost: 7,
     type: "active",
+    action: {},
     requirements: [],
     metadata: {
       cardNumber: "X29",
@@ -12009,6 +12084,7 @@ export const allCards: Card[] = [
     tags: ["venus", "microbe"],
     cost: 6,
     type: "active",
+    action: {},
     requirements: [{ venus: 6, count: 6 }],
     metadata: { cardNumber: "251", description: "Requires Venus 6%" },
     resourceType: "Microbe",
@@ -12435,6 +12511,7 @@ export const allCards: Card[] = [
     cost: 18,
     type: "active",
     requirements: [],
+    action: {},
     metadata: {
       cardNumber: "C44",
       description: {
@@ -12469,6 +12546,7 @@ export const allCards: Card[] = [
     module: "colonies",
     name: "Titan Shuttles",
     tags: ["jovian", "space"],
+    action: {},
     victoryPoints: 1,
     cost: 23,
     type: "active",
@@ -12999,7 +13077,7 @@ export const allCards: Card[] = [
       description:
         "Decrease your energy production 1 step and increase your M€ production 2 steps. Place a city tile ADJACENT TO AT LEAST 2 OTHER CITY TILES.",
     },
-    behavior: { production: { energy: -1, megacredits: 2 } },
+    behavior: { city: {}, production: { energy: -1, megacredits: 2 } },
     compatibility: [],
     html: '<div class="card-container card-urbanized-area"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">10</div></div><div class="card-tags"><div class="card-tag tag-city"></div><div class="card-tag tag-building"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Urbanized Area</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">2</div></div></div></div></div><div class="card-item-container"><div class="card-tile city-tile--M"></div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Decrease your energy production 1 step and increase your M€ production 2 steps. Place a city tile ADJACENT TO AT LEAST 2 OTHER CITY TILES.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "urbanized-area",
@@ -13291,6 +13369,9 @@ export const allCards: Card[] = [
         "Requires that you have a Party Leader in any party and that the sitting Chairman is neutral. Remove the NEUTRAL Chairman and move your own delegate (from the reserve) there instead. Gain 1 TR.",
     },
     compatibility: [],
+    behavior: {
+      tr: 1,
+    },
     html: '<div class="card-container card-vote-of-no-confidence"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">5</div></div><div class="card-tags"><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Vote Of No Confidence</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container">\n     <div class="card-party-leader--req"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div><div class="card-special card-minus"></div></div><div class="card-item-container"><div class="card-chairman card-chairman-red"></div></div><div><div class="card-special card-asterix">*</div></div><div><div class="card-special card-nbsp"></div></div><div><div class="card-special card-plus"></div></div><div class="card-item-container"><div class="card-party-leader"></div></div></div><div class="card-row"><div class="card-item-container"><div class="card-tile card-tr"></div></div></div></div> <div class="card-description">(Requires that you have a Party Leader in any party and that the sitting Chairman is neutral. Remove the NEUTRAL Chairman and move your own delegate (from the reserve) there instead. Gain 1 TR.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon turmoil-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "vote-of-no-confidence",
   },
@@ -13319,6 +13400,7 @@ export const allCards: Card[] = [
     victoryPoints: { tag: "jovian" },
     cost: 25,
     type: "active",
+    action: {},
     requirements: [],
     metadata: {
       cardNumber: "012",
@@ -13687,6 +13769,7 @@ export const allCards: Card[] = [
     cost: 0,
     type: "corporation",
     requirements: [],
+    action: {},
     metadata: {
       cardNumber: "R44",
       description:
@@ -14081,6 +14164,9 @@ export const allCards: Card[] = [
     tags: ["power", "building"],
     cost: 0,
     type: "corporation",
+    action: {
+      drawCard: {},
+    },
     requirements: [],
     metadata: {
       cardNumber: "R22",
@@ -14981,6 +15067,7 @@ export const allCards: Card[] = [
     tags: [],
     cost: 0,
     type: "corporation",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "R27", description: "You start with 47 M€." },
     startingMegaCredits: 47,
@@ -15027,6 +15114,7 @@ export const allCards: Card[] = [
   {
     module: "turmoil",
     name: "Septem Tribus",
+    action: {},
     tags: ["wild"],
     cost: 0,
     type: "corporation",
@@ -15285,6 +15373,9 @@ export const allCards: Card[] = [
     tags: ["power", "science"],
     cost: 0,
     type: "corporation",
+    action: {
+      drawCard: {},
+    },
     requirements: [],
     metadata: {
       cardNumber: "",
@@ -15303,6 +15394,7 @@ export const allCards: Card[] = [
     tags: ["earth"],
     cost: 0,
     type: "corporation",
+    action: {},
     requirements: [],
     metadata: { cardNumber: "R32", description: "You start with 40 M€." },
     startingMegaCredits: 40,
@@ -15332,6 +15424,7 @@ export const allCards: Card[] = [
     tags: ["building"],
     cost: 0,
     type: "corporation",
+    action: {},
     requirements: [],
     metadata: {
       cardNumber: "R33",
@@ -15367,6 +15460,7 @@ export const allCards: Card[] = [
     name: "Viron",
     tags: ["microbe"],
     cost: 0,
+    action: {},
     type: "corporation",
     requirements: [],
     metadata: { cardNumber: "R12", description: "You start with 48 M€." },
