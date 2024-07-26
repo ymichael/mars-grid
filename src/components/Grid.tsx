@@ -253,7 +253,7 @@ function GridCell({
   return (
     <div
       className={cn(
-        "relative w-[150px] aspect-[15/18] max-w-full flex items-center justify-center rounded-md hover:border hover:border-2 hover:border-blue-500 hover:rounded-md cursor-pointer border-2",
+        "relative w-[150px] aspect-[15/18] max-w-full flex items-center justify-center rounded-md hover:border hover:border-2 hover:border-blue-500 hover:rounded-md cursor-pointer border-2 overflow-hidden",
         !isValid && "border-red-500",
       )}
       style={{
