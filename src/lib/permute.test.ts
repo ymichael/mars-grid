@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { permuteArr, permuteBinsUnique } from "./permute";
 
-describe.only("permuteArr", () => {
+describe("permuteArr", () => {
   it("should generate all permutations of the given arrays", () => {
     const input = [1, 2, 3];
     const result = Array.from(permuteArr(input, 2));
@@ -16,7 +16,7 @@ describe.only("permuteArr", () => {
   });
 });
 
-describe.only("permuteBinsUnique", () => {
+describe("permuteBinsUnique", () => {
   it("should generate all permutations of the given arrays", () => {
     const input = [
       [1, 2],
