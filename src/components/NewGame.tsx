@@ -50,7 +50,7 @@ export function DailyPuzzle() {
       className="underline font-normal text-xs px-2"
       onClick={dailyPuzzle}
     >
-      Today's Grid
+      Today&apos;s Grid
     </Button>
   );
 }
