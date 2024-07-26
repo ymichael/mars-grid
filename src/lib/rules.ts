@@ -150,7 +150,12 @@ class HasGlobalRequirementRule implements Rule {
     return (
       isProjectCard(card) &&
       !!card.requirements.find((req) => {
-        return req.oceans || req.oxygen || req.temperature || req.venus;
+        return (
+          req.oceans !== undefined ||
+          req.oxygen !== undefined ||
+          req.temperature !== undefined ||
+          req.venus !== undefined
+        );
       })
     );
   }
