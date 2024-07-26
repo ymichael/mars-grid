@@ -17,15 +17,17 @@ function DebugCardPageInner({ params }: { params: { cardId: string } }) {
   const card: Card | undefined = allCards[cardIdx];
   const goToPrevCard = useCallback(() => {
     if (cardIdx > 0) {
-      router.push(`/debug/card/${cardIdx - 1}`);
-      setCardId(allCards[cardIdx - 1].id);
+      const prevCardId = allCards[cardIdx - 1].id;
+      router.push(`/debug/card/${prevCardId}`);
+      setCardId(prevCardId);
     }
   }, [cardIdx, router]);
 
   const goToNextCard = useCallback(() => {
     if (cardIdx < allCards.length - 1) {
-      router.push(`/debug/card/${cardIdx + 1}`);
-      setCardId(allCards[cardIdx + 1].id);
+      const nextCardId = allCards[cardIdx + 1].id;
+      router.push(`/debug/card/${nextCardId}`);
+      setCardId(nextCardId);
     }
   }, [cardIdx, router]);
 
