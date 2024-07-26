@@ -10,22 +10,22 @@ import { Button } from "@/components/ui/button";
 
 const allCards = getEligibleCards();
 
-function DebugCardPageInner({ params }: { params: { cardIdx: string } }) {
+function DebugCardPageInner({ params }: { params: { cardId: string } }) {
   const router = useRouter();
-  const [cardIdx, setCardIdx] = useState(parseInt(params.cardIdx));
-  const card: Card = allCards[cardIdx];
-
+  const [cardId, setCardId] = useState(params.cardId);
+  const cardIdx = allCards.findIndex((card) => card.id === cardId);
+  const card: Card | undefined = allCards[cardIdx];
   const goToPrevCard = useCallback(() => {
     if (cardIdx > 0) {
       router.push(`/debug/card/${cardIdx - 1}`);
-      setCardIdx(cardIdx - 1);
+      setCardId(allCards[cardIdx - 1].id);
     }
   }, [cardIdx, router]);
 
   const goToNextCard = useCallback(() => {
     if (cardIdx < allCards.length - 1) {
       router.push(`/debug/card/${cardIdx + 1}`);
-      setCardIdx(cardIdx + 1);
+      setCardId(allCards[cardIdx + 1].id);
     }
   }, [cardIdx, router]);
 
@@ -33,7 +33,12 @@ function DebugCardPageInner({ params }: { params: { cardIdx: string } }) {
     if (typeof window === "undefined") {
       return;
     }
+
     const handleKeyDown = (event: KeyboardEvent) => {
+      // ignore if command is held
+      if (event.metaKey) {
+        return;
+      }
       if (event.key === "ArrowLeft") {
         goToPrevCard();
       } else if (event.key === "ArrowRight") {
@@ -82,7 +87,9 @@ function DebugCardPageInner({ params }: { params: { cardIdx: string } }) {
     }
     return 0;
   });
-
+  if (!card) {
+    return <div>Card {cardId} not found</div>;
+  }
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4 py-4 px-2">

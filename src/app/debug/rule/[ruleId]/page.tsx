@@ -7,6 +7,7 @@ import { ResponsiveCard } from "@/components/Card";
 import { getEligibleCards } from "@/lib/allCards";
 import { allRules, getRuleById } from "@/lib/rules";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const allCards = getEligibleCards();
 
@@ -38,6 +39,10 @@ function DebugRulePageInner({ params }: { params: { ruleId: string } }) {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // ignore if command is held
+      if (event.metaKey) {
+        return;
+      }
       if (event.key === "ArrowLeft") {
         goToPrevRule();
       } else if (event.key === "ArrowRight") {
@@ -85,9 +90,11 @@ function DebugRulePageInner({ params }: { params: { ruleId: string } }) {
           <div className="flex flex-wrap gap-2">
             {matchingCards.map((card) => (
               <div key={card.id} className="flex flex-col items-center">
-                <div className="w-[120px] aspect-[15/18] flex items-center justify-center rounded-md overflow-hidden">
-                  <ResponsiveCard cardId={card.id} />
-                </div>
+                <Link href={`/debug/card/${card.id}`}>
+                  <div className="w-[120px] aspect-[15/18] flex items-center justify-center rounded-md overflow-hidden">
+                    <ResponsiveCard cardId={card.id} />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -99,9 +106,11 @@ function DebugRulePageInner({ params }: { params: { ruleId: string } }) {
           <div className="flex flex-wrap gap-2">
             {nonMatchingCards.map((card) => (
               <div key={card.id} className="flex flex-col items-center">
-                <div className="w-[120px] aspect-[15/18] flex items-center justify-center rounded-md overflow-hidden">
-                  <ResponsiveCard cardId={card.id} />
-                </div>
+                <Link href={`/debug/card/${card.id}`}>
+                  <div className="w-[120px] aspect-[15/18] flex items-center justify-center rounded-md overflow-hidden">
+                    <ResponsiveCard cardId={card.id} />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

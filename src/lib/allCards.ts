@@ -149,6 +149,7 @@ type Behavior = {
   tile?: unknown;
   spend?: {
     energy?: number;
+    heat?: number;
     cards?: number;
     resourceFromAnyCard?: { type: "Microbe" };
   };
@@ -1074,6 +1075,10 @@ export const allCards: Card[] = [
         "Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.",
       cardNumber: "002",
       victoryPoints: 1,
+    },
+    behavior: {
+      production: { titanium: 1 },
+      decreaseAnyProduction: { type: "titanium", count: 1 },
     },
     compatibility: [],
     html: '<div class="card-container card-asteroid-mining-consortium"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">13</div></div><div class="card-tags"><div class="card-tag tag-jovian"></div></div></div> <div class="card-title"><div class="card-title background-color-automated title-small">Asteroid Mining Consortium</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container">\n     <div class="card-production-box card-production-box--req"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-titanium"></div></div></div></div></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-titanium red-outline"></div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-titanium"></div></div></div></div></div></div></div> <div class="card-description">(Requires that you have titanium production. Decrease any titanium production 1 step and increase your own 1 step.)</div> <div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
@@ -3665,6 +3670,13 @@ export const allCards: Card[] = [
         "Decrease any energy production 1 step and increase your own 1 step.",
       victoryPoints: -1,
     },
+    behavior: {
+      production: { energy: 1 },
+      decreaseAnyProduction: {
+        type: "energy",
+        count: 1,
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-energy-tapping"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">3</div></div><div class="card-tags"><div class="card-tag tag-power"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Energy Tapping</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy red-outline"></div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div></div></div></div> <div class="card-description">(Decrease any energy production 1 step and increase your own 1 step.)</div> <div class="card-points card-points-big">-1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "energy-tapping",
@@ -4732,6 +4744,10 @@ export const allCards: Card[] = [
     cost: 6,
     type: "automated",
     requirements: [{ production: "steel", count: 1 }],
+    behavior: {
+      production: { steel: 1 },
+      decreaseAnyProduction: { type: "steel", count: 1 },
+    },
     metadata: {
       cardNumber: "061",
       description:
@@ -5520,7 +5536,16 @@ export const allCards: Card[] = [
       description:
         "Gain 3 plants, or add 3 microbes or 2 animals to ANOTHER card. Place an ocean tile.",
     },
-    behavior: { ocean: {} },
+    behavior: {
+      ocean: {},
+      or: {
+        behaviors: [
+          { stock: { plants: 3 } },
+          { addResourcesToAnyCard: [{ type: "Microbe", count: 3 }] },
+          { addResourcesToAnyCard: [{ type: "Animal", count: 2 }] },
+        ],
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-imported-hydrogen"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">16</div></div><div class="card-tags"><div class="card-tag tag-earth"></div><div class="card-tag tag-space"></div><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Imported Hydrogen</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-item-container"><div class="card-res-amount">3</div> <div class="card-resource card-resource-plant"></div></div><div><div class="card-special card-or card-or--small">OR</div></div><div class="card-item-container"><div class="card-res-amount">3</div> <div class="card-resource card-resource-microbe"></div></div><div><div class="card-special card-asterix">*</div></div><div><div class="card-special card-or card-or--small">OR</div></div><div class="card-item-container"><div class="card-res-amount">2</div> <div class="card-resource card-resource-animal"></div></div><div><div class="card-special card-asterix">*</div></div></div><div class="card-row"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div></div></div> <div class="card-description">(Gain 3 plants, or add 3 microbes or 2 animals to ANOTHER card. Place an ocean tile.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "imported-hydrogen",
@@ -6277,7 +6302,16 @@ export const allCards: Card[] = [
         "Place an ocean tile and draw 2 cards. Gain 5 plants or add 4 animals to ANOTHER card.",
       victoryPoints: 2,
     },
-    behavior: { drawCard: 2, ocean: {} },
+    behavior: {
+      drawCard: 2,
+      ocean: {},
+      or: {
+        behaviors: [
+          { stock: { plants: 5 } },
+          { addResourcesToAnyCard: { type: "Animal", count: 4 } },
+        ],
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-large-convoy"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">36</div></div><div class="card-tags"><div class="card-tag tag-earth"></div><div class="card-tag tag-space"></div><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Large Convoy</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-item-container"><div class="card-global-requirement card-ocean-global-requirement"></div></div><div class="card-item-container"><div class="card-resource card-card"></div><div class="card-resource card-card"></div></div></div><div class="card-row"><div class="card-item-container"><div class="card-res-amount">5</div> <div class="card-resource card-resource-plant"></div></div><div><div class="card-special card-or">OR</div></div><div class="card-item-container"><div class="card-res-amount">4</div> <div class="card-resource card-resource-animal"></div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Place an ocean tile and draw 2 cards. Gain 5 plants or add 4 animals to ANOTHER card.)</div> <div class="card-points card-points-big">2</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "large-convoy",
@@ -6502,6 +6536,15 @@ export const allCards: Card[] = [
         "Spend 5 heat to gain either 4 plants, or to add 2 animals to ANOTHER card.",
     },
     compatibility: [],
+    behavior: {
+      spend: { heat: 5 },
+      or: {
+        behaviors: [
+          { stock: { plants: 4 } },
+          { addResourcesToAnyCard: { type: "Animal", count: 2 } },
+        ],
+      },
+    },
     html: '<div class="card-container card-local-heat-trapping"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">1</div></div><div class="card-tags"><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Local Heat Trapping</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div><div class="card-special card-minus"></div></div><div class="card-item-container"><div class="card-res-amount">5</div> <div class="card-resource card-resource-heat"></div></div><div><div class="card-special card-plus"></div></div><div class="card-item-container"><div class="card-res-amount">4</div> <div class="card-resource card-resource-plant"></div></div><div><div class="card-special card-or card-or--small">OR</div></div><div class="card-item-container"><div class="card-res-amount">2</div> <div class="card-resource card-resource-animal"></div></div><div><div class="card-special card-asterix">*</div></div></div></div> <div class="card-description">(Spend 5 heat to gain either 4 plants, or to add 2 animals to ANOTHER card.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "local-heat-trapping",
   },
@@ -8546,7 +8589,16 @@ export const allCards: Card[] = [
       description:
         "Raise your terraforming rating 2 steps and temperature 1 step. Increase your plant production 1 step, or 4 steps if you have 3 plant tags.",
     },
-    behavior: { global: { temperature: 1 }, tr: 2 },
+    behavior: {
+      global: { temperature: 1 },
+      tr: 2,
+      or: {
+        behaviors: [
+          { production: { plants: 1 } },
+          { production: { plants: 4 } },
+        ],
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-nitrogen-rich-asteroid"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">31</div></div><div class="card-tags"><div class="card-tag tag-space"></div><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Nitrogen-Rich Asteroid</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-plant"></div></div></div><div class="card-production-box-row-item"><div><div class="card-special card-nbsp"></div></div></div><div class="card-production-box-row-item"><div><div class="card-special card-or card-or--small">OR</div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-res-amount">3</div> <div class="card-resource-tag card-tag-plant"></div></div></div><div class="card-production-box-row-item"><div><div class="card-special card-colon">:</div></div></div><div class="card-production-box-row-item"><div><div class="card-special card-nbsp"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-res-amount">4</div> <div class="card-resource card-resource-plant"></div></div></div></div></div></div><div class="card-row"><div class="card-item-container"><div class="card-tile card-tr"></div><div class="card-tile card-tr"></div></div><div class="card-item-container"><div class="card-global-requirement card-temperature-global-requirement"></div></div></div></div> <div class="card-description">(Raise your terraforming rating 2 steps and temperature 1 step. Increase your plant production 1 step, or 4 steps if you have 3 plant tags.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "nitrogen-rich-asteroid",
@@ -9859,6 +9911,14 @@ export const allCards: Card[] = [
         "Requires 4 science tags. Increase your M€ production 1 step for each colony in play.",
       victoryPoints: 1,
     },
+    behavior: {
+      production: {
+        megacredits: {
+          all: true,
+          colonies: {},
+        },
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-quantum-communications"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">8</div></div><div class="card-tags"></div></div> <div class="card-title"><div class="card-title background-color-automated">Quantum Communications</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container"><span>4</span>\n     <div class="card-resource-tag--S card-tag-science"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">1</div></div></div><div class="card-production-box-row-item"><div><div class="card-special card-slash">/</div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource-colony card-resource-colony--S red-outline"></div></div></div></div></div></div></div> <div class="card-description">(Requires 4 science tags. Increase your M€ production 1 step for each colony in play.)</div> <div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon colonies-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "quantum-communications",
@@ -10996,6 +11056,14 @@ export const allCards: Card[] = [
     metadata: {
       description: "Spend 1 microbe from ANY of your cards to gain 5 plants",
       cardNumber: "X67",
+    },
+    behavior: {
+      spend: {
+        resourceFromAnyCard: { type: "Microbe" },
+      },
+      stock: {
+        plants: 5,
+      },
     },
     compatibility: [],
     html: '<div class="card-container card-soil-enrichment"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">6</div></div><div class="card-tags"><div class="card-tag tag-microbe"></div><div class="card-tag tag-plant"></div><div class="card-tag tag-event"></div></div></div> <div class="card-title"><div class="card-title background-color-events">Soil Enrichment</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div><div class="card-special card-minus"></div></div><div class="card-item-container"><div class="card-resource card-resource-microbe"></div></div><div><div class="card-special card-asterix">*</div></div><div><div class="card-special card-nbsp"></div></div><div><div class="card-special card-plus"></div></div><div class="card-item-container"><div class="card-res-amount">5</div> <div class="card-resource card-resource-plant"></div></div></div></div> <div class="card-description">(Spend 1 microbe from ANY of your cards to gain 5 plants)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',

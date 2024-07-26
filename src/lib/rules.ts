@@ -126,12 +126,25 @@ class IncreasesProductionForResourceRule implements Rule {
 
   matches(card: Card): boolean {
     const production = card.behavior?.production;
-    if (!production) {
-      return false;
+    if (production) {
+      if (this.resource in production) {
+        const productionValue = production[this.resource];
+        return typeof productionValue !== "number" || productionValue > 0;
+      }
     }
-    if (this.resource in production) {
-      const productionValue = production[this.resource];
-      return typeof productionValue !== "number" || productionValue > 0;
+    if (
+      card.behavior?.or?.behaviors.some((behavior) => {
+        const production = behavior.production;
+        if (production) {
+          if (this.resource in production) {
+            const productionValue = production[this.resource];
+            return typeof productionValue !== "number" || productionValue > 0;
+          }
+        }
+        return false;
+      })
+    ) {
+      return true;
     }
     return false;
   }
@@ -195,14 +208,30 @@ class GainsResourceRule implements Rule {
 
   matches(card: Card): boolean {
     const stock = card.behavior?.stock;
-    if (!stock) {
-      return false;
-    }
-    if (this.resource in stock) {
-      const stockValue = stock[this.resource];
-      if (typeof stockValue !== "number" || stockValue > 0) {
-        return true;
+    if (stock) {
+      if (this.resource in stock) {
+        const stockValue = stock[this.resource];
+        if (typeof stockValue !== "number" || stockValue > 0) {
+          return true;
+        }
       }
+    }
+    if (
+      card.behavior?.or?.behaviors.some((behavior) => {
+        const stock = behavior.stock;
+        if (!stock) {
+          return false;
+        }
+        if (this.resource in stock) {
+          const stockValue = stock[this.resource];
+          if (typeof stockValue !== "number" || stockValue > 0) {
+            return true;
+          }
+        }
+        return false;
+      })
+    ) {
+      return true;
     }
     return false;
   }
