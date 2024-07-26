@@ -124,24 +124,74 @@ class IncreasesProductionForResourceRule implements Rule {
     this.resource = resource;
   }
 
-  matches(card: Card): boolean {
-    const production = card.behavior?.production;
+  matchesBehavior(behavior: Card["behavior"]): boolean {
+    if (!behavior) {
+      return false;
+    }
+    const production = behavior.production;
     if (production) {
       if (this.resource in production) {
         const productionValue = production[this.resource];
-        return typeof productionValue !== "number" || productionValue > 0;
+        if (typeof productionValue !== "number" || productionValue > 0) {
+          return true;
+        }
       }
+    }
+    return false;
+  }
+
+  matches(card: Card): boolean {
+    if (this.matchesBehavior(card.behavior)) {
+      return true;
     }
     if (
       card.behavior?.or?.behaviors.some((behavior) => {
-        const production = behavior.production;
-        if (production) {
-          if (this.resource in production) {
-            const productionValue = production[this.resource];
-            return typeof productionValue !== "number" || productionValue > 0;
-          }
+        return this.matchesBehavior(behavior);
+      })
+    ) {
+      return true;
+    }
+    return false;
+  }
+}
+
+class DecreasesProductionForResourceRule implements Rule {
+  id: string;
+  description: string;
+  resource: ProductionResource;
+
+  constructor(resource: ProductionResource) {
+    this.id = `prod_dec_${resource}`;
+    this.description = `Decreases production of ${resource}`;
+    this.resource = resource;
+  }
+
+  matchesBehavior(behavior: Card["behavior"]): boolean {
+    if (!behavior) {
+      return false;
+    }
+    const production = behavior.production;
+    if (production) {
+      if (this.resource in production) {
+        const productionValue = production[this.resource];
+        if (typeof productionValue === "number" && productionValue < 0) {
+          return true;
         }
-        return false;
+      }
+    }
+    if (behavior.decreaseAnyProduction?.type === this.resource) {
+      return true;
+    }
+    return false;
+  }
+
+  matches(card: Card): boolean {
+    if (this.matchesBehavior(card.behavior)) {
+      return true;
+    }
+    if (
+      card.behavior?.or?.behaviors.some((behavior) => {
+        return this.matchesBehavior(behavior);
       })
     ) {
       return true;
@@ -206,8 +256,11 @@ class GainsResourceRule implements Rule {
     this.resource = resource;
   }
 
-  matches(card: Card): boolean {
-    const stock = card.behavior?.stock;
+  matchesBehavior(behavior: Card["behavior"]): boolean {
+    if (!behavior) {
+      return false;
+    }
+    const stock = behavior.stock;
     if (stock) {
       if (this.resource in stock) {
         const stockValue = stock[this.resource];
@@ -216,21 +269,35 @@ class GainsResourceRule implements Rule {
         }
       }
     }
+    return false;
+  }
+
+  matches(card: Card): boolean {
+    if (this.matchesBehavior(card.behavior)) {
+      return true;
+    }
     if (
       card.behavior?.or?.behaviors.some((behavior) => {
-        const stock = behavior.stock;
-        if (!stock) {
-          return false;
-        }
-        if (this.resource in stock) {
-          const stockValue = stock[this.resource];
-          if (typeof stockValue !== "number" || stockValue > 0) {
-            return true;
-          }
-        }
-        return false;
+        return this.matchesBehavior(behavior);
       })
     ) {
+      return true;
+    }
+    return false;
+  }
+}
+
+class RemovesPlantsRule implements Rule {
+  id: string;
+  description: string;
+
+  constructor() {
+    this.id = `rm_plants`;
+    this.description = `Removes Plants`;
+  }
+
+  matches(card: Card): boolean {
+    if (card.behavior?.removeAnyPlants) {
       return true;
     }
     return false;
@@ -260,18 +327,28 @@ class DecreasesProductionRule implements Rule {
     this.description = "Decreases production";
   }
 
-  matches(card: Card): boolean {
-    if (card.behavior?.decreaseAnyProduction !== undefined) {
+  matchesBehavior(behavior: Card["behavior"]): boolean {
+    if (!behavior) {
+      return false;
+    }
+    if (behavior.decreaseAnyProduction) {
       return true;
     }
-    for (const value of Object.values(card.behavior?.production ?? {})) {
+    for (const value of Object.values(behavior.production ?? {})) {
       if (typeof value === "number" && value < 0) {
         return true;
       }
     }
+    return false;
+  }
+
+  matches(card: Card): boolean {
+    if (this.matchesBehavior(card.behavior)) {
+      return true;
+    }
     if (
-      Object.values(card.behavior?.production ?? {}).some((value) => {
-        return typeof value === "number" && value < 0;
+      card.behavior?.or?.behaviors.some((behavior) => {
+        return this.matchesBehavior(behavior);
       })
     ) {
       return true;
@@ -391,47 +468,47 @@ class HasActionRule implements Rule {
   }
 }
 
+const tags = [
+  "space",
+  "earth",
+  "science",
+  "plant",
+  "microbe",
+  "animal",
+  "venus",
+  "building",
+  "jovian",
+  "power",
+  "city",
+  "wild",
+];
+
+const resources: ProductionResource[] = [
+  "megacredits",
+  "steel",
+  "titanium",
+  "plants",
+  "energy",
+  "heat",
+];
+
 export const allRules: Rule[] = [
   new CostAtLeastRule(20),
   new CostAtMostRule(10),
-  ...[
-    "space",
-    "earth",
-    "science",
-    "plant",
-    "microbe",
-    "animal",
-    "venus",
-    "building",
-    "jovian",
-    "power",
-    "city",
-    "wild",
-  ].map((tag) => new HasTagRule(tag)),
-  ...[
-    "space",
-    "earth",
-    "science",
-    "plant",
-    "microbe",
-    "animal",
-    "venus",
-    "building",
-    "jovian",
-    "power",
-    "city",
-    "wild",
-  ].map((resource) => new HasTagRequirementRule(resource)),
+  ...tags.map((tag) => new HasTagRule(tag)),
+  ...tags.map((resource) => new HasTagRequirementRule(resource)),
   new IsGreenCardRule(),
   new IsEventCardRule(),
   new IsActiveCardRule(),
   new HasNoTagsRule(),
-  ...(
-    ["megacredits", "steel", "titanium", "plants", "energy", "heat"] as const
-  ).map((resource) => new IncreasesProductionForResourceRule(resource)),
-  ...(
-    ["megacredits", "titanium", "steel", "plants", "energy", "heat"] as const
-  ).map((resource) => new GainsResourceRule(resource)),
+  ...resources.map(
+    (resource) => new IncreasesProductionForResourceRule(resource),
+  ),
+  ...resources.map((resource) => new GainsResourceRule(resource)),
+  new RemovesPlantsRule(),
+  ...resources.map(
+    (resource) => new DecreasesProductionForResourceRule(resource),
+  ),
   new HasVictoryPointsRule(),
   new DecreasesProductionRule(),
   new PlacesCityRule(),
