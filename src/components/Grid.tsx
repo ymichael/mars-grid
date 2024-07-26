@@ -239,8 +239,12 @@ function GridCell({
 }) {
   const cardId = selectedCardIds[cellIdx];
   const isValid = useMemo(() => {
+    // Check if unique
+    if (cardId && selectedCardIds.filter((id) => id === cardId).length > 1) {
+      return false;
+    }
     return isValidCardForCell(grid, cellIdx, cardId);
-  }, [grid, cardId, cellIdx]);
+  }, [grid, cardId, selectedCardIds, cellIdx]);
 
   if (!cardId) {
     return (

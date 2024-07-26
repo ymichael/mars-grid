@@ -9419,6 +9419,12 @@ export const allCards: Card[] = [
       description:
         "Requires 2 power tags. Decrease any energy production 1 step and increase your own 1 step.",
     },
+    behavior: {
+      decreaseAnyProduction: { type: "energy", count: 1 },
+      production: {
+        energy: 1,
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-power-supply-consortium"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">5</div></div><div class="card-tags"><div class="card-tag tag-power"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Power Supply Consortium</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container">\n     <div class="card-resource-tag--S card-tag-power"></div><div class="card-resource-tag--S card-tag-power"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy red-outline"></div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div></div></div></div></div> <div class="card-description">(Requires 2 power tags. Decrease any energy production 1 step and increase your own 1 step.)</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "power-supply-consortium",
