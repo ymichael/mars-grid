@@ -2,13 +2,13 @@
 
 import React, { useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   generateGridPuzzle,
   generateGridPuzzleFromSeed,
   getGridId,
+  getSeedForDate,
 } from "@/lib/grid";
 
 export function NewGame() {
@@ -34,7 +34,7 @@ function useDailyPuzzle(): () => void {
   const router = useRouter();
   return useCallback(() => {
     const today = new Date();
-    const seed = format(today, "yyyy-MM-dd");
+    const seed = getSeedForDate(today);
     const dailyGrid = generateGridPuzzleFromSeed(seed);
     const gridId = getGridId(dailyGrid);
     router.replace(`/grid/${gridId}`);

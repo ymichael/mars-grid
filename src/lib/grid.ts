@@ -7,6 +7,10 @@ import {
   randomFactory,
 } from "./random";
 import { isSolvable } from "./solver";
+import { format } from "date-fns";
+import storedGrids from "../grids.json";
+
+const storedGridsBySeed = storedGrids as Record<string, string>;
 
 export type Grid = {
   ruleColumns: [string, string, string];
@@ -55,7 +59,7 @@ export function fromGridId(gridId: string): Grid {
   };
 }
 
-export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
+function* generateGridPuzzles(options: GenerateOptions = {}): Generator<Grid> {
   const {
     rand = defaultRandom,
     minMatches = DEFAULT_MIN_MATCHES,
@@ -69,17 +73,40 @@ export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
   })) {
     // Make sure the candidate is solvable
     if (isSolvable(candidate)) {
-      return candidate;
+      yield candidate;
     }
   }
+}
+
+export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
+  for (const grid of generateGridPuzzles(options)) {
+    return grid;
+  }
   throw new Error("Failed to generate puzzle");
+}
+
+export function* generateGridPuzzlesFromSeed(
+  seed: string,
+  options: Omit<GenerateOptions, "rand"> = {},
+): Generator<Grid> {
+  yield* generateGridPuzzles({ ...options, rand: randomFactory(seed) });
 }
 
 export function generateGridPuzzleFromSeed(
   seed: string,
   options: Omit<GenerateOptions, "rand"> = {},
 ): Grid {
-  return generateGridPuzzle({ ...options, rand: randomFactory(seed) });
+  if (seed in storedGridsBySeed && storedGridsBySeed[seed]) {
+    return fromGridId(storedGridsBySeed[seed]);
+  }
+  for (const grid of generateGridPuzzlesFromSeed(seed, options)) {
+    return grid;
+  }
+  throw new Error("Failed to generate puzzle");
+}
+
+export function getSeedForDate(date: Date): string {
+  return format(date, "yyyy-MM-dd");
 }
 
 export function validRulesForRules(

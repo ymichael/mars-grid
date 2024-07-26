@@ -5,8 +5,9 @@ import {
   getRandomSolution,
   isSolution,
 } from "./solver";
-import { addDays, format } from "date-fns";
-import { generateGridPuzzleFromSeed, getGridId } from "./grid";
+import { generateGridPuzzleFromSeed } from "./grid";
+import storedGrids from "../grids.json";
+const storedGridsBySeed = storedGrids as Record<string, string>;
 
 describe("permuteUnique", () => {
   it("should generate all permutations of the given arrays", () => {
@@ -80,25 +81,12 @@ describe("isSolution", () => {
   });
 });
 
-describe.skip("Daily puzzle generation and solving", () => {
-  it("should generate and solve daily puzzles for the next 3 months within a reasonable time", () => {
-    const startDate = new Date();
-    const endDate = addDays(startDate, 150); // 150 days
-    let currentDate = startDate;
-    while (currentDate <= endDate) {
-      const seed = format(currentDate, "yyyy-MM-dd");
+describe("Daily puzzles should be solvable", () => {
+  it("should generate and solve daily puzzles for all grids in grids.json", () => {
+    for (const seed in storedGridsBySeed) {
       const grid = generateGridPuzzleFromSeed(seed);
-      const gridId = getGridId(grid);
-      const startTime = performance.now();
       const solution = getSolutionWithSeed(grid, seed);
-      const endTime = performance.now();
-      const timeTaken = endTime - startTime;
       expect(solution).toHaveLength(9);
-      expect(timeTaken).toBeLessThan(1000); // Assuming 1 second is a reasonable upper limit
-      console.log(
-        `Date: ${seed}, Grid ID: ${gridId}, Time taken: ${timeTaken.toFixed(2)}ms`,
-      );
-      currentDate = addDays(currentDate, 1);
     }
   });
 });
