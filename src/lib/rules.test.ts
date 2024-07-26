@@ -1,4 +1,4 @@
-import { describe, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import { getEligibleCards } from "./allCards";
 import { allRules } from "./rules";
 import {
@@ -7,23 +7,27 @@ import {
   DEFAULT_MIN_MATCHES,
 } from "./grid";
 
-describe.skip("Rules and Cards", () => {
-  it("should og each rule and its matching cards", () => {
-    const allCards = getEligibleCards();
-    allRules.forEach((rule) => {
-      const matchingCards = allCards.filter((card) => rule.matches(card));
-      console.log(`Rule: ${rule.description}`);
-      console.log("Matching cards:");
-      matchingCards.forEach((card) => {
-        console.log(`- ${card.name}`);
-      });
-      console.log("---");
-    });
-  });
-});
+const IGNORED_RULES = [
+  "gain_energy",
+  "req_tag_space",
+  "req_tag_building",
+  "req_tag_city",
+  "req_tag_wild",
+];
 
-describe.skip("validRulesForRules", () => {
-  it("should enumerate all rules and count valid rules for each", () => {
+describe("Rules", () => {
+  const allCards = getEligibleCards();
+  for (const rule of allRules) {
+    if (IGNORED_RULES.includes(rule.id)) {
+      continue;
+    }
+    it(`should match non-zero cards for ${rule.id}`, () => {
+      const matchingCards = allCards.filter((card) => rule.matches(card));
+      expect(matchingCards.length).toBeGreaterThan(0);
+    });
+  }
+
+  it.skip("should enumerate all rules and count valid rules for each", () => {
     for (const rule of allRules) {
       const validRules = validRulesForRules(
         [rule],
