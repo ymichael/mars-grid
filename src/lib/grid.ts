@@ -1,4 +1,4 @@
-import { getEligibleCards } from "./allCards";
+import { Card, getEligibleCards } from "./allCards";
 import { Rule, allRules, getRuleById } from "./rules";
 import {
   RandomFunction,
@@ -9,6 +9,7 @@ import {
 import { isSolvable } from "./solver";
 import { format } from "date-fns";
 import storedGrids from "../grids.json";
+import { permuteArr, permuteBins } from "./permute";
 
 const storedGridsBySeed = storedGrids as Record<string, string>;
 
@@ -17,6 +18,7 @@ export type Grid = {
   ruleRows: [string, string, string];
 };
 
+const DEFAULT_VERSION = "v2";
 export const DEFAULT_MIN_MATCHES = 5;
 export const DEFAULT_MAX_MATCHES = 20;
 
@@ -26,6 +28,7 @@ interface GenerateOptions {
   minMatches?: number;
   // A higher number will make the puzzle easier
   maxMatches?: number;
+  version?: "v1" | "v2";
 }
 
 export function getGridId(grid: Grid): string {
@@ -61,12 +64,14 @@ export function fromGridId(gridId: string): Grid {
 
 function* generateGridPuzzles(options: GenerateOptions = {}): Generator<Grid> {
   const {
+    version = DEFAULT_VERSION,
     rand = defaultRandom,
     minMatches = DEFAULT_MIN_MATCHES,
     maxMatches = DEFAULT_MAX_MATCHES,
   } = options;
-  const rules = shuffleInPlace([...allRules], rand);
-  for (const candidate of generateCandidateGrids(rules, {
+  const generateCandidateGrids =
+    version === "v1" ? generateCandidateGridsV1 : generateCandidateGridsV2;
+  for (const candidate of generateCandidateGrids(allRules, {
     rand,
     minMatches,
     maxMatches,
@@ -129,25 +134,7 @@ export function validRulesForRules(
   });
 }
 
-function* permute<T>(arr: T[], n: number): Generator<T[]> {
-  const generate = function* (arr: T[], n: number): Generator<T[]> {
-    if (n === 1) {
-      for (let i = 0; i < arr.length; i++) {
-        yield [arr[i]];
-      }
-    } else {
-      for (let i = 0; i < arr.length; i++) {
-        const remaining = arr.slice(0, i).concat(arr.slice(i + 1));
-        for (const perm of generate(remaining, n - 1)) {
-          yield [arr[i], ...perm];
-        }
-      }
-    }
-  };
-  yield* generate(arr, n);
-}
-
-export function* generateCandidateGrids(
+export function* generateCandidateGridsV2(
   rules: Rule[],
   options: GenerateOptions = {},
 ): Generator<Grid> {
@@ -156,14 +143,122 @@ export function* generateCandidateGrids(
     minMatches = DEFAULT_MIN_MATCHES,
     maxMatches = DEFAULT_MAX_MATCHES,
   } = options;
-  for (const ruleCol1 of shuffleInPlace([...rules], rand)) {
+  const shuffledRules = shuffleInPlace([...rules], rand);
+  const eligibleCards = getEligibleCards();
+  const ruleBins: Rule[][] = [
+    [...shuffledRules],
+    [...shuffledRules],
+    [...shuffledRules],
+    [...shuffledRules],
+    [...shuffledRules],
+    [...shuffledRules],
+  ];
+
+  const matchingCardsCached: Record<string, Card[]> = {};
+  const numCardsByRuleIdPairCached: Record<string, number> = {};
+  const getMatchingCards = (rule: Rule) => {
+    if (rule.id in matchingCardsCached) {
+      return matchingCardsCached[rule.id];
+    }
+    const matchingCards = eligibleCards.filter((card) => rule.matches(card));
+    matchingCardsCached[rule.id] = matchingCards;
+    return matchingCards;
+  };
+  const getNumCardsByRuleIdPair = (ruleA: Rule, ruleB: Rule) => {
+    const key = `${ruleA.id},${ruleB.id}`;
+    if (key in numCardsByRuleIdPairCached) {
+      return numCardsByRuleIdPairCached[key];
+    }
+    const cardsMatchingBoth = getMatchingCards(ruleA).filter((card) => {
+      return ruleB.matches(card);
+    });
+    numCardsByRuleIdPairCached[key] = cardsMatchingBoth.length;
+    return cardsMatchingBoth.length;
+  };
+
+  // The `result` array in the permutation function represents the selected rules
+  // for each position in the grid. The order of rules in the array is as follows:
+  // [row1, col1, col2, col3, row2, row3]
+  //
+  // This arrangement allows for efficient checking of rule compatibility:
+  // - The first rule (index 0) is always valid as it's the first selection.
+  // - Rules at indices 1-3 only need to be checked against the first rule (row1).
+  // - Rules at indices 4-5 need to be checked against rules 1, 2, and 3 (col1, col2, col3).
+  //
+  // This ordering optimizes the generation process by reducing the number of
+  // compatibility checks needed for each candidate rule.
+  for (const candidate of permuteBins(ruleBins, function* (choices, result) {
+    const resultSet = new Set(result);
+    for (const rule of choices) {
+      if (result.length === 0) {
+        yield rule;
+        continue;
+      }
+      if (resultSet.has(rule)) {
+        continue;
+      }
+      if (result.length <= 3) {
+        // Just check against the 0 rule
+        const numMatchRuleAndRule1 = getNumCardsByRuleIdPair(rule, result[0]);
+        if (
+          numMatchRuleAndRule1 >= minMatches &&
+          numMatchRuleAndRule1 <= maxMatches
+        ) {
+          yield rule;
+        }
+        continue;
+      }
+      // Otherwise check against the 1, 2 and 3
+      const numMatchRuleAndRule1 = getNumCardsByRuleIdPair(rule, result[1]);
+      if (
+        numMatchRuleAndRule1 < minMatches ||
+        numMatchRuleAndRule1 > maxMatches
+      ) {
+        continue;
+      }
+      const numMatchRuleAndRule2 = getNumCardsByRuleIdPair(rule, result[2]);
+      if (
+        numMatchRuleAndRule2 < minMatches ||
+        numMatchRuleAndRule2 > maxMatches
+      ) {
+        continue;
+      }
+      const numMatchRuleAndRule3 = getNumCardsByRuleIdPair(rule, result[3]);
+      if (
+        numMatchRuleAndRule3 < minMatches ||
+        numMatchRuleAndRule3 > maxMatches
+      ) {
+        continue;
+      }
+      yield rule;
+    }
+  })) {
+    yield {
+      ruleColumns: [candidate[0].id, candidate[4].id, candidate[5].id],
+      ruleRows: [candidate[1].id, candidate[2].id, candidate[3].id],
+    };
+  }
+}
+
+// Deprecated and no longer used since it is much slower than v2
+export function* generateCandidateGridsV1(
+  rules: Rule[],
+  options: GenerateOptions = {},
+): Generator<Grid> {
+  const {
+    rand = defaultRandom,
+    minMatches = DEFAULT_MIN_MATCHES,
+    maxMatches = DEFAULT_MAX_MATCHES,
+  } = options;
+  const shuffledRules = shuffleInPlace([...rules], rand);
+  for (const ruleCol1 of shuffledRules) {
     const validRulesForRuleCol1 = validRulesForRules(
       [ruleCol1],
       rules,
       minMatches,
       maxMatches,
     );
-    for (const validRuleRow of permute(validRulesForRuleCol1, 3)) {
+    for (const validRuleRow of permuteArr(validRulesForRuleCol1, 3)) {
       const currentRules = [ruleCol1, ...validRuleRow];
       const restRules = rules.filter((rule) => !currentRules.includes(rule));
       const restCandidates = validRulesForRules(
@@ -172,7 +267,7 @@ export function* generateCandidateGrids(
         minMatches,
         maxMatches,
       );
-      for (const [ruleCol2, ruleCol3] of permute(restCandidates, 2)) {
+      for (const [ruleCol2, ruleCol3] of permuteArr(restCandidates, 2)) {
         yield {
           ruleColumns: [ruleCol1.id, ruleCol2.id, ruleCol3.id],
           ruleRows: [

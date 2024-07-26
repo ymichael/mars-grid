@@ -1,5 +1,6 @@
 import { Card, getEligibleCards, getCardById, isValidCardId } from "./allCards";
 import { Grid } from "./grid";
+import { permuteBinsUnique } from "./permute";
 import {
   RandomFunction,
   defaultRandom,
@@ -52,43 +53,8 @@ export function* getSolutions(
       matchingCardsByCell[cellIdx] = matchingCardsForCell;
     }
   }
-  for (const candidateSolution of permuteUnique(matchingCardsByCell)) {
+  for (const candidateSolution of permuteBinsUnique(matchingCardsByCell)) {
     yield candidateSolution.map((card) => card.id);
-  }
-}
-
-export function* permuteUnique<T>(arr: T[][]): Generator<T[]> {
-  const sortedIndices = arr
-    .map((_, index) => index)
-    .sort((a, b) => arr[a].length - arr[b].length);
-  for (const solution of permuteUniqueHelper(arr, sortedIndices, [])) {
-    const sortedSolution: T[] = new Array(arr.length);
-    solution.forEach((value, index) => {
-      sortedSolution[sortedIndices[index]] = value;
-    });
-    yield sortedSolution;
-  }
-}
-
-function* permuteUniqueHelper<T>(
-  arr: T[][],
-  sortedIndices: number[],
-  result: T[],
-): Generator<T[]> {
-  if (result.length === arr.length) {
-    yield result;
-    return;
-  }
-  const currentIndex = result.length;
-  const currentSortedIndex = sortedIndices[currentIndex];
-  const choices = arr[currentSortedIndex];
-
-  const seen = new Set<T>(result);
-  for (const choice of choices) {
-    if (seen.has(choice)) {
-      continue;
-    }
-    yield* permuteUniqueHelper(arr, sortedIndices, result.concat([choice]));
   }
 }
 

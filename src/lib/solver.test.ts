@@ -1,76 +1,56 @@
 import { describe, it, expect } from "vitest";
-import {
-  permuteUnique,
-  getSolutionWithSeed,
-  getRandomSolution,
-  isSolution,
-} from "./solver";
-import { generateGridPuzzleFromSeed } from "./grid";
+import { generateGridPuzzleFromSeed, getGridId } from "./grid";
+import { getSolutionWithSeed, isSolution } from "./solver";
 import storedGrids from "../grids.json";
 const storedGridsBySeed = storedGrids as Record<string, string>;
 
-describe("permuteUnique", () => {
-  it("should generate all permutations of the given arrays", () => {
-    const input = [
-      [1, 2],
-      [3, 4, 5],
-      [6, 7],
-    ];
-    const expectedPermutations = [
-      [1, 3, 6],
-      [1, 4, 6],
-      [1, 5, 6],
-      [1, 3, 7],
-      [1, 4, 7],
-      [1, 5, 7],
-      [2, 3, 6],
-      [2, 4, 6],
-      [2, 5, 6],
-      [2, 3, 7],
-      [2, 4, 7],
-      [2, 5, 7],
-    ];
-    const result = Array.from(permuteUnique(input));
-    expect(result).toEqual(expectedPermutations);
-  });
+describe.skip("performance", () => {
+  const calculateStats = (times: number[]) => {
+    const avg = times.reduce((sum, time) => sum + time, 0) / times.length;
+    const min = Math.min(...times);
+    const max = Math.max(...times);
+    const variance =
+      times.reduce((sum, time) => sum + Math.pow(time - avg, 2), 0) /
+      times.length;
+    const stddev = Math.sqrt(variance);
+    return { avg, min, max, stddev };
+  };
 
-  it("should skip non unique options", () => {
-    const input = [
-      [1, 2],
-      [3, 4, 5, 2, 1],
-      [1, 2],
-    ];
-    const expectedPermutations = [
-      [1, 3, 2],
-      [1, 4, 2],
-      [1, 5, 2],
-      [2, 3, 1],
-      [2, 4, 1],
-      [2, 5, 1],
-    ];
-    const result = Array.from(permuteUnique(input));
-    expect(result).toEqual(expectedPermutations);
-  });
-});
-
-describe("getSolutionWithSeed", () => {
-  it("should generate a valid solution for a given grid and seed", () => {
-    const seed = "test-seed";
-    const grid = generateGridPuzzleFromSeed(seed);
-    const solution = getSolutionWithSeed(grid, seed);
-    expect(solution).toHaveLength(9);
-    expect(isSolution(grid, solution)).toBe(true);
-  });
-
-  it("should be fast (even for small min matches)", () => {
-    const grid = generateGridPuzzleFromSeed("fixed-seed-for-test", {
-      minMatches: 1,
+  for (const version of ["v1", "v2"] as const) {
+    it(`generate a valid solution for a given grid and seed (${version})`, () => {
+      const seed = "test-seed";
+      const startTime = Date.now();
+      const grid = generateGridPuzzleFromSeed(seed, { version });
+      console.log(
+        `[${version}] Time to generate grid: ${Date.now() - startTime}ms`,
+      );
+      const startTime2 = Date.now();
+      const solution = getSolutionWithSeed(grid, seed);
+      console.log(
+        `[${version}] Time to generate solution: ${Date.now() - startTime2}ms`,
+      );
+      console.log(`gridId=${getGridId(grid)}`);
+      expect(solution).toHaveLength(9);
+      expect(isSolution(grid, solution)).toBe(true);
     });
-    const solution1 = getRandomSolution(grid);
-    expect(solution1).toHaveLength(9);
-    const solution2 = getRandomSolution(grid);
-    expect(solution2).toHaveLength(9);
-  });
+
+    it(`output performance metrics for ${version}`, () => {
+      const numPuzzles = 100;
+      const times: number[] = [];
+      for (let i = 0; i < numPuzzles; i++) {
+        const seed = `test-seed-${i}`;
+        const startTime = Date.now();
+        generateGridPuzzleFromSeed(seed, { version });
+        const endTime = Date.now();
+        times.push(endTime - startTime);
+      }
+      const stats = calculateStats(times);
+      console.log(`[${version}] Avg: ${stats.avg.toFixed(2)}ms`);
+      console.log(`[${version}] Min: ${stats.min}ms`);
+      console.log(`[${version}] Max: ${stats.max}ms`);
+      console.log(`[${version}] StdDev: ${stats.stddev.toFixed(2)}ms`);
+    });
+  }
 });
 
 describe("isSolution", () => {

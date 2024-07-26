@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   generateGridPuzzle,
-  generateCandidateGrids,
+  generateCandidateGridsV2,
   generateGridPuzzleFromSeed,
   getGridId,
   fromGridId,
@@ -14,14 +14,6 @@ describe("generateGridPuzzle", () => {
     expect(grid).toBeDefined();
     expect(grid.ruleColumns.length).toBe(3);
     expect(grid.ruleRows.length).toBe(3);
-  });
-});
-
-describe.skip("generateCandidateGrids", () => {
-  it("should print out the number of grids generated", () => {
-    const grids = Array.from(generateCandidateGrids(allRules));
-    console.log(`Total number of valid grids: ${grids.length}`);
-    expect(grids.length).toBeGreaterThan(0);
   });
 });
 
@@ -81,5 +73,13 @@ describe("getGridId and fromGridId", () => {
     expect(() => fromGridId(duplicateRuleId)).toThrow(
       "Invalid grid: contains duplicate rules",
     );
+  });
+});
+
+describe.skip("generateCandidateGridsV2", () => {
+  it("should print out the number of grids generated", () => {
+    const grids = Array.from(generateCandidateGridsV2(allRules));
+    console.log(`Total number of valid grids: ${grids.length}`);
+    expect(grids.length).toBeGreaterThan(0);
   });
 });
