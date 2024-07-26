@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Cross1Icon } from "@radix-ui/react-icons";
-import { Grid as GridType } from "@/lib/grid";
+import { getGridId, Grid as GridType } from "@/lib/grid";
 import {
   getRandomSolution,
   isSolution,
@@ -16,13 +16,57 @@ import { CardSearch } from "@/components/CardSearch";
 import { NewGame, DailyPuzzle } from "@/components/NewGame";
 import { HowToPlay } from "@/components/HowToPlay";
 import { About } from "@/components/About";
+import useLocalStorageState from "use-local-storage-state";
 
 type SelectedCardIds = (string | null)[];
 
-export function Grid({ grid }: { grid: GridType }) {
-  const [selectedCardIds, setSelectedCardIds] = useState<SelectedCardIds>(() =>
-    Array.from({ length: 9 }, () => null),
+function useGridSolutions(
+  gridId: string,
+): [SelectedCardIds, (newSelectedCardIds: SelectedCardIds) => void] {
+  const [gridSolutions, setGridSolutions] = useLocalStorageState<
+    Record<string, SelectedCardIds>
+  >("gridSolutions", { defaultValue: {} });
+  const [mostRecentGridIds, setMostRecentGridIds] = useLocalStorageState<
+    string[]
+  >("mostRecentGridIds", { defaultValue: [] });
+  const updateGridSolution = useCallback(
+    (newSelectedCardIds: SelectedCardIds) => {
+      const updatedMostRecentGridIds = [
+        gridId,
+        ...mostRecentGridIds.filter((id) => id !== gridId),
+      ];
+      setGridSolutions((prevSolutions) => {
+        const updatedSolutions = {
+          ...prevSolutions,
+          [gridId]: newSelectedCardIds,
+        };
+        if (updatedMostRecentGridIds.length > 50) {
+          const solutionsToKeep: Record<string, SelectedCardIds> = {};
+          for (const id of updatedMostRecentGridIds) {
+            if (updatedSolutions[id]) {
+              solutionsToKeep[id] = updatedSolutions[id];
+            }
+          }
+          return solutionsToKeep;
+        }
+        return updatedSolutions;
+      });
+      setMostRecentGridIds(updatedMostRecentGridIds.slice(0, 50));
+    },
+    [
+      gridId,
+      gridSolutions,
+      mostRecentGridIds,
+      setGridSolutions,
+      setMostRecentGridIds,
+    ],
   );
+  return [gridSolutions[gridId] || Array(9).fill(null), updateGridSolution];
+}
+
+export function Grid({ grid }: { grid: GridType }) {
+  const gridId = getGridId(grid);
+  const [selectedCardIds, setSelectedCardIds] = useGridSolutions(gridId);
   const [solutionCardIds, setSolutionCardIds] = useState<SelectedCardIds>(() =>
     Array.from({ length: 9 }, () => null),
   );
@@ -50,12 +94,10 @@ export function Grid({ grid }: { grid: GridType }) {
     setCurrentCellIdx(null);
     setIsSearchActive(false);
   };
-
   const cardIdsToDisplay = showSolution ? solutionCardIds : selectedCardIds;
   const isSolved = useMemo(() => {
     return isSolution(grid, selectedCardIds);
   }, [selectedCardIds, grid]);
-
   return (
     <div className="flex flex-col relative">
       <div
@@ -175,7 +217,11 @@ export function Grid({ grid }: { grid: GridType }) {
       <CardSearch
         open={isSearchActive}
         setOpen={setIsSearchActive}
-        selectedCardId={currentCellIdx ? selectedCardIds[currentCellIdx] : null}
+        selectedCardId={
+          typeof currentCellIdx === "number"
+            ? selectedCardIds[currentCellIdx]
+            : null
+        }
         onSelectCard={onCardSelect}
       />
     </div>
