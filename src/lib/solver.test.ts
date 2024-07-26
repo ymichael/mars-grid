@@ -5,7 +5,8 @@ import {
   getRandomSolution,
   isSolution,
 } from "./solver";
-import { generateGridPuzzleFromSeed } from "./grid";
+import { addDays, format } from "date-fns";
+import { generateGridPuzzleFromSeed, getGridId } from "./grid";
 
 describe("permuteUnique", () => {
   it("should generate all permutations of the given arrays", () => {
@@ -76,5 +77,28 @@ describe("isSolution", () => {
     const grid = generateGridPuzzleFromSeed("test-seed");
     const solution = [null, null];
     expect(isSolution(grid, solution)).toBe(false);
+  });
+});
+
+describe.skip("Daily puzzle generation and solving", () => {
+  it("should generate and solve daily puzzles for the next 3 months within a reasonable time", () => {
+    const startDate = new Date();
+    const endDate = addDays(startDate, 90); // 3 months
+    let currentDate = startDate;
+    while (currentDate <= endDate) {
+      const seed = format(currentDate, "yyyy-MM-dd");
+      const grid = generateGridPuzzleFromSeed(seed);
+      const gridId = getGridId(grid);
+      const startTime = performance.now();
+      const solution = getSolutionWithSeed(grid, seed);
+      const endTime = performance.now();
+      const timeTaken = endTime - startTime;
+      expect(solution).toHaveLength(9);
+      expect(timeTaken).toBeLessThan(1000); // Assuming 1 second is a reasonable upper limit
+      console.log(
+        `Date: ${seed}, Grid ID: ${gridId}, Time taken: ${timeTaken.toFixed(2)}ms`,
+      );
+      currentDate = addDays(currentDate, 1);
+    }
   });
 });

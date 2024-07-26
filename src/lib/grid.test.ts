@@ -5,8 +5,11 @@ import {
   generateGridPuzzleFromSeed,
   getGridId,
   fromGridId,
+  DEFAULT_MIN_MATCHES,
+  DEFAULT_MAX_MATCHES,
 } from "./grid";
 import { allRules } from "./rules";
+import { getEligibleCards } from "./allCards";
 
 describe("generateGridPuzzle", () => {
   it("should generate a 3x3 puzzle grid", () => {
@@ -81,5 +84,26 @@ describe("getGridId and fromGridId", () => {
     expect(() => fromGridId(duplicateRuleId)).toThrow(
       "Invalid grid: contains duplicate rules",
     );
+  });
+});
+
+describe.skip("validRulesForRules", () => {
+  it("should enumerate all rules and count valid rules for each", () => {
+    const eligibleCards = getEligibleCards();
+    for (const rule of allRules) {
+      const validRules = allRules.filter((otherRule) => {
+        if (rule === otherRule) {
+          return false;
+        }
+        const matchingCards = eligibleCards.filter(
+          (card) => rule.matches(card) && otherRule.matches(card),
+        );
+        return (
+          matchingCards.length >= DEFAULT_MIN_MATCHES &&
+          matchingCards.length <= DEFAULT_MAX_MATCHES
+        );
+      });
+      console.log(`Rule: ${rule.id}, Valid rules: ${validRules.length}`);
+    }
   });
 });

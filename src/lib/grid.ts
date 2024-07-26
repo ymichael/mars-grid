@@ -12,12 +12,15 @@ export type Grid = {
   ruleRows: [string, string, string];
 };
 
-const DEFAULT_MIN_MATCHES = 10;
+export const DEFAULT_MIN_MATCHES = 5;
+export const DEFAULT_MAX_MATCHES = 20;
 
 interface GenerateOptions {
   rand?: RandomFunction;
   // A lower number will make the puzzle more difficult
   minMatches?: number;
+  // A higher number will make the puzzle easier
+  maxMatches?: number;
 }
 
 export function getGridId(grid: Grid): string {
@@ -52,9 +55,17 @@ export function fromGridId(gridId: string): Grid {
 }
 
 export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
-  const { rand = defaultRandom, minMatches = DEFAULT_MIN_MATCHES } = options;
+  const {
+    rand = defaultRandom,
+    minMatches = DEFAULT_MIN_MATCHES,
+    maxMatches = DEFAULT_MAX_MATCHES,
+  } = options;
   const rules = shuffleInPlace([...allRules], rand);
-  for (const candidate of generateCandidateGrids(rules, { rand, minMatches })) {
+  for (const candidate of generateCandidateGrids(rules, {
+    rand,
+    minMatches,
+    maxMatches,
+  })) {
     return candidate;
   }
   throw new Error("Failed to generate puzzle");
@@ -71,6 +82,7 @@ function validRulesForRules(
   existingRules: Rule[],
   allRules: Rule[],
   minMatches: number,
+  maxMatches: number,
 ): Rule[] {
   const matchingCards = getEligibleCards().filter((card) =>
     existingRules.every((rule) => rule.matches(card)),
@@ -79,10 +91,10 @@ function validRulesForRules(
     if (existingRules.includes(otherRule)) {
       return false;
     }
-    return (
-      matchingCards.filter((card) => otherRule.matches(card)).length >=
-      minMatches
-    );
+    const numMatchingCards = matchingCards.filter((card) =>
+      otherRule.matches(card),
+    ).length;
+    return numMatchingCards >= minMatches && numMatchingCards <= maxMatches;
   });
 }
 
@@ -108,12 +120,17 @@ export function* generateCandidateGrids(
   rules: Rule[],
   options: GenerateOptions = {},
 ): Generator<Grid> {
-  const { rand = defaultRandom, minMatches = 10 } = options;
+  const {
+    rand = defaultRandom,
+    minMatches = DEFAULT_MIN_MATCHES,
+    maxMatches = DEFAULT_MAX_MATCHES,
+  } = options;
   for (const ruleCol1 of shuffleInPlace([...rules], rand)) {
     const validRulesForRuleCol1 = validRulesForRules(
       [ruleCol1],
       rules,
       minMatches,
+      maxMatches,
     );
     for (const validRuleRow of permute(validRulesForRuleCol1, 3)) {
       const currentRules = [ruleCol1, ...validRuleRow];
@@ -122,6 +139,7 @@ export function* generateCandidateGrids(
         validRuleRow,
         restRules,
         minMatches,
+        maxMatches,
       );
       for (const [ruleCol2, ruleCol3] of permute(restCandidates, 2)) {
         yield {
