@@ -51,7 +51,7 @@ function HowToPlayDialogInner({
         <DialogDescription className="leading-relaxed">
           <div className="bg-zinc-900 border-l-4 border-yellow-500 text-zinc-300 p-2 mb-4">
             <p>
-              If you're not familiar with the{" "}
+              If you are not familiar with the{" "}
               <a
                 href="https://boardgamegeek.com/boardgame/167791/terraforming-mars"
                 target="_blank"
