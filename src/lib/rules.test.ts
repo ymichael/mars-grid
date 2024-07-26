@@ -6,7 +6,6 @@ import {
   DEFAULT_MAX_MATCHES,
   DEFAULT_MIN_MATCHES,
 } from "./grid";
-import { Truculenta } from "next/font/google";
 
 const IGNORED_RULES = [
   "gain_energy",
