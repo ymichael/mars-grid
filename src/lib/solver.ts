@@ -1,4 +1,4 @@
-import { Card, getEligibleCards, getCardById } from "./allCards";
+import { Card, getEligibleCards, getCardById, isValidCardId } from "./allCards";
 import { Grid } from "./grid";
 import {
   RandomFunction,
@@ -100,8 +100,11 @@ export function isSolution(grid: Grid, solution: unknown): boolean {
   if (new Set(solution).size !== solution.length) {
     return false;
   }
+  if (solution.some((cardId) => !cardId)) {
+    return false;
+  }
   // Check that the solution contains only valid card ids
-  if (!solution.every((cardId) => getCardById(cardId))) {
+  if (!solution.every((cardId) => isValidCardId(cardId))) {
     return false;
   }
   // Check that the solution satisfies the rules

@@ -18000,3 +18000,13 @@ export function getCardById(id: string): Card {
   }
   return card;
 }
+
+export function isValidCardId(id: string): boolean {
+  try {
+    getCardById(id);
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+  return true;
+}

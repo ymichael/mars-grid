@@ -17,6 +17,7 @@ import { NewGame, DailyPuzzle } from "@/components/NewGame";
 import { HowToPlay } from "@/components/HowToPlay";
 import { About } from "@/components/About";
 import useLocalStorageState from "use-local-storage-state";
+import { isValidCardId } from "@/lib/allCards";
 
 type SelectedCardIds = (string | null)[];
 
@@ -53,13 +54,7 @@ function useGridSolutions(
       });
       setMostRecentGridIds(updatedMostRecentGridIds.slice(0, 50));
     },
-    [
-      gridId,
-      gridSolutions,
-      mostRecentGridIds,
-      setGridSolutions,
-      setMostRecentGridIds,
-    ],
+    [gridId, mostRecentGridIds, setGridSolutions, setMostRecentGridIds],
   );
   return [gridSolutions[gridId] || Array(9).fill(null), updateGridSolution];
 }
@@ -84,6 +79,9 @@ export function Grid({ grid }: { grid: GridType }) {
   };
   const onCardSelect = (selectedCardId: string | null) => {
     if (currentCellIdx === null) {
+      return;
+    }
+    if (selectedCardId && !isValidCardId(selectedCardId)) {
       return;
     }
     setSelectedCardIds(
