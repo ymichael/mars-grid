@@ -49,30 +49,50 @@ function HowToPlayDialogInner({
       <DialogContent>
         <DialogTitle>How to Play 🧑🏼‍🚀</DialogTitle>
         <DialogDescription className="leading-relaxed">
+          <div className="bg-zinc-900 border-l-4 border-yellow-500 text-zinc-300 p-2 mb-4">
+            <p>
+              If you're not familiar with the{" "}
+              <a
+                href="https://boardgamegeek.com/boardgame/167791/terraforming-mars"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terraforming Mars board game
+              </a>
+              , this game might be challenging to fully understand or
+              appreciate.
+            </p>
+          </div>
           <p>
-            Welcome to the Terraforming Mars Grid game! The goal of the game is
+            Welcome to the Terraforming Mars Immaculate Grid game! Your goal is
             to fill the grid with cards that satisfy the restrictions for each
             row and column.
           </p>
           <ol className="list-decimal list-outside p-2 mx-4 my-2">
             <li>
-              The game consists of a 3x3 grid where each cell must be filled
-              with a unique card.
+              The game features a 3x3 grid where each cell must contain a unique
+              card.
             </li>
             <li>
-              Each row and column has unique restrictions that the cards must
-              adhere to.
-            </li>
-            <li>Click on a cell to bring up the card selection menu.</li>
-            <li>
-              Choose a card that meets the restrictions for both the row and
-              column of the selected cell.
+              Each row and column has specific restrictions that the cards must
+              meet.
             </li>
             <li>
-              You win the game when all cells are filled with valid cards!
+              To select a card, click on a cell to open the card selection menu.
             </li>
+            <li>
+              Choose a card that fulfills both the row and column restrictions
+              for the selected cell.
+            </li>
+            <li>You win when all cells are filled with valid cards!</li>
           </ol>
-          <p>Good luck and have fun!</p>
+          <p>
+            You can use project cards, prelude cards, and corporation cards to
+            complete the grid. The game includes all cards from the base game,
+            as well as the Prelude, Venus, Colonies, and Turmoil expansions.
+          </p>
+          <br />
+          <p>Good luck and enjoy the game!</p>
         </DialogDescription>
       </DialogContent>
     </Dialog>

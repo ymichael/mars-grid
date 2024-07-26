@@ -25,9 +25,9 @@ export function About() {
           <DialogTitle>About</DialogTitle>
           <DialogDescription className="leading-relaxed">
             <p>
-              Welcome to the Terraforming Mars Grid game! This game is currently
-              in alpha, and we are actively working on improving it. Your
-              feedback is highly appreciated.
+              Welcome to the Terraforming Mars Immaculate Grid game! This game
+              is currently in alpha, and we are actively working on improving
+              it. Your feedback is highly appreciated.
             </p>
             <br />
             <p>
