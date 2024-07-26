@@ -757,6 +757,7 @@ export const allCards: Card[] = [
   {
     module: "base",
     name: "Ants",
+    action: {},
     tags: ["microbe"],
     victoryPoints: { resourcesHere: {}, per: 2 },
     cost: 9,
@@ -9471,6 +9472,7 @@ export const allCards: Card[] = [
         anyPlayer: false,
       },
     },
+    action: {},
     resourceType: "Animal",
     compatibility: [],
     html: '<div class="card-container card-predators"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">14</div></div><div class="card-tags"><div class="card-tag tag-animal"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Predators</div></div> <div class="card-content"><div class="card-requirements"><div><div class="card-requirement"><div class="card-item-container"><span>11</span>%\n     <div class="card-global-requirement card-oxygen--req"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-animal red-outline"></div></div></div></div> <div><div class="card-special card-red-arrow"></div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-animal"></div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Action: Remove 1 animal from any card and add it to this card.)</div></div></div><div class="card-row"><div class="card-item-container"><div class="card-text-size--XS card-text-uppercase card-text-bold">1 VP per animal on this card.</div></div></div></div> <div class="card-description">(Requires 11% oxygen.)</div> <div class="card-points card-points-normal"><div>1/</div> <div class="card-item-container" data-test="item"><div class="card-resource card-resource-animal"></div></div></div> <div class="padBottom" style="padding-bottom: 22px;"></div></div></div> <div class="resource-card-icon-expansion-container"><div class="card-expansion project-icon"></div> </div> <div class="card-resources-counter"><span class="card-resources-counter-number"> 0</span> <span class="card-resource card-resource-animal"></span></div> <div class="card-extra-content-container"></div> </div>',
