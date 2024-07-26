@@ -280,11 +280,47 @@ class DrawsCardRule implements Rule {
 
   constructor() {
     this.id = `draw_card`;
-    this.description = "Draws card";
+    this.description = "Draws card when played";
   }
 
   matches(card: Card): boolean {
     return card.behavior?.drawCard !== undefined;
+  }
+}
+
+class HasDrawCardActionRule implements Rule {
+  id: string;
+  description: string;
+
+  constructor() {
+    this.id = `draw_card_action`;
+    this.description = "Has draw card action";
+  }
+
+  matches(card: Card): boolean {
+    if (card.action?.drawCard) {
+      return true;
+    }
+    if (card.action?.or?.behaviors.some((action) => action.drawCard)) {
+      return true;
+    }
+    return false;
+  }
+}
+
+class TakesResourceRule implements Rule {
+  id: string;
+  description: string;
+  resource: "floater" | "animal" | "microbe" | "science";
+
+  constructor(resource: "floater" | "animal" | "microbe" | "science") {
+    this.id = `take_${resource}`;
+    this.description = `Takes ${resource} resources`;
+    this.resource = resource;
+  }
+
+  matches(card: Card): boolean {
+    return card.resourceType?.toLowerCase() === this.resource;
   }
 }
 
@@ -364,6 +400,11 @@ export const allRules: Rule[] = [
   new HasGlobalRequirementRule(),
   new PlacesOceanRule(),
   new RaisesTRWhenPlayedRule(),
+  new HasDrawCardActionRule(),
+  new TakesResourceRule("floater"),
+  new TakesResourceRule("animal"),
+  new TakesResourceRule("microbe"),
+  new TakesResourceRule("science"),
 ];
 
 const ruleByIdCached = (() => {

@@ -6,6 +6,7 @@ import {
   shuffleInPlace,
   randomFactory,
 } from "./random";
+import { isSolvable } from "./solver";
 
 export type Grid = {
   ruleColumns: [string, string, string];
@@ -66,7 +67,10 @@ export function generateGridPuzzle(options: GenerateOptions = {}): Grid {
     minMatches,
     maxMatches,
   })) {
-    return candidate;
+    // Make sure the candidate is solvable
+    if (isSolvable(candidate)) {
+      return candidate;
+    }
   }
   throw new Error("Failed to generate puzzle");
 }
@@ -78,7 +82,7 @@ export function generateGridPuzzleFromSeed(
   return generateGridPuzzle({ ...options, rand: randomFactory(seed) });
 }
 
-function validRulesForRules(
+export function validRulesForRules(
   existingRules: Rule[],
   allRules: Rule[],
   minMatches: number,

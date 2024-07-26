@@ -1,9 +1,14 @@
-import { describe, test } from "vitest";
+import { describe, it } from "vitest";
 import { getEligibleCards } from "./allCards";
 import { allRules } from "./rules";
+import {
+  validRulesForRules,
+  DEFAULT_MAX_MATCHES,
+  DEFAULT_MIN_MATCHES,
+} from "./grid";
 
 describe.skip("Rules and Cards", () => {
-  test("Log each rule and its matching cards", () => {
+  it("should og each rule and its matching cards", () => {
     const allCards = getEligibleCards();
     allRules.forEach((rule) => {
       const matchingCards = allCards.filter((card) => rule.matches(card));
@@ -14,5 +19,19 @@ describe.skip("Rules and Cards", () => {
       });
       console.log("---");
     });
+  });
+});
+
+describe.skip("validRulesForRules", () => {
+  it("should enumerate all rules and count valid rules for each", () => {
+    for (const rule of allRules) {
+      const validRules = validRulesForRules(
+        [rule],
+        allRules,
+        DEFAULT_MIN_MATCHES,
+        DEFAULT_MAX_MATCHES,
+      );
+      console.log(`Rule: ${rule.id}, Valid rules: ${validRules.length}`);
+    }
   });
 });

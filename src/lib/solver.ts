@@ -25,6 +25,13 @@ export function getRandomSolution(grid: Grid): Solution {
   throw new Error("No solution found");
 }
 
+export function isSolvable(grid: Grid): boolean {
+  for (const _ of getSolutions(grid)) {
+    return true;
+  }
+  return false;
+}
+
 export function* getSolutions(
   grid: Grid,
   rand: RandomFunction = defaultRandom,

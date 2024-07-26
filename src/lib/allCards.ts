@@ -256,7 +256,33 @@ export type Card = {
   };
   startingMegaCredits?: unknown;
   compatibility: unknown;
-  resourceType?: unknown;
+  resourceType?:
+    | "Floater"
+    | "Animal"
+    | "Director"
+    | "Asteroid"
+    | "Science"
+    | "Syndicate Fleet"
+    | "Activist"
+    | "Tool"
+    | "Specialized Robot"
+    | "Camp"
+    | "Ware"
+    | "Journalism"
+    | "Orbital"
+    | "Hydroelectric resource"
+    | "Venusian Habitat"
+    | "Clone Trooper"
+    | "Graphene"
+    | "Seed"
+    | "Data"
+    | "Microbe"
+    | "Agenda"
+    | "Fighter"
+    | "Supply Chain"
+    | "Disease"
+    | "Preservation"
+    | "Resource cube";
   cardDiscount?: unknown;
   cardCost?: unknown;
   metadata: {
