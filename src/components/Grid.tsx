@@ -13,7 +13,7 @@ import { getRuleById } from "@/lib/rules";
 import { Button } from "@/components/ui/button";
 import { ResponsiveCard } from "./Card";
 import { CardSearch } from "@/components/CardSearch";
-import { NewGame } from "@/components/NewGame";
+import { NewGame, DailyPuzzle } from "@/components/NewGame";
 import { HowToPlay } from "@/components/HowToPlay";
 import { About } from "@/components/About";
 
@@ -169,6 +169,7 @@ export function Grid({ grid }: { grid: GridType }) {
       <div className="fixed bottom-0 right-0 p-4">
         <About />
         <HowToPlay />
+        <DailyPuzzle />
         <NewGame />
       </div>
       <CardSearch

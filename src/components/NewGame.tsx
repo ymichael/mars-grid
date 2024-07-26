@@ -1,9 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useCallback } from "react";
+import dynamic from "next/dynamic";
+import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { generateGridPuzzle, getGridId } from "@/lib/grid";
+import {
+  generateGridPuzzle,
+  generateGridPuzzleFromSeed,
+  getGridId,
+} from "@/lib/grid";
 
 export function NewGame() {
   const router = useRouter();
@@ -23,3 +29,44 @@ export function NewGame() {
     </Button>
   );
 }
+
+function useDailyPuzzle(): () => void {
+  const router = useRouter();
+  return useCallback(() => {
+    const today = new Date();
+    const seed = format(today, "yyyy-MM-dd");
+    const dailyGrid = generateGridPuzzleFromSeed(seed);
+    const gridId = getGridId(dailyGrid);
+    router.replace(`/grid/${gridId}`);
+  }, [router]);
+}
+
+export function DailyPuzzle() {
+  const dailyPuzzle = useDailyPuzzle();
+  return (
+    <Button
+      size="sm"
+      variant="link"
+      className="underline font-normal text-xs px-2"
+      onClick={dailyPuzzle}
+    >
+      Today's Grid
+    </Button>
+  );
+}
+
+function DailyPuzzleOnLoadClient() {
+  const dailyPuzzle = useDailyPuzzle();
+  useEffect(() => {
+    dailyPuzzle();
+  }, [dailyPuzzle]);
+  return null;
+}
+
+// Use the client's date to generate the grid
+export const DailyPuzzleOnLoad = dynamic(
+  () => Promise.resolve(DailyPuzzleOnLoadClient),
+  {
+    ssr: false,
+  },
+);

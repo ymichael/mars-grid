@@ -1,8 +1,5 @@
-import { generateGridPuzzle, getGridId } from "@/lib/grid";
-import { redirect } from "next/navigation";
+import { DailyPuzzleOnLoad } from "@/components/NewGame";
 
 export default function HomePage() {
-  const gridId = getGridId(generateGridPuzzle());
-  redirect(`/grid/${gridId}`);
-  return null;
+  return <DailyPuzzleOnLoad />;
 }
