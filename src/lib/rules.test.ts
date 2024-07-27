@@ -139,4 +139,12 @@ describe("Specific Rule Tests", () => {
     expect(rule!.matches(getCardById("artificial-lake"))).toBe(true);
     expect(rule!.matches(getCardById("asteroid"))).toBe(false);
   });
+
+  it("raise_tr", () => {
+    const rule = getRuleById("raise_tr");
+    expect(rule).toBeDefined();
+    expect(rule!.matches(getCardById("bribed-committee"))).toBe(true);
+    expect(rule!.matches(getCardById("terraforming-ganymede"))).toBe(true);
+    expect(rule!.matches(getCardById("asteroid"))).toBe(false);
+  });
 });

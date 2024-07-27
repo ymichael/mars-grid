@@ -113,7 +113,8 @@ type Behavior = {
   tr?:
     | number
     | {
-        underworld: unknown;
+        tag?: Tag;
+        underworld?: unknown;
         per?: number;
       };
   standardResource?: number;
@@ -12391,6 +12392,11 @@ export const allCards: Card[] = [
       victoryPoints: 2,
     },
     compatibility: [],
+    behavior: {
+      tr: {
+        tag: "jovian"
+      }
+    },
     html: '<div class="card-container card-terraforming-ganymede"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">33</div></div><div class="card-tags"><div class="card-tag tag-jovian"></div><div class="card-tag tag-space"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Terraforming Ganymede</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-item-container"><div class="card-tile card-tr"></div></div><div><div class="card-special card-slash">/</div></div><div class="card-item-container"><div class="card-resource-tag card-tag-jovian"></div></div></div></div> <div class="card-description">(Raise your TR 1 step for each Jovian tag you have, including this.)</div> <div class="card-points card-points-big">2</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "terraforming-ganymede",
   },
