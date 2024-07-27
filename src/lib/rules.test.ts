@@ -90,6 +90,16 @@ describe("Specific Rule Tests", () => {
     expect(rule!.matches(getCardById("asteroid"))).toBe(false);
   });
 
+  it("prod_inc_megacredits", () => {
+    const rule = getRuleById("prod_inc_megacredits");
+    expect(rule).toBeDefined();
+    expect(rule!.matches(getCardById("asteroid"))).toBe(false);
+    expect(rule!.matches(getCardById("cartel"))).toBe(true);
+    expect(rule!.matches(getCardById("livestock"))).toBe(true);
+    expect(rule!.matches(getCardById("gyropolis"))).toBe(true);
+    expect(rule!.matches(getCardById("interplanetary-trade"))).toBe(true);
+  });
+
   it("gain_titanium", () => {
     const rule = getRuleById("gain_titanium");
     expect(rule).toBeDefined();

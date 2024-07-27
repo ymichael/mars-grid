@@ -5772,6 +5772,7 @@ export const allCards: Card[] = [
         "Increase your M€ production 1 step per different tag you have in play, including this.",
       victoryPoints: 1,
     },
+    behavior: { production: { megacredits: {} } },
     compatibility: [],
     html: '<div class="card-container card-interplanetary-trade"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">27</div></div><div class="card-tags"><div class="card-tag tag-space"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Interplanetary Trade</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">1</div></div></div></div></div><div><div class="card-special card-slash">/</div></div><div class="card-item-container"><div class="card-resource-tag card-resource-diverse"></div></div></div></div> <div class="card-description">(Increase your M€ production 1 step per different tag you have in play, including this.)</div> <div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "interplanetary-trade",
@@ -12394,8 +12395,8 @@ export const allCards: Card[] = [
     compatibility: [],
     behavior: {
       tr: {
-        tag: "jovian"
-      }
+        tag: "jovian",
+      },
     },
     html: '<div class="card-container card-terraforming-ganymede"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">33</div></div><div class="card-tags"><div class="card-tag tag-jovian"></div><div class="card-tag tag-space"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Terraforming Ganymede</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-item-container"><div class="card-tile card-tr"></div></div><div><div class="card-special card-slash">/</div></div><div class="card-item-container"><div class="card-resource-tag card-tag-jovian"></div></div></div></div> <div class="card-description">(Raise your TR 1 step for each Jovian tag you have, including this.)</div> <div class="card-points card-points-big">2</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "terraforming-ganymede",
