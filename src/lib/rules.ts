@@ -496,19 +496,25 @@ export const allRules: Rule[] = [
   new CostAtLeastRule(20),
   new CostAtMostRule(10),
   ...tags.map((tag) => new HasTagRule(tag)),
-  ...tags.map((resource) => new HasTagRequirementRule(resource)),
+  new HasTagRequirementRule("earth"),
+  new HasTagRequirementRule("science"),
+  new HasTagRequirementRule("venus"),
+  new HasTagRequirementRule("jovian"),
+  new HasTagRequirementRule("power"),
   new IsGreenCardRule(),
   new IsEventCardRule(),
   new IsActiveCardRule(),
   new HasNoTagsRule(),
-  ...resources.map(
-    (resource) => new IncreasesProductionForResourceRule(resource),
-  ),
-  ...resources.map((resource) => new GainsResourceRule(resource)),
+  ...resources
+    .map((resource) => {
+      return [
+        new IncreasesProductionForResourceRule(resource),
+        new DecreasesProductionForResourceRule(resource),
+        new GainsResourceRule(resource),
+      ];
+    })
+    .flat(),
   new RemovesPlantsRule(),
-  ...resources.map(
-    (resource) => new DecreasesProductionForResourceRule(resource),
-  ),
   new HasVictoryPointsRule(),
   new DecreasesProductionRule(),
   new PlacesCityRule(),

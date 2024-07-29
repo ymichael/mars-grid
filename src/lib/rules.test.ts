@@ -7,13 +7,7 @@ import {
   DEFAULT_MIN_MATCHES,
 } from "./grid";
 
-const IGNORED_RULES = [
-  "gain_energy",
-  "req_tag_space",
-  "req_tag_building",
-  "req_tag_city",
-  "req_tag_wild",
-];
+const IGNORED_RULES = ["gain_energy"];
 
 describe("Rules", () => {
   const allCards = getEligibleCards();
@@ -45,6 +39,8 @@ describe("Specific Rule Tests", () => {
     const rule = getRuleById("cost_ge_20");
     expect(rule).toBeDefined();
     expect(rule!.matches(getCardById("gyropolis"))).toBe(true);
+    expect(rule!.matches(getCardById("ai-central"))).toBe(true);
+    expect(rule!.matches(getCardById("earth-catapult"))).toBe(true);
     expect(rule!.matches(getCardById("cartel"))).toBe(false);
   });
 
@@ -52,6 +48,7 @@ describe("Specific Rule Tests", () => {
     const rule = getRuleById("cost_le_10");
     expect(rule).toBeDefined();
     expect(rule!.matches(getCardById("cartel"))).toBe(true);
+    expect(rule!.matches(getCardById("advanced-alloys"))).toBe(true);
     expect(rule!.matches(getCardById("gyropolis"))).toBe(false);
   });
 
@@ -59,6 +56,20 @@ describe("Specific Rule Tests", () => {
     const rule = getRuleById("tag_space");
     expect(rule).toBeDefined();
     expect(rule!.matches(getCardById("asteroid"))).toBe(true);
+    expect(rule!.matches(getCardById("cartel"))).toBe(false);
+  });
+
+  it("tag_building", () => {
+    const rule = getRuleById("tag_building");
+    expect(rule).toBeDefined();
+    expect(rule!.matches(getCardById("rover-construction"))).toBe(true);
+    expect(rule!.matches(getCardById("cartel"))).toBe(false);
+  });
+
+  it("tag_city", () => {
+    const rule = getRuleById("tag_city");
+    expect(rule).toBeDefined();
+    expect(rule!.matches(getCardById("capital"))).toBe(true);
     expect(rule!.matches(getCardById("cartel"))).toBe(false);
   });
 
@@ -87,6 +98,7 @@ describe("Specific Rule Tests", () => {
     const rule = getRuleById("prod_inc_plants");
     expect(rule).toBeDefined();
     expect(rule!.matches(getCardById("artificial-photosynthesis"))).toBe(true);
+    expect(rule!.matches(getCardById("algae"))).toBe(true);
     expect(rule!.matches(getCardById("asteroid"))).toBe(false);
   });
 
