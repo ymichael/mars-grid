@@ -468,6 +468,20 @@ class HasActionRule implements Rule {
   }
 }
 
+class DiscountCardsRule implements Rule {
+  id: string;
+  description: string;
+
+  constructor() {
+    this.id = `discount_cards`;
+    this.description = "Has effect that discounts cards";
+  }
+
+  matches(card: Card): boolean {
+    return card.cardDiscount !== undefined;
+  }
+}
+
 const tags = [
   "space",
   "earth",
@@ -528,6 +542,7 @@ export const allRules: Rule[] = [
   new TakesResourceRule("animal"),
   new TakesResourceRule("microbe"),
   new TakesResourceRule("science"),
+  new DiscountCardsRule(),
 ];
 
 const ruleByIdCached = (() => {

@@ -285,7 +285,7 @@ export type Card = {
     | "Disease"
     | "Preservation"
     | "Resource cube";
-  cardDiscount?: unknown;
+  cardDiscount?: CardDiscount | CardDiscount[];
   cardCost?: unknown;
   metadata: {
     cardNumber?: string;
@@ -293,6 +293,14 @@ export type Card = {
     victoryPoints?: unknown;
     hasExternalHelp?: unknown;
   };
+};
+
+type CardDiscount = {
+  tag?: Tag;
+  amount?: number;
+  per?: "card";
+  minCost?: number;
+  hasRequirement?: boolean;
 };
 
 export const allCards: Card[] = [
@@ -2698,6 +2706,10 @@ export const allCards: Card[] = [
     requirements: [],
     metadata: { cardNumber: "X18", victoryPoints: 1 },
     compatibility: [],
+    cardDiscount: {
+      hasRequirement: true,
+      amount: 2,
+    },
     html: '<div class="card-container card-cutting-edge-technology"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">12</div></div><div class="card-tags"><div class="card-tag tag-science"></div></div></div> <div class="card-title"><div class="card-title background-color-active">Cutting Edge Technology</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource--has-secondary-tag card-card"><div class="card-icon card-tag-req"></div></div></div></div></div> <div><div class="card-special card-colon">:</div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">-2</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Effect: When playing a card with a requirement, you pay 2 M€ less for it.)</div></div></div></div><div class="card-points card-points-big">1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon promo-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "cutting-edge-technology",
   },
@@ -14124,6 +14136,10 @@ export const allCards: Card[] = [
     metadata: { cardNumber: "R08", description: "You start with 57 M€." },
     startingMegaCredits: 57,
     compatibility: [],
+    cardDiscount: {
+      amount: 4,
+      minCost: 20,
+    },
     html: '<div class="card-container card-credicor"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost visibility-hidden"></div></div><div class="card-tags"></div></div> <div class="card-title"><div class="corporation-label">corporation</div><div class="card-corporation-logo"><div class="card-credicor-logo">CREDICOR</div></div></div> <div class="card-content card-content-corporation"><div class="card-rows"><div class="card-row"></div><div class="card-row"></div><div class="card-row"></div><div class="card-row"><div class="card-item-container"><div class="card-resource card-resource-money">57</div></div></div><div class="card-row"><div class="card-corporation-box"><div class="card-corporation-label">effect</div> <div><div class="card-effect-box"><div class="card-effect-box-row"><div class="card-effect-box-content"><div class="card-effect-box-item"><div><div class="card-special card-minus"></div></div></div><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">20</div></div></div></div> <div><div class="card-special card-colon">:</div></div> <div class="card-effect-box-content"><div class="card-effect-box-item"><div class="card-item-container"><div class="card-resource card-resource-money">4</div></div></div><div class="card-effect-box-item"></div></div></div> <div class="card-description">(Effect: After you pay for a card or standard project with a basic cost of 20M€ or more, you gain 4 M€.)</div></div></div></div></div></div> <div class="card-description">(You start with 57 M€.)</div></div></div> <div class="card-corporation-expansion"><div class="card-expansion project-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "credicor",
   },

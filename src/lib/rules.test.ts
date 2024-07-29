@@ -179,4 +179,13 @@ describe("Specific Rule Tests", () => {
     expect(rule!.matches(getCardById("terraforming-ganymede"))).toBe(true);
     expect(rule!.matches(getCardById("asteroid"))).toBe(false);
   });
+
+  it("discount_cards", () => {
+    const rule = getRuleById("discount_cards");
+    expect(rule).toBeDefined();
+    expect(rule!.matches(getCardById("earth-catapult"))).toBe(true);
+    expect(rule!.matches(getCardById("credicor"))).toBe(true);
+    expect(rule!.matches(getCardById("cutting-edge-technology"))).toBe(true);
+    expect(rule!.matches(getCardById("terraforming-ganymede"))).toBe(false);
+  });
 });
