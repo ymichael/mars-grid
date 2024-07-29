@@ -4874,7 +4874,16 @@ export const allCards: Card[] = [
         "Decrease your energy production 1 step and any M€ production 2 steps. Increase your M€ production 2 steps.",
       victoryPoints: -1,
     },
-    behavior: { production: { energy: -1, megacredits: 2 } },
+    behavior: {
+      production: {
+        energy: -1,
+        megacredits: 2,
+      },
+      decreaseAnyProduction: {
+        type: "megacredits",
+        count: 2,
+      },
+    },
     compatibility: [],
     html: '<div class="card-container card-hackers"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">3</div></div><div class="card-tags"></div></div> <div class="card-title"><div class="card-title background-color-automated">Hackers</div></div> <div class="card-content"><div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-minus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-energy"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money red-outline">2</div></div></div></div><div class="card-production-box-row"><div class="card-production-box-row-item"><div><div class="card-special card-plus"></div></div></div><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">2</div></div></div></div></div></div></div> <div class="card-description">(Decrease your energy production 1 step and any M€ production 2 steps. Increase your M€ production 2 steps.)</div> <div class="card-points card-points-big">-1</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon corporate-icon"></div> </div><div class="card-extra-content-container"></div> </div>',
     id: "hackers",
@@ -9325,6 +9334,12 @@ export const allCards: Card[] = [
       description:
         "Requires that you have no more than 1 colony. Decrease your M€ production 2 steps. Place a colony.",
       victoryPoints: 2,
+    },
+    behavior: {
+      production: {
+        megacredits: -2,
+      },
+      colonies: {},
     },
     compatibility: [],
     html: '<div class="card-container card-pioneer-settlement"><div class="card-content-wrapper"><div class="card-cost-and-tags"><div><div class="card-cost">13</div></div><div class="card-tags"><div class="card-tag tag-space"></div></div></div> <div class="card-title"><div class="card-title background-color-automated">Pioneer Settlement</div></div> <div class="card-content"><div class="card-requirements card-requirements-max"><div><div class="card-requirement"><div class="card-item-container">max&nbsp;\n     <div class="card-resource-colony card-resource-colony--req"></div></div></div></div></div> <div class="card-rows"><div class="card-row"><div class="card-production-box"><div class="card-production-box-row"><div class="card-production-box-row-item"><div class="card-item-container"><div class="card-resource card-resource-money">-2</div></div></div></div></div><div><div class="card-special card-nbsp"></div></div><div class="card-item-container"><div class="card-resource-colony"></div></div></div></div> <div class="card-description">(Requires that you have no more than 1 colony. Decrease your M€ production 2 steps. Place a colony.)</div> <div class="card-points card-points-big">2</div></div></div> <div class="project-icon-expansion-container"><div class="card-expansion project-icon colonies-icon"></div> </div><div class="card-extra-content-container"></div> </div>',

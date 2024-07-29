@@ -120,7 +120,7 @@ class IncreasesProductionForResourceRule implements Rule {
 
   constructor(resource: ProductionResource) {
     this.id = `prod_inc_${resource}`;
-    this.description = `Increases production for ${resource}`;
+    this.description = `Increases production for ${resource} when played`;
     this.resource = resource;
   }
 
@@ -162,7 +162,7 @@ class DecreasesProductionForResourceRule implements Rule {
 
   constructor(resource: ProductionResource) {
     this.id = `prod_dec_${resource}`;
-    this.description = `Decreases production of ${resource}`;
+    this.description = `Decreases production of ${resource} when played`;
     this.resource = resource;
   }
 
@@ -293,7 +293,7 @@ class RemovesPlantsRule implements Rule {
 
   constructor() {
     this.id = `rm_plants`;
-    this.description = `Removes Plants`;
+    this.description = `Removes Plants when played`;
   }
 
   matches(card: Card): boolean {
@@ -324,7 +324,7 @@ class DecreasesProductionRule implements Rule {
 
   constructor() {
     this.id = `prod_dec`;
-    this.description = "Decreases production";
+    this.description = "Decreases any production when played";
   }
 
   matchesBehavior(behavior: Card["behavior"]): boolean {
@@ -377,7 +377,7 @@ class PlacesOceanRule implements Rule {
 
   constructor() {
     this.id = `place_ocean`;
-    this.description = "Places ocean";
+    this.description = "Places ocean when played";
   }
 
   matches(card: Card): boolean {
@@ -432,7 +432,7 @@ class TakesResourceRule implements Rule {
 
   constructor(resource: "floater" | "animal" | "microbe" | "science") {
     this.id = `take_${resource}`;
-    this.description = `Takes ${resource} resources`;
+    this.description = `Accepts ${resource} resources`;
     this.resource = resource;
   }
 
